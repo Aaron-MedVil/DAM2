@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\di\\16_puzzle\\16_puzzle\\16_puzzle.csproj": {}
+    "D:\\Github\\DAM2\\DI\\16_puzzle\\16_puzzle\\16_puzzle.csproj": {}
   },
   "projects": {
-    "D:\\di\\16_puzzle\\16_puzzle\\16_puzzle.csproj": {
+    "D:\\Github\\DAM2\\DI\\16_puzzle\\16_puzzle\\16_puzzle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\di\\16_puzzle\\16_puzzle\\16_puzzle.csproj",
+        "projectUniqueName": "D:\\Github\\DAM2\\DI\\16_puzzle\\16_puzzle\\16_puzzle.csproj",
         "projectName": "16_puzzle",
-        "projectPath": "D:\\di\\16_puzzle\\16_puzzle\\16_puzzle.csproj",
+        "projectPath": "D:\\Github\\DAM2\\DI\\16_puzzle\\16_puzzle\\16_puzzle.csproj",
         "packagesPath": "C:\\Users\\AMedi\\.nuget\\packages\\",
-        "outputPath": "D:\\di\\16_puzzle\\16_puzzle\\obj\\",
+        "outputPath": "D:\\Github\\DAM2\\DI\\16_puzzle\\16_puzzle\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

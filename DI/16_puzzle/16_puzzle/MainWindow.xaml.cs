@@ -29,12 +29,33 @@ namespace _16_puzzle {
 
             // Aqui se crean los botones del grid
 
-            MessageBox.Show("Arrancar juego");
+            int i = 0;
 
-            for (int col = 0; col < 3; col++) {
+            Uri uri = new Uri(@Environment.CurrentDirectory + "/media/hojas.jpg", UriKind.RelativeOrAbsolute);
 
-                for (int row = 0; row < 3; row++) {
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(uri.ToString());
+            bi.EndInit();
 
+            for (int col = 0; col < 7; col++) {
+
+                for (int row = 0; row < 5; row++) {
+
+                    Mybutton btn = new Mybutton();
+                    Image img = new Image {
+                        Width = 250,
+                        Height = 250,
+                        Source = bi
+                    };
+
+                    btn.Content = img;
+
+                    Grid.SetRow(btn, row);
+                    Grid.SetColumn(btn, col);
+                    miRejilla.Children.Add(btn);
+
+                    i++;
                 }
             }
         }
