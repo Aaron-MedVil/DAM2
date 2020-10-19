@@ -1,0 +1,13 @@
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.exe
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.deps.json
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.runtimeconfig.json
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.runtimeconfig.dev.json
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.dll
+D:\di\05_Paseo_por_C\05_Paseo_por_C\bin\Debug\netcoreapp3.1\05_Paseo_por_C.pdb
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.csprojAssemblyReference.cache
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.AssemblyInfoInputs.cache
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.AssemblyInfo.cs
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.csproj.CoreCompileInputs.cache
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.dll
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.pdb
+D:\di\05_Paseo_por_C\05_Paseo_por_C\obj\Debug\netcoreapp3.1\05_Paseo_por_C.genruntimeconfig.cache

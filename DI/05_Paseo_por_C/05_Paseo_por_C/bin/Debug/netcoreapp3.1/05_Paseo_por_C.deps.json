@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "05_Paseo_por_C/1.0.0": {
+        "runtime": {
+          "05_Paseo_por_C.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "05_Paseo_por_C/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
