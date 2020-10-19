@@ -1,0 +1,13 @@
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.exe
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.deps.json
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.runtimeconfig.json
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.runtimeconfig.dev.json
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.dll
+D:\di\12_tratamiento_errores\12_tratamiento_errores\bin\Debug\netcoreapp3.1\12_tratamiento_errores.pdb
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.csprojAssemblyReference.cache
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.AssemblyInfoInputs.cache
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.AssemblyInfo.cs
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.csproj.CoreCompileInputs.cache
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.dll
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.pdb
+D:\di\12_tratamiento_errores\12_tratamiento_errores\obj\Debug\netcoreapp3.1\12_tratamiento_errores.genruntimeconfig.cache
