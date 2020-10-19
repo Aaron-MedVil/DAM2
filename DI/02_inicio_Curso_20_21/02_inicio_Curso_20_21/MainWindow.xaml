@@ -1,0 +1,53 @@
+﻿<Window x:Class="_02_inicio_Curso_20_21.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02_inicio_Curso_20_21"
+        mc:Ignorable="d"
+        Title="Aplicación inicial" Height="450" Width="800">
+    <Grid>
+
+        <!-- Boton Saludar -->
+        <Button Click="cambiar_mensaje">
+            
+            <!-- Content -->
+            <Button.Content>Saludar</Button.Content>
+
+            <!-- Resources -->
+            <Button.Resources>
+
+                <!-- Border -->
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+
+            <!-- Background -->
+            <Button.Background>
+                <SolidColorBrush Color="#FF4B64FF"></SolidColorBrush>
+            </Button.Background>
+
+            <!-- Horizontal Alignment -->
+            <Button.HorizontalAlignment>Left</Button.HorizontalAlignment>
+
+            <!-- Vertical Alignment -->
+            <Button.VerticalAlignment>Top</Button.VerticalAlignment>
+               
+            <!-- Margin -->
+            <Button.Margin>15, 15, 0, 0</Button.Margin>
+            
+            <!-- Width -->
+            <Button.Width>200</Button.Width>
+            
+            <!-- Height -->
+            <Button.Height>50</Button.Height>
+        </Button>
+
+        <!-- Boton Despedirse -->
+        <Button Content="Despedirse" Margin="15,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" Background="DarkOrange" Click="Show_Window"/>
+
+        <!-- Label Mensaje -->
+        <Label x:Name="Mensaje" Content="Mensaje inicial" HorizontalAlignment="Left" Height="50" Margin="236,15,0,0" VerticalAlignment="Top" Width="554" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>
