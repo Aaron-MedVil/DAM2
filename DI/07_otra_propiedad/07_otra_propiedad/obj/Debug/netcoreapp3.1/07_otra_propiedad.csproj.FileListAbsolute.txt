@@ -1,0 +1,12 @@
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.exe
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.deps.json
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.runtimeconfig.json
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.runtimeconfig.dev.json
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.dll
+D:\di\07_otra_propiedad\07_otra_propiedad\bin\Debug\netcoreapp3.1\07_otra_propiedad.pdb
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.AssemblyInfoInputs.cache
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.AssemblyInfo.cs
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.csproj.CoreCompileInputs.cache
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.dll
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.pdb
+D:\di\07_otra_propiedad\07_otra_propiedad\obj\Debug\netcoreapp3.1\07_otra_propiedad.genruntimeconfig.cache
