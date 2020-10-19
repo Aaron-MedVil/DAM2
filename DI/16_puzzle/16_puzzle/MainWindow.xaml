@@ -1,0 +1,55 @@
+﻿<Window x:Class="_16_puzzle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_16_puzzle"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid ShowGridLines="False">
+
+        <!-- Definicion de filas -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.02*"/>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Definicion de columnas -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Separador -->
+        <Rectangle x:Name="separadorJuego">
+            <Rectangle.Fill>Black</Rectangle.Fill>
+            <Rectangle.Stroke>Black</Rectangle.Stroke>
+            <Grid.Column>0</Grid.Column>
+            <Grid.Row>5</Grid.Row>
+            <Grid.ColumnSpan>7</Grid.ColumnSpan>
+        </Rectangle>
+
+        <!-- Boton cargar imagenes -->
+        <Button x:Name="btnLoadPics" Click="cargarImagenes">
+            <Button.Content>Cargar imágenes</Button.Content>
+            <Button.Margin>5</Button.Margin>
+            <Grid.Column>0</Grid.Column>
+            <Grid.Row>6</Grid.Row>
+            <Grid.ColumnSpan>2</Grid.ColumnSpan>
+        </Button>
+
+        <!-- Aqui tengo que crear una zona donde se muestren las imagenes seleccionadas que debera tener un scroll para poder verlas todas -->
+    </Grid>
+</Window>
