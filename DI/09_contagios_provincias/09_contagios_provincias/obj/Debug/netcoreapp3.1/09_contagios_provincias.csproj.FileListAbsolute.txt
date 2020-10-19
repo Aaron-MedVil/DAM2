@@ -1,0 +1,13 @@
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.csprojAssemblyReference.cache
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.AssemblyInfoInputs.cache
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.AssemblyInfo.cs
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.csproj.CoreCompileInputs.cache
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.exe
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.deps.json
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.runtimeconfig.json
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.runtimeconfig.dev.json
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.dll
+D:\di\09_contagios_provincias\09_contagios_provincias\bin\Debug\netcoreapp3.1\09_contagios_provincias.pdb
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.dll
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.pdb
+D:\di\09_contagios_provincias\09_contagios_provincias\obj\Debug\netcoreapp3.1\09_contagios_provincias.genruntimeconfig.cache
