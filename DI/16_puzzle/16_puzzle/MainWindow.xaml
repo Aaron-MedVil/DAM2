@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_16_puzzle"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
 
     <Grid x:Name="miRejilla" ShowGridLines="False">
 
@@ -18,7 +18,7 @@
             <RowDefinition/>
             <RowDefinition Height="0.02*"/>
             <RowDefinition Height="0.75*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2.5*"/>
         </Grid.RowDefinitions>
 
         <!-- Definicion de columnas -->
@@ -50,8 +50,7 @@
             <Grid.ColumnSpan>2</Grid.ColumnSpan>
         </Button>
 
-        <!-- Aqui tengo que crear una zona donde se muestren las imagenes seleccionadas que debera tener un scroll para poder verlas todas -->
-
+        <!-- Zona de implementacion de imagenes del juego-->
         <Border>
             <Border.BorderThickness>1</Border.BorderThickness>
             <Border.BorderBrush>Black</Border.BorderBrush>
@@ -59,7 +58,10 @@
             <Grid.Row>7</Grid.Row>
             <Grid.Column>0</Grid.Column>
             <Grid.ColumnSpan>7</Grid.ColumnSpan>
-            <WrapPanel x:Name="wpImagenes" />
+            <ScrollViewer>
+                <ScrollViewer.VerticalScrollBarVisibility>Visible</ScrollViewer.VerticalScrollBarVisibility>
+                <WrapPanel x:Name="wpImagenes" />
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>
