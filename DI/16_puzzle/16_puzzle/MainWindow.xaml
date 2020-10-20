@@ -20,7 +20,7 @@
             <RowDefinition Height="0.75*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Definicion de columnas -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -51,5 +51,15 @@
         </Button>
 
         <!-- Aqui tengo que crear una zona donde se muestren las imagenes seleccionadas que debera tener un scroll para poder verlas todas -->
+
+        <Border>
+            <Border.BorderThickness>1</Border.BorderThickness>
+            <Border.BorderBrush>Black</Border.BorderBrush>
+            <Border.Margin>5, 0, 5, 5</Border.Margin>
+            <Grid.Row>7</Grid.Row>
+            <Grid.Column>0</Grid.Column>
+            <Grid.ColumnSpan>7</Grid.ColumnSpan>
+            <WrapPanel x:Name="wpImagenes" />
+        </Border>
     </Grid>
 </Window>
