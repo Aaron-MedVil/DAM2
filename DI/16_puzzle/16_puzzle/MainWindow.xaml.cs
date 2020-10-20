@@ -19,6 +19,7 @@ namespace _16_puzzle {
     public partial class MainWindow : Window {
 
         private String imgSelected = "";
+        Uri uri = new Uri(@Environment.CurrentDirectory + "/media/hojas.png", UriKind.RelativeOrAbsolute);
 
         // Clase inicial
         public MainWindow() {
@@ -34,8 +35,6 @@ namespace _16_puzzle {
 
             int i = 0;
 
-            Uri uri = new Uri(@Environment.CurrentDirectory + "/media/hojas.png", UriKind.RelativeOrAbsolute);
-
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
             bi.UriSource = new Uri(uri.ToString());
@@ -46,8 +45,7 @@ namespace _16_puzzle {
                 for (int row = 0; row < 5; row++) {
 
                     Image img = new Image {
-                        Width = 250,
-                        Height = 250,
+                        Stretch = Stretch.Fill,
                         Source = bi
                     };
 
@@ -111,11 +109,14 @@ namespace _16_puzzle {
         // Asigna el nombre de la imagen seleccionada a una variable y la elimina del WrapPanel
         private void imgMouseDown(object sender, MouseButtonEventArgs e) {
 
-            Image img = new Image();
-            img = (Image)sender;
-            imgSelected = img.ToolTip.ToString();
+            if (!imgSelected.Any()) {
 
-            wpImagenes.Children.Remove(img);
+                Image img = new Image();
+                img = (Image)sender;
+                imgSelected = img.ToolTip.ToString();
+
+                wpImagenes.Children.Remove(img);
+            } else { MessageBox.Show("Ya hay una imagen seleccionada"); } 
         }
 
         // Coloca la imagen seleccionada en un boton del puzzle 
@@ -127,12 +128,10 @@ namespace _16_puzzle {
             // Obtengo la fila y la columna del boton seleccionado
             int col = Grid.GetColumn((UIElement)btn), row = Grid.GetRow((UIElement)btn);
 
-            // Elimina el boton que ha hecho click
-            miRejilla.Children.Remove(this);
-
             if (imgSelected.Any()) {
 
-                // Crea un boton nuevo con la imagen seleccionada
+                // Elimina el boton que ha hecho click
+                miRejilla.Children.Remove(btn);
 
                 String selectedFileName = imgSelected;
                 imgSelected = "";
@@ -143,25 +142,74 @@ namespace _16_puzzle {
                 bi.EndInit();
 
                 Image img = new Image {
-                    Width = 250,
-                    Height = 250,
+                    Stretch = Stretch.Fill,
+                    Source = bi
+                };
+
+                Button btn2 = new Button {
+                    ToolTip = selectedFileName,
+                    Content = img
+                };
+
+                btn2.Click += new RoutedEventHandler(resetImagen);
+
+                Grid.SetRow(btn2, row);
+                Grid.SetColumn(btn2, col);
+                miRejilla.Children.Add(btn2);
+            }
+        }
+
+        // Devuelve una imagen del puzzle a la zona de piezas
+        private void resetImagen(object sender, RoutedEventArgs e) {
+
+            if (!imgSelected.Any()) {
+
+                Button btn = new Button();
+                btn = (Button)sender;
+                imgSelected = btn.ToolTip.ToString();
+
+                int col = Grid.GetColumn((UIElement)btn), row = Grid.GetRow((UIElement)btn);
+                miRejilla.Children.Remove(btn);
+
+                BitmapImage bi = new BitmapImage();
+                bi.BeginInit();
+                bi.UriSource = new Uri(uri.ToString());
+                bi.EndInit();
+
+                Image img = new Image {
+                    Stretch = Stretch.Fill,
                     Source = bi
                 };
 
                 Button btn2 = new Button {
                     Content = img
                 };
+                btn2.Click += new RoutedEventHandler(colocarImg);
 
                 Grid.SetRow(btn2, row);
                 Grid.SetColumn(btn2, col);
                 miRejilla.Children.Add(btn2);
-            }
-            else {
 
-                // Si el tooltip esta vacio que no haga nada
-                // sino que ponga la imagen por defecto y guarde en imgSelected la ruta de la imagen y cargue la imagen en el cuadro de imagenes
-                MessageBox.Show("Sin seleccionar imagen");
-            }
+                // Devolver la imagen seleccionada a la zona de piezas
+                BitmapImage bi2 = new BitmapImage();
+                bi2.BeginInit();
+                bi2.UriSource = new Uri(imgSelected);
+                bi2.EndInit();
+
+                Image img2 = new Image {
+                    Source = bi2,
+                    Height = 100,
+                    Width = 100,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Margin = new Thickness(0.5),
+                    ToolTip = imgSelected
+                };
+                img2.MouseDown += new System.Windows.Input.MouseButtonEventHandler(imgMouseDown);
+                wpImagenes.Children.Add(img2);
+
+                imgSelected = "";
+            } else { MessageBox.Show("Ya hay una imagen seleccionada"); }
         }
     }
 }
