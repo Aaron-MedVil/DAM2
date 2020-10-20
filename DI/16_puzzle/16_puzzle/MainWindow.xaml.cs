@@ -18,7 +18,7 @@ namespace _16_puzzle {
 
     public partial class MainWindow : Window {
 
-        private static String imgSelected;
+        private String imgSelected = "";
 
         // Clase inicial
         public MainWindow() {
@@ -124,15 +124,44 @@ namespace _16_puzzle {
             Button btn = new Button();
             btn = (Button)sender;
 
+            // Obtengo la fila y la columna del boton seleccionado
+            int col = Grid.GetColumn((UIElement)btn), row = Grid.GetRow((UIElement)btn);
+
+            // Elimina el boton que ha hecho click
+            miRejilla.Children.Remove(this);
+
             if (imgSelected.Any()) {
+
+                // Crea un boton nuevo con la imagen seleccionada
 
                 String selectedFileName = imgSelected;
                 imgSelected = "";
-                MessageBox.Show(btn.ToString());
-            } else {
 
+                BitmapImage bi = new BitmapImage();
+                bi.BeginInit();
+                bi.UriSource = new Uri(selectedFileName);
+                bi.EndInit();
+
+                Image img = new Image {
+                    Width = 250,
+                    Height = 250,
+                    Source = bi
+                };
+
+                Button btn2 = new Button {
+                    Content = img
+                };
+
+                Grid.SetRow(btn2, row);
+                Grid.SetColumn(btn2, col);
+                miRejilla.Children.Add(btn2);
+            }
+            else {
+
+                // Si el tooltip esta vacio que no haga nada
+                // sino que ponga la imagen por defecto y guarde en imgSelected la ruta de la imagen y cargue la imagen en el cuadro de imagenes
                 MessageBox.Show("Sin seleccionar imagen");
-            }            
+            }
         }
     }
 }
