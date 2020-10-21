@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:onClick="cambioEstadoCivil" />
         <RadioButton
             android:id="@+id/rbSoltero"
             android:text="Soltera/o"
@@ -28,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:onClick="cambioEstadoCivil" />
         <RadioButton
             android:id="@+id/rbViudo"
             android:text="Viuda/o"
@@ -36,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:onClick="cambioEstadoCivil" />
         <RadioButton
             android:id="@+id/rbOtro"
             android:text="Otra/o"
@@ -44,13 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:onClick="cambioEstadoCivil" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/twResult"
-        android:text="Resultado"
+        android:text="Estado civil"
         android:gravity="center"
+        android:textSize="28dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="210dp"
