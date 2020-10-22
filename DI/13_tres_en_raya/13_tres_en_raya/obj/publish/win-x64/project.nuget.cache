@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "WJgfeos1QJW/NkMeXZMghezf+P2a3LcRUvb+a6atg+495XLJvYC7D+0ESx4X58BL9w0Hu3MYlNj5ObUXVg9Q2g==",
+  "success": true,
+  "projectFilePath": "D:\\Github\\DAM2\\DI\\13_tres_en_raya\\13_tres_en_raya\\13_tres_en_raya.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.9\\microsoft.netcore.app.runtime.win-x64.3.1.9.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.9\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.9.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.9\\microsoft.aspnetcore.app.runtime.win-x64.3.1.9.nupkg.sha512"
+  ],
+  "logs": []
+}

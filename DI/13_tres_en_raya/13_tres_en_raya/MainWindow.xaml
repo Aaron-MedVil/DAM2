@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_13_tres_en_raya"
         mc:Ignorable="d"
-        Title="Ventana principal" Height="450" Width="800">
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}" 
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}" 
+        Title="Tres en Raya"
+        WindowState="Maximized" >
     <Grid x:Name="miRejilla">
 
         <!-- Definicion de columnas -->
