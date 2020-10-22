@@ -1,6 +1,6 @@
 // Se ejecuta desde la linea de comandos.
 // Primero lo compilamos desde la carpeta path\procesos\src\Ejemplos con el comando javac Ejemplo3.java
-// Despues ejecutamos el comando java Ejemplos\Ejemplo3 "String" desde la carpeta path\procesos\src
+// Despues ejecutamos el comando java Ejemplos/Ejemplo3 "String" desde la carpeta path\procesos\src
 
 package Ejemplos;
 
