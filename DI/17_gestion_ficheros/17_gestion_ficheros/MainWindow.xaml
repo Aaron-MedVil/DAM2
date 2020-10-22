@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17_gestion_ficheros"
         mc:Ignorable="d"
-        Title="17_gestion_ficheros" Height="450" Width="1100">
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}" 
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}" 
+        Title="{Binding Path=DisplayName}"
+        WindowState="Maximized" >
 
     <!-- Grid principal -->
     <Grid x:Name="gridMain">
