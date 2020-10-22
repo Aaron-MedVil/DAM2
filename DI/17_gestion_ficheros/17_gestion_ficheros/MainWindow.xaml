@@ -1,0 +1,50 @@
+﻿<Window x:Class="_17_gestion_ficheros.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_17_gestion_ficheros"
+        mc:Ignorable="d"
+        Title="17_gestion_ficheros" Height="450" Width="1100">
+
+    <!-- Grid principal -->
+    <Grid x:Name="gridMain">
+
+        <!-- Definicion columnas -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Panel Botones -->
+        <StackPanel x:Name="gridButtons">
+
+            <StackPanel.Background>#F5DEB3</StackPanel.Background>
+
+            <!-- Define la posicion del panel -->
+            <Grid.Column>0</Grid.Column>
+
+            <!-- Boton abrir un fichero -->
+            <Button x:Name="btnAbrirFichero" Click="abrirFicheroClick">
+                <Button.Content>Abrir fichero</Button.Content>
+                <Button.FontSize>18</Button.FontSize>
+                <Button.Height>60</Button.Height>
+                <Button.Margin>5</Button.Margin>
+            </Button>
+
+            <!-- Boton abrir varios ficheros -->
+            <Button x:Name="btnAbrirFicheros" Click="abrirFicherosClick">
+                <Button.Content>Abrir varios ficheros</Button.Content>
+                <Button.FontSize>18</Button.FontSize>
+                <Button.Height>60</Button.Height>
+                <Button.Margin>5</Button.Margin>
+            </Button>
+        </StackPanel>
+
+        <!-- Grid mostrar ficheros -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid.Column>1</Grid.Column>
+            <Grid x:Name="gridShowFiles" Background="#008080"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
