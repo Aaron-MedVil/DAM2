@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         cbPina = findViewById(R.id.cbPina);
         cbOlivas = findViewById(R.id.cbOlivas);
 
-        String res = "Pedido final";
+        String res = "";
 
         if (cbQueso.isChecked()) {
             res = res+" \n- Queso";
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         if (cbOlivas.isChecked()) {
             res = res+" \n- Olivas";
         }
+
+        res = (res.isEmpty()) ? "Resumen del pedido" : "Pedido final" + res;
 
         twResumen.setText(res);
     }
