@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:fillViewport="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Titulo -->
+        <TextView
+            android:text="PEDIDO PIZZA"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="26dp"
+            android:textColor="#FF0000"
+            android:textStyle="bold" />
+
+        <!-- Ingredientes -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Subtitulo -->
+                <TextView
+                    android:text="Ingredientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
+                <!-- Queso -->
+                <CheckBox
+                    android:id="@+id/cbQueso"
+                    android:onClick="addIngr"
+                    android:text="Queso"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <!-- Bacon -->
+                <CheckBox
+                    android:id="@+id/cbBacon"
+                    android:onClick="addIngr"
+                    android:text="Bacon"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <!-- Tomate -->
+                <CheckBox
+                    android:id="@+id/cbTomate"
+                    android:onClick="addIngr"
+                    android:text="Tomate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <!-- Maiz -->
+                <CheckBox
+                    android:id="@+id/cbMaiz"
+                    android:onClick="addIngr"
+                    android:text="Maiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <!-- Piña -->
+                <CheckBox
+                    android:id="@+id/cbPina"
+                    android:onClick="addIngr"
+                    android:text="Piña"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <!-- Olivas -->
+                <CheckBox
+                    android:id="@+id/cbOlivas"
+                    android:onClick="addIngr"
+                    android:text="Olivas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Donde tomarlo -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Subtitulo -->
+                <TextView
+                    android:text="¿Donde va a consumir el pedido?"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
+                <!-- Opciones -->
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Tomar aqui -->
+                    <RadioButton
+                        android:id="@+id/rbLlevar"
+                        android:text="Pedir para llevar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <!-- Llevar -->
+                    <RadioButton
+                        android:id="@+id/rbTomarAqui"
+                        android:text="Tomar aquí"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Boton realizar pedido -->
+        <Button
+            android:id="@+id/btnRealizarPedido"
+            android:onClick="realizarPedido"
+            android:text="Realizar pedido"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp" />
+
+        <!-- Resumen del pedido -->
+        <TextView
+            android:id="@+id/twResumen"
+            android:text="Resumen del pedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp" />
+    </LinearLayout>
+</ScrollView>
+
