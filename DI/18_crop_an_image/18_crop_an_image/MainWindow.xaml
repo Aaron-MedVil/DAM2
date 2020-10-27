@@ -10,6 +10,12 @@
         Width="800"
         WindowState="Maximized">
     
+    <!-- Stye Resources -->
+    <Window.Resources>
+        <!-- Margen top 5-->
+        <Thickness x:Key="tbMargin">0, 5, 0, 0</Thickness>
+    </Window.Resources>
+
     <!-- Parent grid -->
     <Grid ShowGridLines="True">
         
@@ -22,11 +28,70 @@
         <!-- Panel de botones -->
         <StackPanel x:Name="spBotonera">
             <Grid.Column>0</Grid.Column>
+            <StackPanel.Margin>5, 10, 5, 10</StackPanel.Margin>
+            
+            <!-- Padding entre elementos de tipo boton -->
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="{StaticResource tbMargin}" />
+                </Style>
+            </StackPanel.Resources>
+
+            <!-- Boton cargar imagen automatica -->
+            <Button x:Name="btnAutoLoadImage" Click="autoLoadImage">
+                <Button.Content>Cargar imágen</Button.Content>
+                <Button.Height>50</Button.Height>
+            </Button>
+            
+            <!-- Boton seleccionar imagen -->
+            <Button x:Name="btnManualLoadImage" Click="manualLoadImage">
+                <Button.Content>Selecciona imágen</Button.Content>
+                <Button.Height>50</Button.Height>
+            </Button>
+            
+            <!-- Boton trocear imagen -->
+            <Button x:Name="btnCropImage" Click="cropImage">
+                <Button.Content>Trocear imágen</Button.Content>
+                <Button.Height>50</Button.Height>
+                <Button.Visibility>Collapsed</Button.Visibility>
+            </Button>
+            
+            <!-- Boton trocear imagen -->
+            <Button x:Name="btnCleanImages" Click="cleanImages">
+                <Button.Content>Limpiar contenido</Button.Content>
+                <Button.Height>50</Button.Height>
+            </Button>
         </StackPanel>
         
         <!-- Panel de contenido -->
         <Grid x:Name="gridContent">
+            
+            <!-- Definicion de filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
             <Grid.Column>1</Grid.Column>
+            <Grid.Margin>5, 5, 5, 5</Grid.Margin>
+            
+            <!-- Contenedor cargar imagen -->
+            <Border>
+                <Border.BorderThickness>1</Border.BorderThickness>
+                <Border.BorderBrush>#000</Border.BorderBrush>
+                <Grid.Row>0</Grid.Row>
+                <Grid x:Name="gridImagen"></Grid>
+            </Border>
+            
+            <!-- Contenedor imagenes cortadas -->
+            <Border Margin="{StaticResource tbMargin}">
+                <Border.BorderThickness>1</Border.BorderThickness>
+                <Border.BorderBrush>#000</Border.BorderBrush>
+                <Grid.Row>1</Grid.Row>
+                <ScrollViewer>
+                    <ScrollViewer.VerticalScrollBarVisibility>Auto</ScrollViewer.VerticalScrollBarVisibility>
+                    <WrapPanel x:Name="croppedImages" />
+                </ScrollViewer>
+            </Border>
         </Grid>
     </Grid>
 </Window>

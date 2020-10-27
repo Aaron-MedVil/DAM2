@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "18_crop_an_image/1.0.0": {
+        "runtime": {
+          "18_crop_an_image.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "18_crop_an_image/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
