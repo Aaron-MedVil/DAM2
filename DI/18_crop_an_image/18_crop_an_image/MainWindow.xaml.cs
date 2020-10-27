@@ -2,12 +2,18 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace _18_crop_an_image {
 
     public partial class MainWindow : Window {
+
+        static double imgWidth, imgHeight;
+        static BitmapImage actualImgUrl;
+        Point currentPoint = new Point();
+        int posicionImagenPuzle = 0;
 
         public MainWindow() => InitializeComponent();
 
@@ -21,10 +27,11 @@ namespace _18_crop_an_image {
             bi.UriSource = new Uri(@Environment.CurrentDirectory + "/media/original.jpg", UriKind.RelativeOrAbsolute);
             bi.EndInit();
 
-            Image img = new Image {
-                Stretch = Stretch.Fill,
-                Source = bi
-            };
+            actualImgUrl = bi;
+
+            imgWidth = bi.Width; imgHeight = bi.Height;
+
+            Image img = new Image { Stretch = Stretch.Fill, Source = bi };
 
             gridImagen.Children.Add(img);
             btnCropImage.Visibility = Visibility.Visible;
@@ -52,10 +59,11 @@ namespace _18_crop_an_image {
                 bi.UriSource = new Uri(fileDialog.FileName.ToString());
                 bi.EndInit();
 
-                Image img = new Image {
-                    Source = bi,
-                    Stretch = Stretch.Fill
-                };
+                actualImgUrl = bi;
+
+                imgWidth = bi.Width; imgHeight = bi.Height;
+
+                Image img = new Image { Source = bi, Stretch = Stretch.Fill };
 
                 gridImagen.Children.Add(img);
                 btnCropImage.Visibility = Visibility.Visible;
@@ -65,13 +73,30 @@ namespace _18_crop_an_image {
         // Carga las imagenes troceadas
         private void cropImage(object sender, RoutedEventArgs e) {
 
-            MessageBox.Show("Cropped");
+            double widthCrop = imgWidth / 7; double heightCrop = imgHeight / 5;
+
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(actualImgUrl.ToString());
+            bi.EndInit();
+
+            CroppedBitmap cb;
+
+            try {
+
+                croppedImages.Children.RemoveRange(0, croppedImages.Children.Count);
+
+                // Hay que hacer que la imagen se parta en 7 de largo y 5 de alto
+                // El x inicial tiene que ser el punto anterior igual que el y
+
+                cb = new CroppedBitmap(bi, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
+                Image img = new Image { Source = cb, Height = 100, Width = 100 };
+                croppedImages.Children.Add(img);
+            } catch (Exception) { MessageBox.Show("Error"); }
         }
 
         // Boton limpiar imagenes
         private void cleanImages(object sender, RoutedEventArgs e) {
-
-            MessageBox.Show("Limpiar contenido");
 
             btnCropImage.Visibility = Visibility.Collapsed;
             limpiarContenedoresImagenes();
@@ -80,8 +105,8 @@ namespace _18_crop_an_image {
         // Limpia los contenedores de imagenes
         private void limpiarContenedoresImagenes() {
 
-            gridImagen.Children.RemoveRange(0, gridImagen.Children.Count - 1);
-            croppedImages.Children.RemoveRange(0, croppedImages.Children.Count - 1);
+            gridImagen.Children.RemoveRange(0, gridImagen.Children.Count);
+            croppedImages.Children.RemoveRange(0, croppedImages.Children.Count);
         }
     }
 }
