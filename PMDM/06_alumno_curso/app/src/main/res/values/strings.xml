@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">06_alumno_curso</string>
+    <string-array name="arrAlumnos">
+        <item>Aarón Medina</item>
+        <item>Fulanito Pérez</item>
+        <item>Jose Luis García</item>
+    </string-array>
+</resources>
