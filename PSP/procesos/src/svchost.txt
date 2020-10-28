@@ -85,4 +85,4 @@ svchost.exe                  13180 OneSyncSvc_1297462,
                                    PimIndexMaintenanceSvc_1297462,              
                                    UnistoreSvc_1297462, UserDataSvc_1297462     
 svchost.exe                  10016 DevicesFlowUserSvc_1297462                   
-svchost.exe                   3752 ClipSVC                                      
+svchost.exe                   1156 ClipSVC                                      
