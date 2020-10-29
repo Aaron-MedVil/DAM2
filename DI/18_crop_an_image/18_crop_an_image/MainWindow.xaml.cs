@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -11,9 +12,8 @@ namespace _18_crop_an_image {
 
         static double imgWidth, imgHeight;
         static BitmapImage actualImgUrl;
-        // Point currentPoint = new Point();
-        // int posicionImagenPuzle = 0;
-
+        Point currentPoint = new Point();
+        int posicionImagenPuzle = 0;
         public MainWindow() => InitializeComponent();
 
         // Carga una imagen definida
@@ -73,16 +73,21 @@ namespace _18_crop_an_image {
 
             try {
 
+                canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
+
                 // Hay que hacer que la imagen se parta en 7 de largo y 5 de alto
                 // El x inicial tiene que ser el punto anterior igual que el y
 
                 cb = new CroppedBitmap(actualImgUrl, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
                 Image img = new Image { Source = cb, Height = 100, Width = 100 };
-                canvasLoadImage.Children.Add(img);
 
-                for (int x = 0; x < 5; x++) {
-                    for (int y = 0; y < 7; y++) { }
-                }
+                Canvas cvImg = new Canvas();
+                cvImg.Children.Add(img);
+                cvImg.MouseLeftButtonDown += new MouseButtonEventHandler(Canvas_MouseLeftButtonDown);
+                cvImg.MouseLeftButtonUp += new MouseButtonEventHandler(Canvas_MouseLeftButtonUp);
+                cvImg.MouseMove += new MouseEventHandler(Canvas_MouseMove);
+
+                canvasLoadImage.Children.Add(cvImg);
             } catch (Exception) { MessageBox.Show("Error al trocear la imagen"); }
         }
 
@@ -96,6 +101,31 @@ namespace _18_crop_an_image {
         // Limpia los contenedores de imagenes
         private void limpiarContenedoresImagenes() {
             gridLoadSelectedImage.Children.RemoveRange(0, gridLoadSelectedImage.Children.Count);
+            canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
+        }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+
+            Canvas layer1 = sender as Canvas;
+            if (layer1 != null) { layer1.CaptureMouse(); }
+        }
+
+        private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
+
+            Canvas layer1 = sender as Canvas;
+            if (layer1 != null) { layer1.ReleaseMouseCapture(); }
+        }
+
+        private void Canvas_MouseMove(object sender, MouseEventArgs e) {
+
+            Canvas layer1 = sender as Canvas;
+
+            if (layer1 != null && layer1.IsMouseCaptured) {
+
+                currentPoint = e.GetPosition(this);
+                Canvas.SetLeft(layer1, currentPoint.X);
+                Canvas.SetTop(layer1, currentPoint.Y);
+            }
         }
     }
 }
