@@ -79,7 +79,9 @@
                 <Border.BorderThickness>1</Border.BorderThickness>
                 <Border.BorderBrush>#000</Border.BorderBrush>
                 <Grid.Row>0</Grid.Row>
-                <Grid x:Name="gridImagen"></Grid>
+                <Grid x:Name="gridImagen">
+                    <Canvas x:Name="canvasGridImagen" Width="{Binding ElementName=gridImagen, Path=ActualWidth}" Height="{Binding ElementName=gridImagen, Path=ActualHeight}" />
+                </Grid>
             </Border>
             
             <!-- Contenedor imagenes cortadas -->

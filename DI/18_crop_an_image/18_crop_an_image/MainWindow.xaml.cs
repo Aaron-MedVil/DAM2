@@ -12,8 +12,8 @@ namespace _18_crop_an_image {
 
         static double imgWidth, imgHeight;
         static BitmapImage actualImgUrl;
-        Point currentPoint = new Point();
-        int posicionImagenPuzle = 0;
+        // Point currentPoint = new Point();
+        // int posicionImagenPuzle = 0;
 
         public MainWindow() => InitializeComponent();
 
@@ -31,9 +31,14 @@ namespace _18_crop_an_image {
 
             imgWidth = bi.Width; imgHeight = bi.Height;
 
-            Image img = new Image { Stretch = Stretch.Fill, Source = bi };
+            Image img = new Image {
+                Width = canvasGridImagen.Width,
+                Height = canvasGridImagen.Height,
+                Stretch = Stretch.Fill,
+                Source = bi
+            };
 
-            gridImagen.Children.Add(img);
+            canvasGridImagen.Children.Add(img);
             btnCropImage.Visibility = Visibility.Visible;
         }
 
@@ -63,9 +68,14 @@ namespace _18_crop_an_image {
 
                 imgWidth = bi.Width; imgHeight = bi.Height;
 
-                Image img = new Image { Source = bi, Stretch = Stretch.Fill };
+                Image img = new Image {
+                    Width = canvasGridImagen.Width,
+                    Height = canvasGridImagen.Height,
+                    Stretch = Stretch.Fill,
+                    Source = bi
+                };
 
-                gridImagen.Children.Add(img);
+                canvasGridImagen.Children.Add(img);
                 btnCropImage.Visibility = Visibility.Visible;
             } catch { MessageBox.Show("Error"); }
         }
@@ -92,6 +102,10 @@ namespace _18_crop_an_image {
                 cb = new CroppedBitmap(bi, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
                 Image img = new Image { Source = cb, Height = 100, Width = 100 };
                 croppedImages.Children.Add(img);
+
+                for (int x = 0; x < 5; x++) {
+                    for (int y = 0; y < 7; y++) {}
+                }
             } catch (Exception) { MessageBox.Show("Error"); }
         }
 
@@ -105,7 +119,7 @@ namespace _18_crop_an_image {
         // Limpia los contenedores de imagenes
         private void limpiarContenedoresImagenes() {
 
-            gridImagen.Children.RemoveRange(0, gridImagen.Children.Count);
+            canvasGridImagen.Children.RemoveRange(0, canvasGridImagen.Children.Count);
             croppedImages.Children.RemoveRange(0, croppedImages.Children.Count);
         }
     }
