@@ -75,9 +75,6 @@ namespace _18_crop_an_image {
 
                 canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
 
-                // Hay que hacer que la imagen se parta en 7 de largo y 5 de alto
-                // El x inicial tiene que ser el punto anterior igual que el y
-
                 cb = new CroppedBitmap(actualImgUrl, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
                 Image img = new Image { Source = cb, Height = 100, Width = 100 };
 
@@ -104,18 +101,21 @@ namespace _18_crop_an_image {
             canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
         }
 
+        // Evento que se produce al pulsar el click con el boton izquierdo en las imagenes
         private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
 
             Canvas layer1 = sender as Canvas;
             if (layer1 != null) { layer1.CaptureMouse(); }
         }
 
+        // Evento que se produce al soltar el click con el boton izquierdo en las imagenes
         private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
 
             Canvas layer1 = sender as Canvas;
             if (layer1 != null) { layer1.ReleaseMouseCapture(); }
         }
 
+        // Evento que se produce al arrastrar las imagenes
         private void Canvas_MouseMove(object sender, MouseEventArgs e) {
 
             Canvas layer1 = sender as Canvas;
