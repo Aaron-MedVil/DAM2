@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -22,23 +21,16 @@ namespace _18_crop_an_image {
 
             limpiarContenedoresImagenes();
 
-            BitmapImage bi = new BitmapImage();
-            bi.BeginInit();
-            bi.UriSource = new Uri(@Environment.CurrentDirectory + "/media/original.jpg", UriKind.RelativeOrAbsolute);
-            bi.EndInit();
+            actualImgUrl = new BitmapImage();
+            actualImgUrl.BeginInit();
+            actualImgUrl.UriSource = new Uri(@Environment.CurrentDirectory + "/media/original.jpg", UriKind.RelativeOrAbsolute);
+            actualImgUrl.EndInit();
 
-            actualImgUrl = bi;
+            imgWidth = actualImgUrl.Width; imgHeight = actualImgUrl.Height;
 
-            imgWidth = bi.Width; imgHeight = bi.Height;
+            Image img = new Image { Stretch = Stretch.Fill, Source = actualImgUrl };
 
-            Image img = new Image {
-                Width = canvasGridImagen.Width,
-                Height = canvasGridImagen.Height,
-                Stretch = Stretch.Fill,
-                Source = bi
-            };
-
-            canvasGridImagen.Children.Add(img);
+            gridLoadSelectedImage.Children.Add(img);
             btnCropImage.Visibility = Visibility.Visible;
         }
 
@@ -59,54 +51,39 @@ namespace _18_crop_an_image {
                 fileDialog.ShowDialog();
                 Stream[] files = fileDialog.OpenFiles();
 
-                BitmapImage bi = new BitmapImage();
-                bi.BeginInit();
-                bi.UriSource = new Uri(fileDialog.FileName.ToString());
-                bi.EndInit();
+                actualImgUrl = new BitmapImage();
+                actualImgUrl.BeginInit();
+                actualImgUrl.UriSource = new Uri(fileDialog.FileName.ToString());
+                actualImgUrl.EndInit();
 
-                actualImgUrl = bi;
+                imgWidth = actualImgUrl.Width; imgHeight = actualImgUrl.Height;
 
-                imgWidth = bi.Width; imgHeight = bi.Height;
+                Image img = new Image { Stretch = Stretch.Fill, Source = actualImgUrl };
 
-                Image img = new Image {
-                    Width = canvasGridImagen.Width,
-                    Height = canvasGridImagen.Height,
-                    Stretch = Stretch.Fill,
-                    Source = bi
-                };
-
-                canvasGridImagen.Children.Add(img);
+                gridLoadSelectedImage.Children.Add(img);
                 btnCropImage.Visibility = Visibility.Visible;
-            } catch { MessageBox.Show("Error"); }
+            } catch { MessageBox.Show("Error al cargar la imagen"); }
         }
 
         // Carga las imagenes troceadas
         private void cropImage(object sender, RoutedEventArgs e) {
 
             double widthCrop = imgWidth / 7; double heightCrop = imgHeight / 5;
-
-            BitmapImage bi = new BitmapImage();
-            bi.BeginInit();
-            bi.UriSource = new Uri(actualImgUrl.ToString());
-            bi.EndInit();
-
             CroppedBitmap cb;
 
             try {
 
-                croppedImages.Children.RemoveRange(0, croppedImages.Children.Count);
-
                 // Hay que hacer que la imagen se parta en 7 de largo y 5 de alto
                 // El x inicial tiene que ser el punto anterior igual que el y
 
-                cb = new CroppedBitmap(bi, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
+                cb = new CroppedBitmap(actualImgUrl, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
                 Image img = new Image { Source = cb, Height = 100, Width = 100 };
-                croppedImages.Children.Add(img);
+                canvasLoadImage.Children.Add(img);
 
                 for (int x = 0; x < 5; x++) {
-                    for (int y = 0; y < 7; y++) {}
+                    for (int y = 0; y < 7; y++) { }
                 }
-            } catch (Exception) { MessageBox.Show("Error"); }
+            } catch (Exception) { MessageBox.Show("Error al trocear la imagen"); }
         }
 
         // Boton limpiar imagenes
@@ -118,9 +95,7 @@ namespace _18_crop_an_image {
 
         // Limpia los contenedores de imagenes
         private void limpiarContenedoresImagenes() {
-
-            canvasGridImagen.Children.RemoveRange(0, canvasGridImagen.Children.Count);
-            croppedImages.Children.RemoveRange(0, croppedImages.Children.Count);
+            gridLoadSelectedImage.Children.RemoveRange(0, gridLoadSelectedImage.Children.Count);
         }
     }
 }

@@ -1,13 +1,14 @@
-﻿<Window x:Class="_18_crop_an_image.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_18_crop_an_image"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="_18_crop_an_image.MainWindow"
         mc:Ignorable="d"
         Title="Trocear imagen"
         Height="450" Width="800" WindowState="Maximized">
-    
+
     <!-- Stye Resources -->
     <Window.Resources>
         <!-- Margen top 5-->
@@ -16,90 +17,74 @@
         <Thickness x:Key="margin_5">5, 5, 5, 5</Thickness>
     </Window.Resources>
 
-    <!-- Parent grid -->
     <Grid ShowGridLines="False">
-        
+
         <!-- Definicion de columnas -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        
-        <!-- Panel de botones -->
-        <StackPanel x:Name="spBotonera">
-            <Grid.Column>0</Grid.Column>
-            <StackPanel.Margin>5, 10, 5, 10</StackPanel.Margin>
-            
-            <!-- Padding entre elementos de tipo boton -->
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Margin" Value="{StaticResource margin_top_5}" />
-                </Style>
-            </StackPanel.Resources>
 
-            <!-- Boton cargar imagen automatica -->
-            <Button x:Name="btnAutoLoadImage" Click="autoLoadImage">
-                <Button.Content>Cargar imágen</Button.Content>
-                <Button.Height>50</Button.Height>
-            </Button>
-            
-            <!-- Boton seleccionar imagen -->
-            <Button x:Name="btnManualLoadImage" Click="manualLoadImage">
-                <Button.Content>Selecciona imágen</Button.Content>
-                <Button.Height>50</Button.Height>
-            </Button>
-            
-            <!-- Boton trocear imagen -->
-            <Button x:Name="btnCropImage" Click="cropImage">
-                <Button.Content>Trocear imágen</Button.Content>
-                <Button.Height>50</Button.Height>
-                <Button.Visibility>Collapsed</Button.Visibility>
-            </Button>
-            
-            <!-- Boton trocear imagen -->
-            <Button x:Name="btnCleanImages" Click="cleanImages">
-                <Button.Content>Limpiar contenido</Button.Content>
-                <Button.Height>50</Button.Height>
-            </Button>
-        </StackPanel>
+        <!-- Definicion de filas -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.30*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Contenedor de botones -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="spBotonera">
+
+                <!-- Padding entre elementos de tipo boton -->
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="{StaticResource margin_top_5}" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <!-- Boton cargar imagen automatica -->
+                <Button x:Name="btnAutoLoadImage" Click="autoLoadImage">
+                    <Button.Height>
+                        <System:Double>50</System:Double>
+                    </Button.Height> Cargar imágen
+                </Button>
+
+                <!-- Boton seleccionar imagen -->
+                <Button x:Name="btnManualLoadImage" Click="manualLoadImage">
+                    <Button.Height>
+                        <System:Double>50</System:Double>
+                    </Button.Height> Selecciona imágen
+                </Button>
+
+                <!-- Boton trocear imagen -->
+                <Button x:Name="btnCropImage" Click="cropImage">
+                    <Button.Height>
+                        <System:Double>50</System:Double>
+                    </Button.Height>
+                    <Button.Visibility>
+                        <Visibility>Collapsed</Visibility>
+                    </Button.Visibility> Trocear imágen
+                </Button>
+
+                <!-- Boton trocear imagen -->
+                <Button x:Name="btnCleanImages" Click="cleanImages">
+                    <Button.Height>
+                        <System:Double>50</System:Double>
+                    </Button.Height> Limpiar contenido
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
         
-        <!-- Panel de contenido -->
-        <Grid x:Name="gridContent">
-            
-            <!-- Definicion de filas -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="1.5*"/>
-            </Grid.RowDefinitions>
+        <!-- Contenedor donde se carga la imagen -->
+        <Grid x:Name="gridLoadSelectedImage" Grid.Column="0" Grid.Row="1" Margin="{StaticResource ResourceKey=margin_5}" />
+        
+        <!-- Contenedor puzzle -->
+        <Border Margin="{StaticResource margin_5}">
+            <Border.BorderThickness>1</Border.BorderThickness>
+            <Border.BorderBrush>#000</Border.BorderBrush>
             <Grid.Column>1</Grid.Column>
-            <Grid.Margin>5, 5, 5, 5</Grid.Margin>
-            
-            <!-- Contenedor cargar imagen -->
-            <Border>
-                <Border.BorderThickness>1</Border.BorderThickness>
-                <Border.BorderBrush>#000</Border.BorderBrush>
-                <Grid.Row>0</Grid.Row>
-                <Grid x:Name="gridImagen">
-                    <Canvas x:Name="canvasGridImagen" Width="{Binding ElementName=gridImagen, Path=ActualWidth}" Height="{Binding ElementName=gridImagen, Path=ActualHeight}" />
-                </Grid>
-            </Border>
-            
-            <!-- Contenedor imagenes cortadas -->
-            <Border Margin="{StaticResource margin_top_5}">
-                <Border.BorderThickness>1</Border.BorderThickness>
-                <Border.BorderBrush>#000</Border.BorderBrush>
-                <Grid.Row>1</Grid.Row>
-                <ScrollViewer>
-                    <ScrollViewer.VerticalScrollBarVisibility>Auto</ScrollViewer.VerticalScrollBarVisibility>
-                    <WrapPanel x:Name="croppedImages">
-                        <WrapPanel.Resources>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Margin" Value="{StaticResource margin_5}" />
-                            </Style>
-                        </WrapPanel.Resources>
-                    </WrapPanel>
-                </ScrollViewer>
-            </Border>
-        </Grid>
+            <Grid.RowSpan>2</Grid.RowSpan>
+            <Canvas x:Name="canvasLoadImage"/>
+        </Border>
     </Grid>
 </Window>
