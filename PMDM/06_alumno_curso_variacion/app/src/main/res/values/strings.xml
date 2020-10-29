@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">06_alumno_curso_variacion</string>
+    <string-array name="arrAlumnos">
+        <item>Aarón Medina</item>
+        <item>Fulanito Pérez</item>
+        <item>Jose Luis García</item>
+    </string-array>
+    <string-array name="arrCursos">
+        <item>DAM</item>
+        <item>DAW</item>
+        <item>SMR</item>
+    </string-array>
+</resources>
