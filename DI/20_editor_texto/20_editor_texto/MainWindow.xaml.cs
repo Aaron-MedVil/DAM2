@@ -13,7 +13,7 @@ namespace _20_editor_texto {
             fillMenuComboBox();
 
             // Asigna un evento cuando se pulsa una tecla
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            // this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         // Rellena la informacion de lo ComboBox del menu
@@ -21,7 +21,8 @@ namespace _20_editor_texto {
 
             // Rellena el ComboBox del tamaño de letra
             for (int i = 4; i < 72; i = i + 4) { cbFontSize.Items.Add(i); }
-            cbFontSize.Text = "4";
+            cbFontSize.Text = "20";
+            cambiarPropiedadesTexto();
         }
 
         // Funcion para poner la ventana en FullScreen
@@ -33,6 +34,11 @@ namespace _20_editor_texto {
             // Si la ventana esta en pantalla completa lo pone en ventana con marcos y viceversa
             WindowStyle = (WindowStyle.ToString() != "None") ? WindowStyle.None : WindowStyle.SingleBorderWindow;
             Hide(); Show();
+        }
+
+        // Cambia las propiedades del texto
+        private void cambiarPropiedadesTexto() {
+            cajaTexto.FontSize = (int)cbFontSize.SelectedItem;
         }
 
         // Funcion para cerrar la aplicacion

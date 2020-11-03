@@ -18,9 +18,13 @@
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Margin" Value="5, 0, 0, 0" />
         </Style>
-        <Style TargetType="TextBlock">
+        <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#000" />
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
     </Window.Resources>
     
@@ -29,13 +33,13 @@
            
         <!-- Menu superior -->
         <Menu>
-            <Menu.Height>Auto</Menu.Height>
             <Menu.Width>
                 <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}" />
             </Menu.Width>
 
             <!-- Fichero -->
             <MenuItem x:Name="mitemFichero" Header="_Fichero">
+                <MenuItem Header="_Nuevo" />
                 <MenuItem Header="_Abrir" />
                 <MenuItem Header="_Grabar" />
                 <MenuItem Header="_Imprimir" />
@@ -55,11 +59,11 @@
                 <MenuItem Header="Subrayado" />
                 <Separator />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock>Tamaño texto</TextBlock>
+                    <Label>Tamaño texto</Label>
                     <ComboBox x:Name="cbFontSize" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock>Fuente</TextBlock>
+                    <Label>Fuente</Label>
                     <ComboBox x:Name="cbFontType" />
                 </StackPanel>
             </MenuItem>
@@ -75,5 +79,14 @@
             <!-- Finalizar -->
             <MenuItem x:Name="miItemFinalizar" Header="Finalizar" Click="endProgram" />
         </Menu>
+        
+        <!-- Cuadro de texto -->
+        <Border>
+            <Border.Width>
+                <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}" />
+            </Border.Width>
+            <Border.Height>Auto</Border.Height>
+            <TextBox x:Name="cajaTexto" />
+        </Border>
     </StackPanel>
 </Window>
