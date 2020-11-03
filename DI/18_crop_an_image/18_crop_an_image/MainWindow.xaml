@@ -84,7 +84,7 @@
             <Border.BorderBrush>#000</Border.BorderBrush>
             <Grid.Column>1</Grid.Column>
             <Grid.RowSpan>2</Grid.RowSpan>
-            <Canvas x:Name="canvasLoadImage"/>
+            <Canvas x:Name="canvasLoadImage" />
         </Border>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@ namespace _18_crop_an_image {
         static double imgWidth, imgHeight;
         static BitmapImage actualImgUrl;
         Point currentPoint = new Point();
-        int posicionImagenPuzle = 0;
+
         public MainWindow() => InitializeComponent();
 
         // Carga una imagen definida
@@ -68,24 +68,37 @@ namespace _18_crop_an_image {
         // Carga las imagenes troceadas
         private void cropImage(object sender, RoutedEventArgs e) {
 
-            double widthCrop = imgWidth / 7; double heightCrop = imgHeight / 5;
+            double widthCrop = imgWidth / 7, heightCrop = imgHeight / 5;
+            int aX = (Int32)widthCrop; int aY = (Int32)heightCrop;
             CroppedBitmap cb;
 
-            try {
+            canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
 
-                canvasLoadImage.Children.RemoveRange(0, canvasLoadImage.Children.Count);
+            double cWidthCrop = canvasLoadImage.ActualWidth / 7, cHeightCrop = canvasLoadImage.ActualHeight / 5;
 
-                cb = new CroppedBitmap(actualImgUrl, new Int32Rect(0, 0, (int)widthCrop, (int)heightCrop));
-                Image img = new Image { Source = cb, Height = 100, Width = 100 };
+            for (double x = 0; x <= imgWidth; x = x + widthCrop) {
 
-                Canvas cvImg = new Canvas();
-                cvImg.Children.Add(img);
-                cvImg.MouseLeftButtonDown += new MouseButtonEventHandler(Canvas_MouseLeftButtonDown);
-                cvImg.MouseLeftButtonUp += new MouseButtonEventHandler(Canvas_MouseLeftButtonUp);
-                cvImg.MouseMove += new MouseEventHandler(Canvas_MouseMove);
+                for (double y = 0; y <= imgHeight; y = y + heightCrop) {
 
-                canvasLoadImage.Children.Add(cvImg);
-            } catch (Exception) { MessageBox.Show("Error al trocear la imagen"); }
+                    try {
+
+                        int iX = (Int32)x; int iY = (Int32)y;
+                        cb = new CroppedBitmap(actualImgUrl, new Int32Rect(iX, iY, aX, aY));
+
+                        Image img = new Image { Source = cb, Height = cHeightCrop, Width = cWidthCrop };
+                        Canvas cvImg = new Canvas();
+                        cvImg.Children.Add(img);
+                        cvImg.MouseLeftButtonDown += new MouseButtonEventHandler(Canvas_MouseLeftButtonDown);
+                        cvImg.MouseLeftButtonUp += new MouseButtonEventHandler(Canvas_MouseLeftButtonUp);
+                        cvImg.MouseMove += new MouseEventHandler(Canvas_MouseMove);
+                        Canvas.SetLeft(cvImg, (x / widthCrop) * cWidthCrop);
+                        Canvas.SetTop(cvImg, (y / heightCrop) * cHeightCrop);
+                        Canvas.SetZIndex(cvImg, 0);
+
+                        canvasLoadImage.Children.Add(cvImg);
+                    } catch (Exception) {}
+                }
+            }
         }
 
         // Boton limpiar imagenes
@@ -105,6 +118,8 @@ namespace _18_crop_an_image {
         private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
 
             Canvas layer1 = sender as Canvas;
+
+            Canvas.SetZIndex(layer1, 1);
             if (layer1 != null) { layer1.CaptureMouse(); }
         }
 
@@ -123,7 +138,7 @@ namespace _18_crop_an_image {
             if (layer1 != null && layer1.IsMouseCaptured) {
 
                 currentPoint = e.GetPosition(this);
-                Canvas.SetLeft(layer1, currentPoint.X);
+                Canvas.SetLeft(layer1, (currentPoint.X - ((int)spBotonera.ActualWidth + 10)));
                 Canvas.SetTop(layer1, currentPoint.Y);
             }
         }
