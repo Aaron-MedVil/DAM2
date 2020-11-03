@@ -12,6 +12,16 @@
         <Style TargetType="MenuItem">
             <Setter Property="Padding" Value="5" />
         </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Margin" Value="5, 0, 0, 0" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
     </Window.Resources>
     
     <!-- Interfaz -->
@@ -43,6 +53,15 @@
                 <MenuItem Header="Negrita" />
                 <MenuItem Header="Cursiva" />
                 <MenuItem Header="Subrayado" />
+                <Separator />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Tamaño texto</TextBlock>
+                    <ComboBox x:Name="cbFontSize" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Fuente</TextBlock>
+                    <ComboBox x:Name="cbFontType" />
+                </StackPanel>
             </MenuItem>
 
             <!-- Varios -->
@@ -50,10 +69,11 @@
                 <MenuItem Header="Corrección ortográfica" />
                 <MenuItem Header="Ayuda" />
                 <MenuItem Header="Buscar y reemplazar" />
+                <MenuItem Header="Pantalla completa" Click="pantallaCompleta" x:Name="miFullScreen" />
             </MenuItem>
 
             <!-- Finalizar -->
-            <MenuItem x:Name="miItemFinalizar" Header="Finalizar" />
+            <MenuItem x:Name="miItemFinalizar" Header="Finalizar" Click="endProgram" />
         </Menu>
     </StackPanel>
 </Window>
