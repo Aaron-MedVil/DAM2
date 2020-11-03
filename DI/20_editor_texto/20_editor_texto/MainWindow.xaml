@@ -5,23 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_20_editor_texto"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="800" WindowState="Maximized">
-    <Grid>
-        
-        <!-- Toolbar -->
-        <ToolBar x:Name="tb" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}">
-            <ToolBar.VerticalAlignment>Top</ToolBar.VerticalAlignment>
-            <ToolBar.Height>30</ToolBar.Height>
-            
-            <!-- Menu fichero -->
-            <Menu Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToolBar}}, Path=ActualHeight}">
-                <Menu.Width>Auto</Menu.Width>
+        Title="Editor de texto" MinHeight="450" MinWidth="800" WindowState="Maximized">
+    
+    <!-- Recursos -->
+    <Window.Resources>
+        <Style TargetType="MenuItem">
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </Window.Resources>
+    
+    <!-- Interfaz -->
+    <StackPanel>
+           
+        <!-- Menu superior -->
+        <Menu>
+            <Menu.Height>Auto</Menu.Height>
+            <Menu.Width>
+                <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}" />
+            </Menu.Width>
 
-                <!-- Fichero -->
-                <MenuItem x:Name="mitemFichero" Header="_Fichero">
-                    <MenuItem Header="_Abrir"></MenuItem>
-                </MenuItem>
-            </Menu>
-        </ToolBar>
-    </Grid>
+            <!-- Fichero -->
+            <MenuItem x:Name="mitemFichero" Header="_Fichero">
+                <MenuItem Header="_Abrir" />
+                <MenuItem Header="_Grabar" />
+                <MenuItem Header="_Imprimir" />
+            </MenuItem>
+
+            <!-- Formato -->
+            <MenuItem x:Name="miItemFormato" Header="_Formato">
+                <MenuItem Header="Cortar" />
+                <MenuItem Header="Copiar" />
+                <MenuItem Header="Pegar" />
+            </MenuItem>
+
+            <!-- Edicion -->
+            <MenuItem x:Name="miItemEdicion" Header="_Edición">
+                <MenuItem Header="Negrita" />
+                <MenuItem Header="Cursiva" />
+                <MenuItem Header="Subrayado" />
+            </MenuItem>
+
+            <!-- Varios -->
+            <MenuItem x:Name="miItemVarios" Header="_Varios">
+                <MenuItem Header="Corrección ortográfica" />
+                <MenuItem Header="Ayuda" />
+                <MenuItem Header="Buscar y reemplazar" />
+            </MenuItem>
+
+            <!-- Finalizar -->
+            <MenuItem x:Name="miItemFinalizar" Header="Finalizar" />
+        </Menu>
+    </StackPanel>
 </Window>
