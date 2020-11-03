@@ -9,12 +9,12 @@
     <Grid>
         
         <!-- Toolbar -->
-        <ToolBar x:Name="tb" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}},Path=ActualWidth}">
+        <ToolBar x:Name="tb" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}">
             <ToolBar.VerticalAlignment>Top</ToolBar.VerticalAlignment>
             <ToolBar.Height>30</ToolBar.Height>
             
             <!-- Menu fichero -->
-            <Menu Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToolBar}},Path=ActualHeight}">
+            <Menu Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToolBar}}, Path=ActualHeight}">
                 <Menu.Width>Auto</Menu.Width>
 
                 <!-- Fichero -->
