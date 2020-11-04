@@ -85,7 +85,7 @@ namespace _18_crop_an_image {
                         int iX = (Int32)x; int iY = (Int32)y;
                         cb = new CroppedBitmap(actualImgUrl, new Int32Rect(iX, iY, aX, aY));
 
-                        Image img = new Image { Source = cb, Height = cHeightCrop, Width = cWidthCrop };
+                        Image img = new Image { Source = cb, Height = cHeightCrop, Width = cWidthCrop, Stretch = Stretch.Fill };
                         Canvas cvImg = new Canvas();
                         cvImg.Children.Add(img);
                         cvImg.MouseLeftButtonDown += new MouseButtonEventHandler(Canvas_MouseLeftButtonDown);
