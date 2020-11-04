@@ -2,11 +2,15 @@ package com.example.a09_listview_perso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lvVecinos;
     private List<Vecino> lVecinos;
@@ -26,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
         lVecinos.add(new Vecino("Salamanca", "Casa de las conchas", R.drawable.conchas));
 
         MiAdaptadorVecinos adaptadorVecinos = new MiAdaptadorVecinos(this, R.layout.vecinos_item, lVecinos);
-        // lVecinos.setAdapter(adaptadorVecinos);
+        lvVecinos.setAdapter(adaptadorVecinos);
+
+        lvVecinos.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Vecino vec = lVecinos.get(position);
+
+        Toast.makeText(this, "Nombre: " + vec.getNombre(), Toast.LENGTH_SHORT).show();
     }
 }

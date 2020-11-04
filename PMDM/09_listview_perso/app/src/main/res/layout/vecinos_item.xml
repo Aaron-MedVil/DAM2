@@ -4,35 +4,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ImageView
         android:id="@+id/imagenVecino"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nombreVecino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
         android:text="Nombre vecino"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imagenVecino"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/imagenVecino"
+        app:layout_constraintTop_toTopOf="@id/imagenVecino" />
 
     <TextView
         android:id="@+id/descripcionvecino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripcion"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/nombreVecino"
         app:layout_constraintTop_toBottomOf="@+id/nombreVecino" />
 </androidx.constraintlayout.widget.ConstraintLayout>
