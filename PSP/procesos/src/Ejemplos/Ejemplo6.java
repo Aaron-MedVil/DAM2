@@ -1,3 +1,6 @@
+// Para ejecutarlo primero lo compilamos con el comando "javac Ejemplos/Ejemplo6.java"
+// Despues lo ejecutamos desde la carpeta src con el comando "java Ejemplos/Ejemplo6"
+
 package Ejemplos;
 
 import java.util.List;
