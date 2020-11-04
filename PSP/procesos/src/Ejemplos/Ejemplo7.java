@@ -1,3 +1,6 @@
+// Para ejecutarlo primero lo compilamos con el comando "javac Ejemplos/Ejemplo7.java"
+// Despues ejecutamos desde la carpeta src el comando "java Ejemplos/Ejemplo7"
+
 package Ejemplos;
 
 import java.io.BufferedReader;
