@@ -1,10 +1,11 @@
 package Ejemplos;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Ejemplo8 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		// Creamos la instancia de la clase ProcessBuilder y le pasamos por parametros el comando
 		ProcessBuilder pb = new ProcessBuilder("CMD", "/C", "DIR");
@@ -14,5 +15,6 @@ public class Ejemplo8 {
 		
 		pb.redirectOutput(fOut);
 		pb.redirectError(fErr);
+		pb.start();
 	}
 }
