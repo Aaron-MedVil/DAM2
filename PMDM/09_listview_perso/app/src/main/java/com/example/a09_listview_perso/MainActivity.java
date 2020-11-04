@@ -37,9 +37,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        Vecino vec = lVecinos.get(position);
-
-        Toast.makeText(this, "Nombre: " + vec.getNombre(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Nombre: " + lVecinos.get(position).getNombre(), Toast.LENGTH_SHORT).show();
     }
 }
