@@ -29,7 +29,7 @@ public class Ejemplo4 {
 			try {
 				
 				// Se utilizan las siguientes clases para escribir lo obtenido con el comando en el fichero
-				FileOutputStream fos = new FileOutputStream(args[0]);
+				FileOutputStream fos = new FileOutputStream("Resources\\" + args[0]);
 				PrintWriter pw = new PrintWriter(fos);
 				p = r.exec(comando);
 				
