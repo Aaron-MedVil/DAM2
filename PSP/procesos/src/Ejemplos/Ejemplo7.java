@@ -26,11 +26,11 @@ public class Ejemplo7 {
 			
 			// Leemos cada linea del buffer y lo visualizamos
 			String linea;
-			
 			while( (linea = br.readLine()) != null ) {
 				System.out.println(linea);
 			}
 			
+			// Cerramos el flujo de datos
 			br.close();
 		} catch (Exception e) { e.printStackTrace(); }
 	}
