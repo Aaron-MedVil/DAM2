@@ -29,7 +29,7 @@ public class Ejemplo5 {
 			try {
 				
 				// Abrimos el flujo para crear un fichero(El nombre del fichero es el especificado en los argumentos)
-				FileOutputStream fos = new FileOutputStream(args[0]);
+				FileOutputStream fos = new FileOutputStream("Resources\\" + args[0]);
 				
 				// Abre el flujo para escribir en el fichero creado caracter a caracter
 				PrintWriter pw = new PrintWriter(fos);
