@@ -12,7 +12,7 @@ public class UsaHilo {
 		
 		for (int i = 0; i < 5; i++) {
 			
-			System.out.println("Fuera del hilo");
+			System.out.println("Fuera del hilo " + i);
 		}
 	}
 }

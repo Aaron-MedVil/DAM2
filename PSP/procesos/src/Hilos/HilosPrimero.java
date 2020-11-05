@@ -6,7 +6,7 @@ public class HilosPrimero extends Thread {
 		
 		for (int i = 0; i < 5; i++) {
 			
-			System.out.println("Dentro del hilo");
+			System.out.println("Dentro del hilo " + i);
 		}
 	}
 }
