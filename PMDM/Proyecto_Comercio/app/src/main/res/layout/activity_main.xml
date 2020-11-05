@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/lvComercios"
+        android:id="@+id/lvProductos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
