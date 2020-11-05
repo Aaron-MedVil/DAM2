@@ -13,7 +13,7 @@ namespace _20_editor_texto {
             fillMenuComboBox();
 
             // Asigna un evento cuando se pulsa una tecla
-            // this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         // Rellena la informacion de lo ComboBox del menu
@@ -41,10 +41,16 @@ namespace _20_editor_texto {
             cajaTexto.FontSize = (int)cbFontSize.SelectedItem;
         }
 
-        // Funcion para cerrar la aplicacion
-        private void endProgram(object sender, RoutedEventArgs e) => Close();
-
         // Funcion para cerrar la aplicacion con el boton escape
         private void HandleEsc(object sender, KeyEventArgs e) { if (e.Key == Key.Escape) { Close(); } }
+
+
+        public void cutCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
+        public void cupyCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
+        public void pasteCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
+
+        private void cutExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
+        private void cupyExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
+        private void pasteExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
     }
 }

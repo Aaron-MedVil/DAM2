@@ -17,3 +17,6 @@ D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_edi
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.dll
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.pdb
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.genruntimeconfig.cache
+D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.csproj.CopyComplete
