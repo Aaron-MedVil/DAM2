@@ -1,3 +1,5 @@
+/.gitignore
 Resources/
 Ejemplos/*.class
-/.gitignore
+Hilos/*.class
+/Hilos/
