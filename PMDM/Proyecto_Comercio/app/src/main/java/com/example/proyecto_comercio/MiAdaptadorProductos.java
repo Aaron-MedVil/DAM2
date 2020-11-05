@@ -19,6 +19,7 @@ public class MiAdaptadorProductos extends ArrayAdapter<Producto> {
     int layoutProducto;
     List<Producto> productosList;
 
+    // Constructor de mi adaptador de productos
     public MiAdaptadorProductos(@NonNull Context context, int resource, @NonNull List<Producto> objects) {
         super(context, resource, objects);
 
@@ -27,12 +28,13 @@ public class MiAdaptadorProductos extends ArrayAdapter<Producto> {
         this.productosList = objects;
     }
 
+    // Obtiene la informacion del producto y genera el layout
     @NonNull @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View v = LayoutInflater.from(contexto).inflate(layoutProducto, parent, false);
 
-        // Obtenemos la posicion del vecino
+        // Obtenemos la posicion del producto
         Producto elementoProducto = productosList.get(position);
 
         // Asignamos las variable a los elementos del layout que hemos creado
