@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">10_internacionalizacion</string>
+    <string name="app_name">Internacionalizacion</string>
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="button">Acceso</string>
