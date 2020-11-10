@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Usuario -->
     <EditText
         android:hint="@string/user"
         android:id="@+id/userLogin"
@@ -21,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:importantForAutofill="no" />
 
-    <!-- Password -->
+    <!-- Contraseña -->
     <EditText
         android:hint="@string/password"
         android:id="@+id/passwordLogin"
