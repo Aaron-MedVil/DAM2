@@ -104,7 +104,7 @@
             <!-- Varios -->
             <MenuItem x:Name="miItemVarios" Header="_Varios">
                 <MenuItem Header="Corrección ortográfica" />
-                <MenuItem Header="Ayuda" />
+                <MenuItem Header="Ayuda" Click="ejecutarAyuda" />
                 <MenuItem Header="Buscar y reemplazar" />
                 <MenuItem Header="Pantalla completa" Click="pantallaCompleta" x:Name="miFullScreen" />
             </MenuItem>

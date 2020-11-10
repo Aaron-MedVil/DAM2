@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Tracing;
+﻿using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -44,7 +45,18 @@ namespace _20_editor_texto {
         // Funcion para cerrar la aplicacion con el boton escape
         private void HandleEsc(object sender, KeyEventArgs e) { if (e.Key == Key.Escape) { Close(); } }
 
+        // Ejecuta un documento que seleccionemos
+        private void ejecutarAyuda(object sender, RoutedEventArgs e) {
 
+            string ruta = @"D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\bin\Debug\netcoreapp3.1\resources\ago_doc.pdf";
+
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo($"{ruta}") { UseShellExecute = true };
+            p.Start();
+        }
+
+
+        // Commands
         public void cutCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
         public void cupyCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
         public void pasteCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
