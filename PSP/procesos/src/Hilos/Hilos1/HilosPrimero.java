@@ -1,4 +1,4 @@
-package Hilos;
+package Hilos.Hilos1;
 
 public class HilosPrimero extends Thread {
 	

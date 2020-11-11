@@ -1,7 +1,7 @@
 // Para ejecutar primero compilamos la aplicacion desde la carpeta src con el comando "javac Hilos/UsaHilo.java"
 // Despues ejecutamos la aplicacion desde la carpeta src con el comando "java Hilos/UsaHilo"
 
-package Hilos;
+package Hilos.Hilos1;
 
 public class UsaHilo {
 
