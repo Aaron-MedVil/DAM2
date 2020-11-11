@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">11_fragmento_estatico</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_fragment_1">Fragmento 1</string>
+    <string name="text_fragment_2">Fragmento 2</string>
+</resources>
