@@ -1,0 +1,97 @@
+﻿<Window x:Class="_22_buscar_reemplazar_listerBox.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_buscar_reemplazar_listerBox"
+        mc:Ignorable="d"
+        MinWidth="400" MinHeight="200"
+        MaxHeight="450" MaxWidth="800"
+        WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
+
+    <!-- Recursos -->
+    <Window.Resources>
+        
+        <!-- Botones accion -->
+        <Style x:Key="btnActions" TargetType="Button">
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="Width" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="Aqua">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Label texto a buscar -->
+        <Label>
+            <Grid.Column>0</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <Label.Content>Texto a buscar</Label.Content>
+            <Label.HorizontalAlignment>Left</Label.HorizontalAlignment>
+            <Label.VerticalAlignment>Top</Label.VerticalAlignment>
+        </Label>
+
+        <!-- Label sustituir -->
+        <Label>
+            <Grid.Column>1</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <Label.Content>Sustituir</Label.Content>
+            <Label.HorizontalAlignment>Left</Label.HorizontalAlignment>
+            <Label.VerticalAlignment>Top</Label.VerticalAlignment>
+        </Label>
+
+        <!-- TextBox texto a buscar -->
+        <TextBox x:Name="palabraAbuscar">
+            <Grid.Column>0</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <TextBox.HorizontalAlignment>Left</TextBox.HorizontalAlignment>
+            <TextBox.VerticalAlignment>Top</TextBox.VerticalAlignment>
+            <TextBox.TextWrapping>Wrap</TextBox.TextWrapping>
+            <TextBox.Width>120</TextBox.Width>
+        </TextBox>
+
+        <!-- TextBox sustituir -->
+        <TextBox x:Name="PalabraCambio">
+            <Grid.Column>1</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <TextBox.HorizontalAlignment>Left</TextBox.HorizontalAlignment>
+            <TextBox.VerticalAlignment>Top</TextBox.VerticalAlignment>
+            <TextBox.TextWrapping>Wrap</TextBox.TextWrapping>
+            <TextBox.Width>120</TextBox.Width>
+        </TextBox>
+
+        <!-- Botonera -->
+        <Grid x:Name="gridBotonera">
+            <Grid.Row>1</Grid.Row>
+            <Grid.ColumnSpan>2</Grid.ColumnSpan>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Boton cancelar -->
+            <Button x:Name="Cancelar" Style="{StaticResource btnActions}" Click="Button_Click_Close">
+                <Grid.Column>0</Grid.Column>
+                <Button.Content>Cancelar</Button.Content>
+            </Button>
+
+            <!-- Boton ejecutar -->
+            <Button x:Name="Ejecutar" Style="{StaticResource btnActions}" Click="Button_Click_Close">
+                <Grid.Column>1</Grid.Column>
+                <Button.Content>Ejecutar</Button.Content>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

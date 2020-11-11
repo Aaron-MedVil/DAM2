@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_22_buscar_reemplazar_listerBox"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        MinHeight="450" MinWidth="800"
+        WindowState="Maximized">
+    
     <Grid>
+        
+        <ToolBar HorizontalAlignment="Center" Height="34" VerticalAlignment="Top" Width="800">
+            <Button Content="Buscar y reemplazar" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click"/>
 
+        </ToolBar>
+        <RichTextBox Margin="0,39,0,0" x:Name="CuadroTexto">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </Window>
