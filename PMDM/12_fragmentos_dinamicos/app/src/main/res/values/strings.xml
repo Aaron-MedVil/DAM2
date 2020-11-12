@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">12_fragmentos_dinamicos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Fragments -->
+    <string name="redFragment">Fragmento rojo</string>
+    <string name="greenFragment">Fragmento verde</string>
+    <string name="initialFragment">Bienvenido</string>
+
+    <!-- Buttons -->
+    <string name="btnRed">Rojo</string>
+    <string name="btnGreen">Verde</string>
 </resources>
