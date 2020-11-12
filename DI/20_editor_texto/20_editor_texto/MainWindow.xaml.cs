@@ -3,15 +3,22 @@ using System.Diagnostics.Tracing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
 
 namespace _20_editor_texto {
 
     public partial class MainWindow : Window {
 
+        Colors c = new Colors();
+        BrushConverter bc = new BrushConverter();
+        string theme = "light";
+
         public MainWindow() {
 
             InitializeComponent();
             fillMenuComboBox();
+            setTheme();
 
             // Asigna un evento cuando se pulsa una tecla
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
@@ -55,14 +62,24 @@ namespace _20_editor_texto {
             p.Start();
         }
 
+        // Llama al metodo para cambiar el tema
+        private void changeTheme(object sender, RoutedEventArgs e) => setTheme();
 
-        // Commands
-        public void cutCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
-        public void cupyCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
-        public void pasteCanExecuted(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
+        // Cambia el tema de la aplicacion
+        private void setTheme() {
 
-        private void cutExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
-        private void cupyExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
-        private void pasteExecuted(object sender, ExecutedRoutedEventArgs e) => MessageBox.Show("Se esta ejecutando");
+            switch (theme) {
+                case "light":
+                    miChangeEditorBackground.Header = "Modo noche";
+                    this.Background = (Brush)bc.ConvertFrom(c.light());
+                    theme = "dark";
+                    break;
+                default:
+                    miChangeEditorBackground.Header = "Modo día";
+                    this.Background = (Brush)bc.ConvertFrom(c.dark());
+                    theme = "light";
+                    break;
+            }
+        }
     }
 }
