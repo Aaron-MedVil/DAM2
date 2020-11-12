@@ -29,13 +29,24 @@
         </Style>
 
         <!-- Comandos personalizados -->
-        <RoutedUICommand x:Key="nuevoDocumento">
+        <RoutedUICommand x:Key="nuevoDocumento" Text="">
             <RoutedUICommand.InputGestures>
-                <KeyGesture>CTRL+SHIFT+N</KeyGesture>
+                <KeyGesture>CTRL+N</KeyGesture>
             </RoutedUICommand.InputGestures>
-            <RoutedUICommand.Text>Genera un documento en blanco</RoutedUICommand.Text>
+        </RoutedUICommand>
+
+        <RoutedUICommand x:Key="guardarDocumento" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+S</KeyGesture>
+            </RoutedUICommand.InputGestures>
         </RoutedUICommand>
     </Window.Resources>
+
+    <!-- Comandos -->
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource nuevoDocumento}" Executed="nuevoDocumento" />
+        <CommandBinding Command="{StaticResource guardarDocumento}" Executed="guardarDocumento" />
+    </Window.CommandBindings>
 
     <!-- Interfaz -->
     <Grid>
@@ -66,21 +77,21 @@
                             <mdt:PackIcon Kind="FileDocument" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    
+
+                    <!-- Guardar documento -->
+                    <MenuItem Header="_Guardar" Command="{StaticResource guardarDocumento}">
+                        <MenuItem.Icon>
+                            <mdt:PackIcon Kind="ContentSave" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
                     <!-- Abrir documento -->
                     <MenuItem Header="_Abrir">
                         <MenuItem.Icon>
                             <mdt:PackIcon Kind="FolderOpen" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    
-                    <!-- Guardar documento -->
-                    <MenuItem Header="_Guardar">
-                        <MenuItem.Icon>
-                            <mdt:PackIcon Kind="ContentSave" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    
+
                     <!-- Imprimir documento -->
                     <MenuItem Header="_Imprimir">
                         <MenuItem.Icon>

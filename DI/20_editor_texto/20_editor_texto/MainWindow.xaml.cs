@@ -1,10 +1,11 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.Tracing;
+﻿using Microsoft.Win32;
+using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
 
 namespace _20_editor_texto {
 
@@ -12,7 +13,8 @@ namespace _20_editor_texto {
 
         Colors c = new Colors();
         BrushConverter bc = new BrushConverter();
-        string theme = "light";
+        private string theme = "light";
+        private string? nomDocumento;
 
         public MainWindow() {
 
@@ -26,6 +28,9 @@ namespace _20_editor_texto {
 
         // Rellena la informacion de lo ComboBox del menu
         private void fillMenuComboBox() {
+
+            // Habilita el corrector ortografico
+            cajaTexto.SpellCheck.IsEnabled = true;
 
             // Rellena el ComboBox del tamaño de letra
             for (int i = 4; i < 72; i = i + 4) { cbFontSize.Items.Add(i); }
@@ -47,6 +52,7 @@ namespace _20_editor_texto {
         // Cambia las propiedades del texto
         private void cambiarPropiedadesTexto() {
             cajaTexto.FontSize = (int)cbFontSize.SelectedItem;
+            cajaTexto.FontFamily = new FontFamily("Comic Sans MS");
         }
 
         // Funcion para cerrar la aplicacion con el boton escape
@@ -81,5 +87,54 @@ namespace _20_editor_texto {
                     break;
             }
         }
+
+        // Crea un documento nuevo
+        private void nuevoDocumento(object sender, ExecutedRoutedEventArgs e) {
+
+            if (generarnuevoFichero(nomDocumento)) {
+
+                MessageBox.Show("Fichero guardado correctamente");
+                vaciarCajaTexto();
+                nomDocumento = null;
+            }
+            else { MessageBox.Show("Error al guardar el fichero"); }
+        }
+
+        // Guarda un documento
+        private void guardarDocumento(object sender, ExecutedRoutedEventArgs e) {
+
+            if (generarnuevoFichero(nomDocumento)) { MessageBox.Show("Fichero guardado correctamente"); }
+            else { MessageBox.Show("Error al guardar el fichero"); }
+        }
+
+        // Guarda un fichero nuevo
+        private bool generarnuevoFichero(string? nomdoc) {
+
+            if (nomdoc == "" || nomdoc == null) {
+
+                SaveFileDialog dlg = new SaveFileDialog {
+                    DefaultExt = ".rtf",
+                    Filter = "rtf (*.rtf)|*.rtf|txt (*.txt)|*.txt"
+                };
+
+                bool? result = dlg.ShowDialog();
+
+                if (result == true) {
+
+                    nomDocumento = dlg.FileName;
+                    File.WriteAllText(nomDocumento, new TextRange(cajaTexto.Document.ContentStart, cajaTexto.Document.ContentEnd).Text);
+
+                    return true;
+                } else { return false; }
+            }
+            else {
+
+                File.WriteAllText(nomdoc, new TextRange(cajaTexto.Document.ContentStart, cajaTexto.Document.ContentEnd).Text);
+                return true;
+            }
+        }
+
+        // Vacia el cajon de texto
+        private void vaciarCajaTexto() => cajaTexto.Document.Blocks.Clear();
     }
 }
