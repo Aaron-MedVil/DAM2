@@ -55,6 +55,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Menu superior -->
@@ -217,5 +218,8 @@
                 </FlowDocument>
             </RichTextBox>
         </Grid>
+        
+        <!-- Barra de informacion -->
+        <StackPanel Grid.Row="2"></StackPanel>
     </Grid>
 </Window>

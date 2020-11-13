@@ -12,6 +12,7 @@ namespace _20_editor_texto {
     public partial class MainWindow : Window {
 
         Colors c = new Colors();
+        GestDoc gestDoc = new GestDoc();
         BrushConverter bc = new BrushConverter();
         private string theme = "light";
         private string? nomDocumento;
@@ -94,7 +95,7 @@ namespace _20_editor_texto {
             if (generarnuevoFichero(nomDocumento)) {
 
                 MessageBox.Show("Fichero guardado correctamente");
-                vaciarCajaTexto();
+                gestDoc.vaciarCajaTexto();
                 nomDocumento = null;
             }
             else { MessageBox.Show("Error al guardar el fichero"); }
@@ -134,7 +135,6 @@ namespace _20_editor_texto {
             }
         }
 
-        // Vacia el cajon de texto
-        private void vaciarCajaTexto() => cajaTexto.Document.Blocks.Clear();
+        
     }
 }

@@ -1,0 +1,5 @@
+D:\Github\DAM2\DI\23_rw_json\23_rw_json\obj\Debug\netcoreapp3.1\23_rw_json.csprojAssemblyReference.cache
+D:\Github\DAM2\DI\23_rw_json\23_rw_json\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\Github\DAM2\DI\23_rw_json\23_rw_json\obj\Debug\netcoreapp3.1\App.g.cs
+D:\Github\DAM2\DI\23_rw_json\23_rw_json\obj\Debug\netcoreapp3.1\23_rw_json_MarkupCompile.cache
+D:\Github\DAM2\DI\23_rw_json\23_rw_json\obj\Debug\netcoreapp3.1\23_rw_json_MarkupCompile.lref

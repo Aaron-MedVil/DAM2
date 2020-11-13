@@ -1,0 +1,26 @@
+[
+  {
+    "Id_Articulo": 1,
+    "Descripcion": "Martillo",
+    "UrlImagen": "Imagenes/martillo.jpg",
+    "Stock": 10,
+    "StockMinimo": 1,
+    "TiempoFabricacionAcumulado": 1.30
+  },
+  {
+    "Id_Articulo": 2,
+    "Descripcion": "Alicate",
+    "UrlImagen": "Imagenes/alicate.jpg",
+    "Stock": 120,
+    "StockMinimo": 12,
+    "TiempoFabricacionAcumulado": 0.30
+  },
+  {
+    "Id_Articulo": 3,
+    "Descripcion": "Tornillo",
+    "UrlImagen": "Imagenes/tornillo.jpg",
+    "Stock": 200,
+    "StockMinimo": 100,
+    "TiempoFabricacionAcumulado": 0.10
+  }
+]

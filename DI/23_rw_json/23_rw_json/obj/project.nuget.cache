@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "b9viWNdkLjzYaEVjJCHsIJI7x7fLlQpLltI/LE35I7Z8pc8HEIuDJb/EmbbRK3ODXEt/3agzeebDaz76CsNnMA==",
+  "success": true,
+  "projectFilePath": "D:\\Github\\DAM2\\DI\\23_rw_json\\23_rw_json\\23_rw_json.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AMedi\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
