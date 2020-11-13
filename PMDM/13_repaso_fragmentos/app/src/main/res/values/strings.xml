@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">13_repaso_fragmentos</string>
+
+
+    <string name="txtFragmentElement1">Estás en el fragmento 1</string>
+    <string name="txtFragmentElement2">Estás en el fragmento 2</string>
+    <string name="txtFragmentElement3">Estás en el fragmento 3</string>
+</resources>
