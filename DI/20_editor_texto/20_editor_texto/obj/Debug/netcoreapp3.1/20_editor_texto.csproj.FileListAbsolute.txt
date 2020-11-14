@@ -8,7 +8,6 @@ D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_edi
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\App.g.cs
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto_MarkupCompile.cache
-D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto_MarkupCompile.lref
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\MainWindow.baml
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.g.resources
 D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\obj\Debug\netcoreapp3.1\20_editor_texto.AssemblyInfoInputs.cache

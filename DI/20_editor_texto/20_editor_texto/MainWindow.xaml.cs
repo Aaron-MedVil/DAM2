@@ -1,9 +1,5 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -11,20 +7,20 @@ namespace _20_editor_texto {
 
     public partial class MainWindow : Window {
 
-        Colors c = new Colors();
-        GestDoc gestDoc = new GestDoc();
-        BrushConverter bc = new BrushConverter();
+        GestDoc gestDoc;
+
         private string theme = "light";
-        private string? nomDocumento;
+        public string? nomDocumento;
 
-        public MainWindow() {
+        // Funcion para cargar los componentes de la ventana
+        public MainWindow() => InitializeComponent();
 
-            InitializeComponent();
+        // Funcion que se ejecuta cuando se carga la ventana
+        private void mainWindowOnLoad(object sender, RoutedEventArgs e) {
+
+            gestDoc = new GestDoc(this);
             fillMenuComboBox();
-            setTheme();
-
-            // Asigna un evento cuando se pulsa una tecla
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            theme = gestDoc.setTheme(theme);
         }
 
         // Rellena la informacion de lo ComboBox del menu
@@ -56,9 +52,6 @@ namespace _20_editor_texto {
             cajaTexto.FontFamily = new FontFamily("Comic Sans MS");
         }
 
-        // Funcion para cerrar la aplicacion con el boton escape
-        private void HandleEsc(object sender, KeyEventArgs e) { if (e.Key == Key.Escape) { Close(); } }
-
         // Ejecuta un documento que seleccionemos
         private void ejecutarAyuda(object sender, RoutedEventArgs e) {
 
@@ -70,71 +63,43 @@ namespace _20_editor_texto {
         }
 
         // Llama al metodo para cambiar el tema
-        private void changeTheme(object sender, RoutedEventArgs e) => setTheme();
+        private void changeTheme(object sender, RoutedEventArgs e) => theme = gestDoc.setTheme(theme);
 
-        // Cambia el tema de la aplicacion
-        private void setTheme() {
-
-            switch (theme) {
-                case "light":
-                    miChangeEditorBackground.Header = "Modo noche";
-                    this.Background = (Brush)bc.ConvertFrom(c.light());
-                    theme = "dark";
-                    break;
-                default:
-                    miChangeEditorBackground.Header = "Modo día";
-                    this.Background = (Brush)bc.ConvertFrom(c.dark());
-                    theme = "light";
-                    break;
-            }
-        }
-
-        // Crea un documento nuevo
+        // Evento que llama a la funcion para crear un evento nuevo
         private void nuevoDocumento(object sender, ExecutedRoutedEventArgs e) {
 
-            if (generarnuevoFichero(nomDocumento)) {
+            if (gestDoc.generarnuevoFichero(nomDocumento)) {
 
                 MessageBox.Show("Fichero guardado correctamente");
                 gestDoc.vaciarCajaTexto();
                 nomDocumento = null;
-            }
-            else { MessageBox.Show("Error al guardar el fichero"); }
+            } else { MessageBox.Show("Error al guardar el fichero"); }
         }
 
         // Guarda un documento
         private void guardarDocumento(object sender, ExecutedRoutedEventArgs e) {
 
-            if (generarnuevoFichero(nomDocumento)) { MessageBox.Show("Fichero guardado correctamente"); }
+            if (gestDoc.generarnuevoFichero(nomDocumento)) { MessageBox.Show("Fichero guardado correctamente"); }
             else { MessageBox.Show("Error al guardar el fichero"); }
         }
 
-        // Guarda un fichero nuevo
-        private bool generarnuevoFichero(string? nomdoc) {
+        // Funcion para cerrar la aplicacion con el boton escape
+        private void salirPrograma(object sender, ExecutedRoutedEventArgs e) => Close();
 
-            if (nomdoc == "" || nomdoc == null) {
+        // Evento que controla que se imprima correctamente el documento
+        private void imprimirDocumento(object sender, ExecutedRoutedEventArgs e) {
 
-                SaveFileDialog dlg = new SaveFileDialog {
-                    DefaultExt = ".rtf",
-                    Filter = "rtf (*.rtf)|*.rtf|txt (*.txt)|*.txt"
-                };
-
-                bool? result = dlg.ShowDialog();
-
-                if (result == true) {
-
-                    nomDocumento = dlg.FileName;
-                    File.WriteAllText(nomDocumento, new TextRange(cajaTexto.Document.ContentStart, cajaTexto.Document.ContentEnd).Text);
-
-                    return true;
-                } else { return false; }
-            }
-            else {
-
-                File.WriteAllText(nomdoc, new TextRange(cajaTexto.Document.ContentStart, cajaTexto.Document.ContentEnd).Text);
-                return true;
-            }
+            if (gestDoc.printDoc() == true) { MessageBox.Show("Documento impreso correctamente"); } else { MessageBox.Show("Error al imprimir el documento"); }
         }
 
-        
+        // Evento que controla que se abra correctamente un documento
+        private void abrirDocumento(object sender, ExecutedRoutedEventArgs e) {
+
+            if (gestDoc.openDoc(nomDocumento) == true) {
+
+                MessageBox.Show("Fichero abierto correctamente");
+                gestDoc.vaciarCajaTexto();
+            } else { MessageBox.Show("Error al abrir el documento"); }
+        }
     }
 }

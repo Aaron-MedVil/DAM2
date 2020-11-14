@@ -10,7 +10,7 @@ namespace _23_rw_json {
         private string descripcion, urlImagen;
         private float tiempoFabricacionAcumulado;
 
-        public int IdArticulo {
+        public int Id_Articulo {
             get => idArticulo;
             set => idArticulo = value;
         }

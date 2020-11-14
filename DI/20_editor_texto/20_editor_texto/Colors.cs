@@ -7,7 +7,6 @@ using System.Text;
 namespace _20_editor_texto {
 
     class Colors {
-
         public string dark() => "#292b2c";
         public string light() => "#f7f7f7";
         public string primary() => "#0275d8";
