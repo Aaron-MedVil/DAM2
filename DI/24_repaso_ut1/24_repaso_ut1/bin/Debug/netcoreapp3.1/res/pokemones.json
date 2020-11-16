@@ -1,0 +1,30 @@
+[
+	{
+		"nPokedex": "25",
+		"nombre": "Pikachu",
+		"Tipo1": "Eléctrico",
+		"Tipo2": "",
+		"imagen": "Pikachu.png"
+	},
+	{
+		"nPokedex": "04",
+		"nombre": "Charmander",
+		"Tipo1": "Fuego",
+		"Tipo2": "",
+		"imagen": "Charmander.png"
+	},
+	{
+		"nPokedex": "01",
+		"nombre": "Bulbasur",
+		"Tipo1": "Planta",
+		"Tipo2": "Veneno",
+		"imagen": "Bulbasur.png"
+	},
+	{
+		"nPokedex": "07",
+		"nombre": "Squirtle",
+		"Tipo1": "Agua",
+		"Tipo2": "",
+		"imagen": "Squirtle.png"
+	}
+]

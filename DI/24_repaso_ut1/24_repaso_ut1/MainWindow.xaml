@@ -1,0 +1,41 @@
+﻿<Window x:Class="_24_repaso_ut1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Repaso" Height="450" Width="800">
+    
+    <Window.Resources>
+
+        <Style TargetType="Button" x:Key="boton_para_heredar">
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="styleBtn1" BasedOn="{StaticResource boton_para_heredar}">
+            <Setter Property="Background" Value="Aquamarine"/>
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource boton_para_heredar}"></Style>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Boton 1 -->
+        <Button x:Name="btn1" Style="{StaticResource styleBtn1}" Click="btn1_Click">
+            <Button.Content>Abrir ventana 1</Button.Content>
+            <Grid.Column>0</Grid.Column>
+        </Button>
+        
+        <!-- Boton 2 -->
+        <Button x:Name="btn2" Click="btn2_Click">
+            <Button.Content>Abrir ventana 2</Button.Content>
+            <Grid.Column>1</Grid.Column>
+        </Button>
+    </Grid>
+</Window>
