@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -21,18 +23,24 @@ namespace _20_editor_texto {
             gestDoc = new GestDoc(this);
             fillMenuComboBox();
             theme = gestDoc.setTheme(theme);
+            cajaTexto.SpellCheck.IsEnabled = true;
         }
 
         // Rellena la informacion de lo ComboBox del menu
         private void fillMenuComboBox() {
 
-            // Habilita el corrector ortografico
-            cajaTexto.SpellCheck.IsEnabled = true;
-
             // Rellena el ComboBox del tamaño de letra
             for (int i = 4; i < 72; i = i + 4) { cbFontSize.Items.Add(i); }
             cbFontSize.Text = "20";
-            cambiarPropiedadesTexto();
+
+            // Rellena el ComboBox de la fuente
+            foreach (FontFamily fuente in Fonts.SystemFontFamilies) { cbFontType.Items.Add(fuente); }
+            cbFontType.Text = "Comic Sans MS";
+
+            // Asigna el default al editor
+            cajaTexto.FontSize = (int)cbFontSize.SelectedItem;
+            cajaTexto.FontFamily = new FontFamily(cbFontType.SelectedItem.ToString());
+            
         }
 
         // Funcion para poner la ventana en FullScreen
@@ -44,12 +52,6 @@ namespace _20_editor_texto {
             // Si la ventana esta en pantalla completa lo pone en ventana con marcos y viceversa
             WindowStyle = (WindowStyle.ToString() != "None") ? WindowStyle.None : WindowStyle.SingleBorderWindow;
             Hide(); Show();
-        }
-
-        // Cambia las propiedades del texto
-        private void cambiarPropiedadesTexto() {
-            cajaTexto.FontSize = (int)cbFontSize.SelectedItem;
-            cajaTexto.FontFamily = new FontFamily("Comic Sans MS");
         }
 
         // Ejecuta un documento que seleccionemos
@@ -79,8 +81,7 @@ namespace _20_editor_texto {
         // Guarda un documento
         private void guardarDocumento(object sender, ExecutedRoutedEventArgs e) {
 
-            if (gestDoc.generarnuevoFichero(nomDocumento)) { MessageBox.Show("Fichero guardado correctamente"); }
-            else { MessageBox.Show("Error al guardar el fichero"); }
+            if (gestDoc.generarnuevoFichero(nomDocumento)) { MessageBox.Show("Fichero guardado correctamente"); } else { MessageBox.Show("Error al guardar el fichero"); }
         }
 
         // Funcion para cerrar la aplicacion con el boton escape
@@ -100,6 +101,52 @@ namespace _20_editor_texto {
                 MessageBox.Show("Fichero abierto correctamente");
                 gestDoc.vaciarCajaTexto();
             } else { MessageBox.Show("Error al abrir el documento"); }
+        }
+
+        // Activa la corrección ortográfica en tiempo real 
+        private void toggleSpellCheck(object sender, RoutedEventArgs e) => cajaTexto.SpellCheck.IsEnabled = !cajaTexto.SpellCheck.IsEnabled;
+
+        // Activa/Desactiva la propiedad negrita del texto seleccionado
+        private void toggleBoldText(object sender, ExecutedRoutedEventArgs e) {
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+           
+            var propertyValue = rango.GetPropertyValue(TextElement.FontWeightProperty);
+           
+            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold); }
+            else { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal); }
+        }
+
+        // Activa/Desactiva la propiedad cursiva del texto seleccionado
+        private void toggleItalicText(object sender, ExecutedRoutedEventArgs e) {
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+
+            var propertyValue = rango.GetPropertyValue(TextElement.FontStyleProperty);
+
+            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic); }
+            else { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal); }
+        }
+
+        // Activa/Desactiva la propiedad subrayado del texto seleccionado
+        private void toggleUnderlineText(object sender, ExecutedRoutedEventArgs e) {
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+
+            var propertyValue = rango.GetPropertyValue(TextBlock.TextDecorationsProperty);
+
+            if (propertyValue.ToString() != "Baseline") { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, TextDecorations.Strikethrough); }
+            else { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, null); }
+        }
+
+        // Cambia el color del texto seleccionado
+        private void EventoColor(object sender, RoutedPropertyChangedEventArgs<Color?> e) {
+
+            Color coloruso = (Color)selectorColor.SelectedColor;
+            Brush mibrush = new SolidColorBrush(coloruso);
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+            rango.ApplyPropertyValue(TextElement.ForegroundProperty, mibrush);
         }
     }
 }

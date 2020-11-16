@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Microsoft.Win32.SafeHandles;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ namespace _20_editor_texto {
         private MainWindow mw;
         private Colors c = new Colors();
         private BrushConverter bc = new BrushConverter();
+        private SafeFileHandle nomDocumento;
 
         // Constructor de la clase
         public GestDoc(MainWindow mw) => this.mw = mw;
@@ -32,7 +34,12 @@ namespace _20_editor_texto {
                 if (dlg.ShowDialog() == true) {
 
                     mw.nomDocumento = dlg.FileName;
-                    File.WriteAllText(mw.nomDocumento, new TextRange(mw.cajaTexto.Document.ContentStart, mw.cajaTexto.Document.ContentEnd).Text);
+                    // File.WriteAllText(mw.nomDocumento, new TextRange(mw.cajaTexto.Document.ContentStart, mw.cajaTexto.Document.ContentEnd).Text);
+
+                    TextRange t = new TextRange(mw.cajaTexto.Document.ContentStart, mw.cajaTexto.Document.ContentEnd);
+                    FileStream file = new FileStream(mw.nomDocumento, FileMode.Create);
+                    t.Save(file, DataFormats.XamlPackage);
+                    file.Close();
 
                     return true;
                 } else { return false; }

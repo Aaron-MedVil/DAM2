@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mdt="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctkl="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="Editor de texto" MinHeight="450" MinWidth="800"
         WindowState="Maximized" Loaded="mainWindowOnLoad">
@@ -54,6 +55,21 @@
                 <KeyGesture>CTRL+P</KeyGesture>
             </RoutedUICommand.InputGestures>
         </RoutedUICommand>
+        <RoutedUICommand x:Key="toggleBoldText" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+K</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="toggleItalicText" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+I</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="toggleUnderlineText" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+U</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
     </Window.Resources>
 
     <!-- Comandos -->
@@ -63,6 +79,9 @@
         <CommandBinding Command="{StaticResource salirPrograma}" Executed="salirPrograma" />
         <CommandBinding Command="{StaticResource imprimirDocumento}" Executed="imprimirDocumento" />
         <CommandBinding Command="{StaticResource abrirDocumento}" Executed="abrirDocumento" />
+        <CommandBinding Command="{StaticResource toggleBoldText}" Executed="toggleBoldText" />
+        <CommandBinding Command="{StaticResource toggleItalicText}" Executed="toggleItalicText" />
+        <CommandBinding Command="{StaticResource toggleUnderlineText}" Executed="toggleUnderlineText" />
 
         <CommandBinding Command="ApplicationCommands.Cut" />
         <CommandBinding Command="ApplicationCommands.Copy" />
@@ -151,21 +170,21 @@
                 <MenuItem Header="_Edición">
                     
                     <!-- Negrita -->
-                    <MenuItem Header="Negrita">
+                    <MenuItem Header="Negrita" Command="{StaticResource toggleBoldText}">
                         <MenuItem.Icon>
                             <mdt:PackIcon Kind="FormatBold" />
                         </MenuItem.Icon>
                     </MenuItem>
                     
                     <!-- Cursiva -->
-                    <MenuItem Header="Cursiva">
+                    <MenuItem Header="Cursiva" Command="{StaticResource toggleItalicText}">
                         <MenuItem.Icon>
                             <mdt:PackIcon Kind="FormatItalic" />
                         </MenuItem.Icon>
                     </MenuItem>
                     
                     <!-- Subrayado -->
-                    <MenuItem Header="Subrayado">
+                    <MenuItem Header="Subrayado" Command="{StaticResource toggleUnderlineText}">
                         <MenuItem.Icon>
                             <mdt:PackIcon Kind="FormatUnderline" />
                         </MenuItem.Icon>
@@ -179,6 +198,9 @@
 
                     <!-- Font Family -->
                     <ComboBox x:Name="cbFontType" />
+                    
+                    <!-- Selector de color -->
+                    <xctkl:ColorPicker x:Name="selectorColor" SelectedColorChanged="EventoColor" />
                 </MenuItem>
                 
                 <!-- Ventana -->
@@ -203,7 +225,7 @@
                 <MenuItem x:Name="miItemVarios" Header="_Varios">
 
                     <!-- Correccion ortografica -->
-                    <MenuItem Header="Corrección ortográfica">
+                    <MenuItem Header="Corrección ortográfica" Click="toggleSpellCheck">
                         <MenuItem.Icon>
                             <mdt:PackIcon Kind="Dictionary" />
                         </MenuItem.Icon>
