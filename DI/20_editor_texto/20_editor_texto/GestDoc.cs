@@ -106,5 +106,75 @@ namespace _20_editor_texto {
                 return true;
             }
         }
+
+        public void changePropText(string? prop) {
+
+            if (prop != "" || prop != null) {
+
+                TextRange rango = new TextRange(mw.cajaTexto.Selection.Start, mw.cajaTexto.Selection.End);
+
+                switch (prop) {
+                    case "bold":
+                        var propertyValue = rango.GetPropertyValue(TextElement.FontWeightProperty);
+                        if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold); }
+                        else { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal); }
+                        break;
+                }
+
+                // bold
+                // italic
+                // underline
+                // color
+                // fontSize
+                // fontFamily
+
+                MessageBox.Show(prop);
+            } else { MessageBox.Show("Propiedad no definida"); }
+        }
     }
 }
+
+/*
+ * // Activa/Desactiva la propiedad negrita del texto seleccionado
+        private void toggleBoldText(object sender, ExecutedRoutedEventArgs e) {
+
+           
+           
+            var propertyValue = rango.GetPropertyValue(TextElement.FontWeightProperty);
+           
+            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold); }
+            else { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal); }
+        }
+
+        // Activa/Desactiva la propiedad cursiva del texto seleccionado
+        private void toggleItalicText(object sender, ExecutedRoutedEventArgs e) {
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+
+            var propertyValue = rango.GetPropertyValue(TextElement.FontStyleProperty);
+
+            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic); }
+            else { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal); }
+        }
+
+        // Activa/Desactiva la propiedad subrayado del texto seleccionado
+        private void toggleUnderlineText(object sender, ExecutedRoutedEventArgs e) {
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+
+            var propertyValue = rango.GetPropertyValue(TextBlock.TextDecorationsProperty);
+
+            if (propertyValue.ToString() != "Baseline") { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, TextDecorations.Strikethrough); }
+            else { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, null); }
+        }
+
+        // Cambia el color del texto seleccionado
+        private void EventoColor(object sender, RoutedPropertyChangedEventArgs<Color?> e) {
+
+            Color coloruso = (Color)selectorColor.SelectedColor;
+            Brush mibrush = new SolidColorBrush(coloruso);
+
+            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
+            rango.ApplyPropertyValue(TextElement.ForegroundProperty, mibrush);
+        }
+*/

@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -106,47 +104,20 @@ namespace _20_editor_texto {
         // Activa la corrección ortográfica en tiempo real 
         private void toggleSpellCheck(object sender, RoutedEventArgs e) => cajaTexto.SpellCheck.IsEnabled = !cajaTexto.SpellCheck.IsEnabled;
 
-        // Activa/Desactiva la propiedad negrita del texto seleccionado
-        private void toggleBoldText(object sender, ExecutedRoutedEventArgs e) {
 
-            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
-           
-            var propertyValue = rango.GetPropertyValue(TextElement.FontWeightProperty);
-           
-            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold); }
-            else { rango.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal); }
-        }
+
+
+
+        // Activa/Desactiva la propiedad negrita del texto seleccionado
+        private void toggleBoldText(object sender, ExecutedRoutedEventArgs e) => gestDoc.changePropText("bold");
 
         // Activa/Desactiva la propiedad cursiva del texto seleccionado
-        private void toggleItalicText(object sender, ExecutedRoutedEventArgs e) {
-
-            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
-
-            var propertyValue = rango.GetPropertyValue(TextElement.FontStyleProperty);
-
-            if (propertyValue.ToString() == "Normal") { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic); }
-            else { rango.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal); }
-        }
+        private void toggleItalicText(object sender, ExecutedRoutedEventArgs e) => gestDoc.changePropText("italic");
 
         // Activa/Desactiva la propiedad subrayado del texto seleccionado
-        private void toggleUnderlineText(object sender, ExecutedRoutedEventArgs e) {
-
-            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
-
-            var propertyValue = rango.GetPropertyValue(TextBlock.TextDecorationsProperty);
-
-            if (propertyValue.ToString() != "Baseline") { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, TextDecorations.Strikethrough); }
-            else { rango.ApplyPropertyValue(TextBlock.TextDecorationsProperty, null); }
-        }
+        private void toggleUnderlineText(object sender, ExecutedRoutedEventArgs e) => gestDoc.changePropText("underline");
 
         // Cambia el color del texto seleccionado
-        private void EventoColor(object sender, RoutedPropertyChangedEventArgs<Color?> e) {
-
-            Color coloruso = (Color)selectorColor.SelectedColor;
-            Brush mibrush = new SolidColorBrush(coloruso);
-
-            TextRange rango = new TextRange(cajaTexto.Selection.Start, cajaTexto.Selection.End);
-            rango.ApplyPropertyValue(TextElement.ForegroundProperty, mibrush);
-        }
+        private void EventoColor(object sender, RoutedPropertyChangedEventArgs<Color?> e) => gestDoc.changePropText("color");
     }
 }
