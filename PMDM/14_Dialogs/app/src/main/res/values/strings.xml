@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">14_Dialogs</string>
+
+    <string name="btnAlertDialog">Diálogo de alerta</string>
+    <string name="btnProgressDialog">Diálogo de progreso</string>
+    <string name="btnSimpleDialog">Diálogo simple</string>
+    <string name="btnListDialog">Diálogo de lista</string>
+    <string name="btnRadioButtonDialog">Diálogo radio button</string>
+    <string name="btnCheckedDialog">Diálogo checked</string>
+    <string name="btnPersoDialog">Diálogo personalizado</string>
+    <string name="btnDatePickerDialog">Diálogo date picker</string>
+    <string name="btnTimePickerDialog">Diálogo time picker</string>
 </resources>
