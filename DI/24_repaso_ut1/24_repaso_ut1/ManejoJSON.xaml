@@ -12,7 +12,9 @@
         <Style TargetType="TextBox" x:Key="spRegistros">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Width" Value="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
         <Style TargetType="StackPanel" x:Key="containerRegistros">
             <Setter Property="Orientation" Value="Horizontal"/>
@@ -37,7 +39,7 @@
         </DataGrid>
         
         <!-- Grid datos registro -->
-        <Grid x:Name="gridDatosRegistro" Visibility="Visible">
+        <Grid x:Name="gridDatosRegistro" Visibility="Hidden">
             <Grid.Margin>5</Grid.Margin>
             <Grid.Column>1</Grid.Column>
             <Grid.ColumnDefinitions>
@@ -48,37 +50,37 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <!-- Datos del registro -->
             <StackPanel>
                 <Grid.Column>0</Grid.Column>
                 <Grid.Row>0</Grid.Row>
-                
+
                 <!-- Numero pokedex -->
                 <StackPanel Style="{StaticResource containerRegistros}">
-                    <Label>Nº Pokedex:</Label>
+                    <Label FontWeight="Bold">Nº Pokedex:</Label>
                     <TextBox x:Name="nPokedexRegistro" Style="{StaticResource spRegistros}"/>
                 </StackPanel>
-                
+
                 <!-- Nombre -->
                 <StackPanel Style="{StaticResource containerRegistros}">
-                    <Label>Nombre:</Label>
+                    <Label FontWeight="Bold">Nombre:</Label>
                     <TextBox x:Name="nombreRegistro" Style="{StaticResource spRegistros}"/>
                 </StackPanel>
-                
+
                 <!-- Tipo 1 -->
                 <StackPanel Style="{StaticResource containerRegistros}">
-                    <Label>Tipo 1:</Label>
+                    <Label FontWeight="Bold">Tipo 1:</Label>
                     <TextBox x:Name="tipo1Registro" Style="{StaticResource spRegistros}"/>
                 </StackPanel>
-                
+
                 <!-- Tipo 2 -->
                 <StackPanel Style="{StaticResource containerRegistros}">
-                    <Label>Tipo 2:</Label>
+                    <Label FontWeight="Bold">Tipo 2:</Label>
                     <TextBox x:Name="tipo2Registro" Style="{StaticResource spRegistros}"/>
                 </StackPanel>
             </StackPanel>
-            
+
             <!-- Imagen del registro -->
             <Border>
                 <Border.BorderBrush>#000</Border.BorderBrush>
@@ -87,6 +89,19 @@
                 <Grid.Row>0</Grid.Row>
                 <Grid x:Name="imgRegistro"/>
             </Border>
+            
+            <!-- Botonera de los registros -->
+            <StackPanel>
+                <Grid.Row>1</Grid.Row>
+                <Grid.ColumnSpan>2</Grid.ColumnSpan>
+                
+                <!-- Boton cerrar -->
+                <Button Click="cerrarRegistro">
+                    <Button.Margin>10, 25, 10, 0</Button.Margin>
+                    <Button.Content>Cerrar registro</Button.Content>
+                    <Button.Height>50</Button.Height>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

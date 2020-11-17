@@ -17,7 +17,9 @@ namespace _24_repaso_ut1 {
 
         public ManejoJSON() => InitializeComponent();
 
-        // Abrir un fichero JSON y mostrarlo en un DataGrid
+        /// <summary>Abrir un fichero JSON y mostrarlo en un DataGrid</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
             string filemone = Environment.CurrentDirectory + "/res/pokemones.json";
@@ -27,8 +29,12 @@ namespace _24_repaso_ut1 {
             dgJson.ItemsSource = ListaPokemones;
         }
 
-        // Muestra los datos de la fila seleccionada
+        /// <summary>Muestra los datos de la fila seleccionada</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
         private void mostrarDatosPokemon(object sender, MouseButtonEventArgs e) {
+
+            clearDataGridRegistros();
 
             // Obtiene los datos de la columna que hemos seleccionado
             DataGrid dg = sender as DataGrid;
@@ -42,6 +48,8 @@ namespace _24_repaso_ut1 {
 
             // Crea la imagen y la agrega al grid de la imagen
             imgRegistro.Children.Add(new Image { Source = bi, Stretch = Stretch.Fill });
+
+            // Obtiene los valores del registro seleccionado y los muestra
             nPokedexRegistro.Text = registro.NPokedex;
             nombreRegistro.Text = registro.Nombre;
             tipo1Registro.Text = registro.Tipo1;
@@ -49,6 +57,25 @@ namespace _24_repaso_ut1 {
 
             // Muestra el grid
             gridDatosRegistro.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>Limpia los datos de los registros</summary>
+        private void clearDataGridRegistros() {
+
+            imgRegistro.Children.Clear();
+            nPokedexRegistro.Text = "";
+            nombreRegistro.Text = "";
+            tipo1Registro.Text = "";
+            tipo2Registro.Text = "";
+        }
+
+        /// <summary>Cierra los datos del registro</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
+        private void cerrarRegistro(object sender, RoutedEventArgs e) {
+
+            clearDataGridRegistros();
+            gridDatosRegistro.Visibility = Visibility.Hidden;
         }
     }
 }
