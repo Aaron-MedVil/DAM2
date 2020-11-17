@@ -25,5 +25,8 @@
         </DataGrid>
         
         <!-- Grid datos registro -->
+        <Grid>
+            <Grid.Column>1</Grid.Column>
+        </Grid>
     </Grid>
 </Window>
