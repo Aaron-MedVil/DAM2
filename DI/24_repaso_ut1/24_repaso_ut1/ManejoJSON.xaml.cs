@@ -7,6 +7,8 @@ using System;
 using System.Reflection.Metadata;
 using System.Windows.Input;
 using System.Windows.Controls;
+using System.Collections;
+using System.Data;
 
 namespace _24_repaso_ut1 {
 
@@ -26,6 +28,12 @@ namespace _24_repaso_ut1 {
             dgJson.ItemsSource = ListaPokemones;
         }
 
-        private void mostrarDatosPokemon(object sender, MouseButtonEventArgs e) {}
+        // Muestra los datos de la fila seleccionada
+        private void mostrarDatosPokemon(object sender, MouseButtonEventArgs e) {
+
+            DataGrid dg = sender as DataGrid;
+            Pokemones row = (Pokemones)dgJson.SelectedItems[0];
+            MessageBox.Show(row.NPokedex);
+        }
     }
 }

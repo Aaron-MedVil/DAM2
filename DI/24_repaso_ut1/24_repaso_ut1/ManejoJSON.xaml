@@ -14,12 +14,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dgJson" ItemsSource="{Binding Pokemones}" MouseLeftButtonDown="mostrarDatosPokemon">
+        <!-- Tabla -->
+        <DataGrid x:Name="dgJson" ItemsSource="{Binding Pokemones}" MouseLeftButtonUp="mostrarDatosPokemon">
             <DataGrid.AutoGenerateColumns>False</DataGrid.AutoGenerateColumns>
+            <DataGrid.CanUserAddRows>false</DataGrid.CanUserAddRows>
             <Grid.Column>0</Grid.Column>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre del Pokemon" Width="*" Binding="{Binding Nombre}" />
             </DataGrid.Columns>
         </DataGrid>
+        
+        <!-- Grid datos registro -->
     </Grid>
 </Window>
