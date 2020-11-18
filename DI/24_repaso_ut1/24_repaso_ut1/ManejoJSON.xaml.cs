@@ -15,6 +15,7 @@ namespace _24_repaso_ut1 {
         List<Pokemones> ListaPokemones = new List<Pokemones>();
         String urlImg = Environment.CurrentDirectory + "/res/Pokemons/";
 
+        /// <summary>Funcion main</summary>
         public ManejoJSON() => InitializeComponent();
 
         /// <summary>Abrir un fichero JSON y mostrarlo en un DataGrid</summary>
@@ -37,8 +38,8 @@ namespace _24_repaso_ut1 {
             clearDataGridRegistros();
 
             // Obtiene los datos de la columna que hemos seleccionado
-            DataGrid dg = sender as DataGrid;
-            Pokemones registro = (Pokemones)dgJson.SelectedItems[0];
+            DataGrid dg = (DataGrid)sender;
+            Pokemones registro = (Pokemones)dg.SelectedItems[0];
 
             // Crea un bitmap con la imagen del registro seleccionado
             BitmapImage bi = new BitmapImage();

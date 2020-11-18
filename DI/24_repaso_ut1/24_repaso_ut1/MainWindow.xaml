@@ -5,18 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Repaso" Height="450" Width="800">
-    
-    <Window.Resources>
 
+    <Window.Resources>
         <Style TargetType="Button" x:Key="boton_para_heredar">
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="300"/>
         </Style>
-
         <Style TargetType="Button" x:Key="styleBtn1" BasedOn="{StaticResource boton_para_heredar}">
             <Setter Property="Background" Value="Aquamarine"/>
         </Style>
-
         <Style TargetType="Button" BasedOn="{StaticResource boton_para_heredar}"></Style>
     </Window.Resources>
     <Grid>

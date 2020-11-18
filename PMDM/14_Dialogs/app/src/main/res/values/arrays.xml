@@ -7,4 +7,13 @@
         <item>Edge</item>
         <item>Internet Explorer</item>
     </array>
+
+    <array name="idiomas">
+        <item>Español</item>
+        <item>Inglés</item>
+        <item>Portugues</item>
+        <item>Francés</item>
+        <item>Alemán</item>
+        <item>Italiano</item>
+    </array>
 </resources>

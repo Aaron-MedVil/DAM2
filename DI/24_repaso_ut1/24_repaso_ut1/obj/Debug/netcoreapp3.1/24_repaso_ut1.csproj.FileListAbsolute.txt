@@ -21,3 +21,5 @@ D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\24_repaso_
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\ManejoJSON.g.cs
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\24_repaso_ut1_MarkupCompile.lref
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\ManejoJSON.baml
+D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\VentanaCanvas.baml
+D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\VentanaCanvas.g.cs

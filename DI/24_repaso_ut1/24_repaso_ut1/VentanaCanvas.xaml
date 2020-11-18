@@ -1,0 +1,15 @@
+﻿<Window x:Class="_24_repaso_ut1.VentanaCanvas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Ventana Canvas" Height="450" Width="800" ResizeMode="NoResize">
+    
+    <!-- Canvas -->
+    <Canvas x:Name="canvasDibujo" MouseDown="canvasDibujo_MouseDown" MouseMove="canvasDibujo_MouseMove">
+        <Canvas.Background>Aquamarine</Canvas.Background>
+        <Canvas.Height>450</Canvas.Height>
+        <Canvas.Width>800</Canvas.Width>
+    </Canvas>
+</Window>

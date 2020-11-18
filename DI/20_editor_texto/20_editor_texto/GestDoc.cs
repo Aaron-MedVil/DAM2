@@ -34,12 +34,16 @@ namespace _20_editor_texto {
                 if (dlg.ShowDialog() == true) {
 
                     mw.nomDocumento = dlg.FileName;
-                    // File.WriteAllText(mw.nomDocumento, new TextRange(mw.cajaTexto.Document.ContentStart, mw.cajaTexto.Document.ContentEnd).Text);
 
                     TextRange t = new TextRange(mw.cajaTexto.Document.ContentStart, mw.cajaTexto.Document.ContentEnd);
-                    FileStream file = new FileStream(mw.nomDocumento, FileMode.Create);
-                    t.Save(file, DataFormats.XamlPackage);
-                    file.Close();
+                    //FileStream file = new FileStream(mw.nomDocumento, FileMode.Create);
+                    //t.Save(file, DataFormats.XamlPackage);
+                    //file.Close();
+
+                    // Guardar fichero nuevo
+                    FileStream file = new FileStream(mw.nomDocumento, FileMode.Open);
+                    range.Load(file, DataFormats.rtf);
+                    file.close();
 
                     return true;
                 } else { return false; }

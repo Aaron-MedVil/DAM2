@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAlertDialog, btnProgressDialog, btnSimpleDialog, btnListDialog, btnRadioButtonDialog, btnCheckedDialog, btnPersoDialog, btnDatePickerDialog, btnTimePickerDialog;
+    private CharSequence[] csGo = {"Chrome", "Edge", "Internete Explorer", "Opera", "Firefox"};
+    private ArrayList idiomas = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
 
         switch (view.getId()) {
+
             case R.id.btnAlertDialog:
                 AlertDialog.Builder adAlert = new AlertDialog.Builder(this);
                 adAlert.setMessage("¿Desea salir?").setCancelable(false);
@@ -41,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 });
                 adAlert.show();
                 break;
+
             case R.id.btnProgressDialog:
                 ProgressDialog.show(this, "Progress dialog", "Cargando, Espere por favor...", true, true);
                 break;
+
             case R.id.btnSimpleDialog:
                 AlertDialog.Builder adSimple = new AlertDialog.Builder(this);
                 adSimple.setTitle("¡Atención!").setMessage("El fichero se eliminó").setCancelable(false);
@@ -55,24 +61,53 @@ public class MainActivity extends AppCompatActivity {
                 });
                 adSimple.show();
                 break;
+
             case R.id.btnListDialog:
                 AlertDialog.Builder adLista = new AlertDialog.Builder(this);
-                adLista.setTitle("Elija el navegador que utiliza");
+                adLista.setTitle("Elija el navegador que utiliza:");
                 adLista.setItems(R.array.navegadores, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String nav = getResources().getStringArray(R.array.navegadores)[which];
+                        Toast.makeText(getApplication(), "Has elegido la opción: " + nav, Toast.LENGTH_SHORT).show();
                     }
                 });
+                adLista.show();
                 break;
+
             case R.id.btnRadioButtonDialog:
+                AlertDialog.Builder adRadioButton = new AlertDialog.Builder(this);
+                adRadioButton.setTitle("Elija el navegado que utiliza:");
+                adRadioButton.setSingleChoiceItems(csGo, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplication(), "Ha seleccionado el elemento " + csGo[which], Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
+                    }
+                });
+                adRadioButton.show();
                 break;
+
             case R.id.btnCheckedDialog:
+                AlertDialog.Builder adBtnChecked = new AlertDialog.Builder(this);
+                adBtnChecked.setTitle("Conocimiento en idiomas");
+                adBtnChecked.setMultiChoiceItems(R.array.idiomas, null, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        if (isChecked) { idiomas.add(which); }
+                        else if(idiomas.contains(which)) { idiomas.remove(Integer.valueOf(which)); }
+                        Toast.makeText(getApplication(), "Opciones seleccionadas " + idiomas.size(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                adBtnChecked.show();
                 break;
+
             case R.id.btnPersoDialog:
                 break;
+
             case R.id.btnDatePickerDialog:
                 break;
+
             case R.id.btnTimePickerDialog:
                 break;
         }
