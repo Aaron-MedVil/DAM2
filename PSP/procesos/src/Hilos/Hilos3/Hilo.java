@@ -13,9 +13,9 @@ public class Hilo {
 			hilo.setPriority(1);
 			hilo.start();
 			
-			System.out.println("Info del hilo " + hilo.getName() + ":\n" + hilo.toString());
+			System.out.println("Info del hilo " + hilo.getName() + ":\n" + hilo.toString() + "\n");
 		}
 		
-		System.out.println("Tres hilos creados.");
+		System.out.println(" --- Tres hilos creados. --- ");
 	}
 }
