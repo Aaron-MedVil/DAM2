@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\App.xaml
-3-1111037205
+4-1751308145
 
-81315504123
+9-1599478871
 193-937268032
-MainWindow.xaml;ManejoJSON.xaml;VentanaCanvas.xaml;
+MainWindow.xaml;ManejoFicheros.xaml;ManejoJSON.xaml;VentanaCanvas.xaml;
 
 False
 

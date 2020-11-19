@@ -4,12 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Ventana Canvas" Height="450" Width="800" ResizeMode="NoResize">
-    
-    <!-- Canvas -->
-    <Canvas x:Name="canvasDibujo" MouseDown="canvasDibujo_MouseDown" MouseMove="canvasDibujo_MouseMove">
-        <Canvas.Background>Aquamarine</Canvas.Background>
-        <Canvas.Height>450</Canvas.Height>
-        <Canvas.Width>800</Canvas.Width>
-    </Canvas>
+        Title="Ventana Canvas"
+        Height="450" Width="800"
+        MinHeight="450" MinWidth="800"
+        MaxHeight="450" MaxWidth="800"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style TargetType="Canvas">
+            <Setter Property="Background" Value="Aquamarine"/>
+            <Setter Property="Height" Value="405"/>
+            <Setter Property="Width" Value="800"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+        <Style TargetType="Menu">
+            <Setter Property="Width" Value="800"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        
+        <!-- Barra de herramientas -->
+        <Menu>
+            <MenuItem Header="Dibujar" Click="MenuItem_Click" Tag="dibujar"/>
+            <MenuItem Header="Borrar" Click="MenuItem_Click" Tag="borrar"/>
+            <MenuItem Header="Mover" Click="MenuItem_Click" Tag="mover"/>
+            <MenuItem Header="Cambiar color" Visibility="Hidden" Tag="cambiar_color" Click="MenuItem_Click"/>
+            <MenuItem Header="Cambiar grosor" Visibility="Hidden" Tag="cambiar_grosor" Click="MenuItem_Click"/>
+        </Menu>
+
+        <!-- Canvas -->
+        <Canvas x:Name="canvasDibujo" MouseDown="canvasDibujo_MouseDown" MouseMove="canvasDibujo_MouseMove"/>
+    </StackPanel>
 </Window>

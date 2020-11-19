@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:_24_repaso_ut1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="StackPanel" x:Key="buttonContainer">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

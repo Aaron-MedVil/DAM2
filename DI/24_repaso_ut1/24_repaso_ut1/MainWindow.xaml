@@ -4,42 +4,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Repaso" Height="450" Width="800">
+        Title="Repaso" MinHeight="450" MinWidth="800" Height="450" Width="800">
 
     <Window.Resources>
         <Style TargetType="Button" x:Key="boton_para_heredar">
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="300"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
         <Style TargetType="Button" x:Key="styleBtn1" BasedOn="{StaticResource boton_para_heredar}">
             <Setter Property="Background" Value="Aquamarine"/>
         </Style>
         <Style TargetType="Button" x:Key="cambioBtnStyle" BasedOn="{StaticResource boton_para_heredar}">
             <Setter Property="Background" Value="BlueViolet" />
-            <Setter Property="Foreground" Value="NavajoWhite" /> 
+            <Setter Property="Foreground" Value="NavajoWhite" />
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource boton_para_heredar}"></Style>
     </Window.Resources>
     <StackPanel>
 
-        <!-- Manejo JSON -->
-        <Button x:Name="btnManejoJson" Style="{StaticResource styleBtn1}" Click="btnManejoJson_Click">
-            <Button.Content>Manejo JSON</Button.Content>
-        </Button>
-        
-        <!-- Manejo Canvas -->
-        <Button x:Name="btnManejoCanvas" Click="btnManejoCanvas_Click">
-            <Button.Content>Abrir ventana 2</Button.Content>
-        </Button>
-        
-        <!-- Manejo ficheros -->
-        <Button x:Name="btnManejoFicheros" Click="btnManejoFicheros_Click">
-            <Button.Content>Manejo ficheros</Button.Content>
-        </Button>
-        
-        <!-- Cambio estilos -->
-        <Button x:Name="btnCambiarEstilos" Click="btnCambiarEstilos_Click">
-            <Button.Content>Cambiar estilos</Button.Content>
-        </Button>
+        <!-- Botonera 1 -->
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <StackPanel Style="{StaticResource buttonContainer}">
+
+                <!-- Manejo JSON -->
+                <Button x:Name="btnManejoJson" Style="{StaticResource styleBtn1}" Click="btnManejoJson_Click">
+                    <Button.Content>Manejo JSON</Button.Content>
+                </Button>
+
+                <!-- Manejo Canvas -->
+                <Button x:Name="btnManejoCanvas" Click="btnManejoCanvas_Click">
+                    <Button.Content>Manejo Canvas</Button.Content>
+                </Button>
+
+                <!-- Manejo ficheros -->
+                <Button x:Name="btnManejoFicheros" Click="btnManejoFicheros_Click">
+                    <Button.Content>Manejo ficheros</Button.Content>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Botonera 2 -->
+        <StackPanel Style="{StaticResource buttonContainer}">
+
+            <!-- Cambio estilos -->
+            <Button x:Name="btnCambiarEstilos" Click="btnCambiarEstilos_Click">
+                <Button.Content>Cambiar estilos</Button.Content>
+            </Button>
+        </StackPanel>
     </StackPanel>
 </Window>

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 namespace _24_repaso_ut1 {
 
     public partial class MainWindow : Window {
+        public object NavigationService { get; private set; }
 
         /// <summary>Funcion main</summary>
         public MainWindow() => InitializeComponent();
@@ -26,11 +27,13 @@ namespace _24_repaso_ut1 {
             vc.Show();
         }
 
-        /// <summary>Abre la pagina de manejo de ficheros</summary>
+        /// <summary>Abre la ventana de manejo de ficheros</summary>
         /// <param name="sender">Objeto que ejecuta la accion</param>
         /// <param name="e">Objeto evento</param>
         private void btnManejoFicheros_Click(object sender, RoutedEventArgs e) {
 
+            ManejoFicheros mf = new ManejoFicheros();
+            mf.Show();
         }
 
         /// <summary>Cambia el estilo de los elementos de la pagina principal</summary>
@@ -39,7 +42,10 @@ namespace _24_repaso_ut1 {
         private void btnCambiarEstilos_Click(object sender, RoutedEventArgs e) {
 
             Button btn = (Button)sender;
-            btn.Style = (Style)(this.Resources["cambioBtnStyle"]);
+            Style st = (Style)this.Resources["cambioBtnStyle"];
+
+            string res = (btn.Style == st) ? "boton_para_heredar" : "cambioBtnStyle";
+            btn.Style = (Style)this.Resources[res];
         }
     }
 }
