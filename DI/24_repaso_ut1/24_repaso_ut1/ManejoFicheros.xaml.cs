@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 
 namespace _24_repaso_ut1 {
 
@@ -13,6 +14,16 @@ namespace _24_repaso_ut1 {
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
             // Open file dialog para seleccionar un fichero
+            OpenFileDialog dg = new OpenFileDialog {
+                InitialDirectory = "C:/",
+                Filter = "Fichero de texto|*.txt|Fichero JSON|*.json|Todos los ficheros|*.*",
+                Multiselect = false,
+                Title = "Seleccione un fichero"
+            };
+
+            if (dg.ShowDialog() == true) {
+
+            } else {}
         }
     }
 }
