@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.IO;
 using System.Windows;
 
 namespace _24_repaso_ut1 {
@@ -15,6 +16,9 @@ namespace _24_repaso_ut1 {
         /// <param name="e">Objeto evento</param>
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
+            // Vacia el editor de texto
+            textEditor.Text = "";
+
             // Open file dialog para seleccionar un fichero
             OpenFileDialog dg = new OpenFileDialog {
                 InitialDirectory = "C:\\",
@@ -27,8 +31,7 @@ namespace _24_repaso_ut1 {
             if (dg.ShowDialog() == true) {
 
                 fileName = dg.FileName;
-
-                MessageBox.Show(fileName);
+                textEditor.Text = File.ReadAllText(fileName);
             } else { this.Close(); }
         }
     }
