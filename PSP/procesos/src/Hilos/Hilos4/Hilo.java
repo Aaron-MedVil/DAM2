@@ -4,7 +4,7 @@ public class Hilo {
 
 	public static void main(String[] args) {
 		
-		CrearHiloRunnable chr = new CrearHiloRunnable();
+		Thread chr = new Thread();
 		CrearHiloThread cht = new CrearHiloThread();
 		
 		chr.run();
