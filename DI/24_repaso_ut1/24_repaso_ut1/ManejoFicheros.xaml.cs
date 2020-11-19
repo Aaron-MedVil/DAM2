@@ -5,6 +5,8 @@ namespace _24_repaso_ut1 {
 
     public partial class ManejoFicheros : Window {
 
+        private string fileName;
+
         /// <summary>Funcion que carga los componentes de la pagina</summary>
         public ManejoFicheros() => InitializeComponent();
 
@@ -15,15 +17,19 @@ namespace _24_repaso_ut1 {
 
             // Open file dialog para seleccionar un fichero
             OpenFileDialog dg = new OpenFileDialog {
-                InitialDirectory = "C:/",
+                InitialDirectory = "C:\\",
                 Filter = "Fichero de texto|*.txt|Fichero JSON|*.json|Todos los ficheros|*.*",
                 Multiselect = false,
                 Title = "Seleccione un fichero"
             };
 
+            // Comprueba si se producen errores con el dialog
             if (dg.ShowDialog() == true) {
 
-            } else {}
+                fileName = dg.FileName;
+
+                MessageBox.Show(fileName);
+            } else { this.Close(); }
         }
     }
 }
