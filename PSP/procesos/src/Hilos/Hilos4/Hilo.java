@@ -9,6 +9,6 @@ public class Hilo {
 		
 		chr.run();
 		cht.run();
-		for (int i = 0; i < 3; i++) { System.out.println("Main_Process[" + i + "]"); }
+		for (int i = 0; i < 3; i++) { System.out.println("Hilo_Main[" + i + "]"); }
 	}
 }
