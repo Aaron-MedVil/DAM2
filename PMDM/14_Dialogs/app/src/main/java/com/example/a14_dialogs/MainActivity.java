@@ -123,8 +123,13 @@ public class MainActivity extends AppCompatActivity {
                 DatePickerDialog dgDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        int mesActual = month - 1;
+                        String diaFormat = (dayOfMonth < 10) ? "0"+dayOfMonth : String.valueOf(dayOfMonth);
+                        String mesFormat = (mesActual < 10) ? "0"+mesActual : String.valueOf(mesActual);
+                        Toast.makeText(getApplication(), diaFormat+"/"+mesFormat+"/"+year, Toast.LENGTH_SHORT).show();
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                dgDatePicker.show();
                 break;
 
             case R.id.btnTimePickerDialog:
