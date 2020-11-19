@@ -17,12 +17,13 @@ namespace _24_repaso_ut1 {
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
             // Vacia el editor de texto
-            textEditor.Text = "";
+            // textEditor.Text = "";
 
             // Open file dialog para seleccionar un fichero
             OpenFileDialog dg = new OpenFileDialog {
-                InitialDirectory = "C:\\",
+                InitialDirectory = "D:\\Github\\DAM2\\DI\\24_repaso_ut1\\24_repaso_ut1\\bin\\Debug\\netcoreapp3.1\\res",
                 Filter = "Fichero de texto|*.txt|Fichero JSON|*.json|Todos los ficheros|*.*",
+                DefaultExt = "Fichero JSON|*.json",
                 Multiselect = false,
                 Title = "Seleccione un fichero"
             };
@@ -31,7 +32,7 @@ namespace _24_repaso_ut1 {
             if (dg.ShowDialog() == true) {
 
                 fileName = dg.FileName;
-                textEditor.Text = File.ReadAllText(fileName);
+                // textEditor.Text = File.ReadAllText(fileName);
             } else { this.Close(); }
         }
     }

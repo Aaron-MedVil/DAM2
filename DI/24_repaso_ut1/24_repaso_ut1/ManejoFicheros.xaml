@@ -21,9 +21,9 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Height" Value="20"/>
         </Style>
-        <Style TargetType="TextBox">
+        <Style TargetType="RichTextBox">
             <Setter Property="Width" Value="800"/>
-            <Setter Property="Height" Value="400"/>
+            <Setter Property="Height" Value="415"/>
         </Style>
     </Window.Resources>
     <StackPanel>
@@ -36,6 +36,12 @@
         </Menu>
 
         <!-- Editor de texto -->
-        <TextBox x:Name="textEditor"/>
+        <RichTextBox x:Name="textEditor">
+            <FlowDocument>
+                <Paragraph>
+                    <Run>Hola</Run>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </StackPanel>
 </Window>
