@@ -8,7 +8,7 @@
         Height="450" Width="800"
         MinHeight="450" MinWidth="800"
         MaxHeight="450" MaxWidth="800"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="Canvas">
@@ -21,20 +21,23 @@
         <Style TargetType="Menu">
             <Setter Property="Width" Value="800"/>
             <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="Moccasin"/>
         </Style>
-        <Style TargetType="MenuItem">
+        <Style TargetType="MenuItem" x:Key="defaultMenuItem">
             <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="MenuItem" BasedOn="{StaticResource defaultMenuItem}"/>
+        <Style TargetType="MenuItem" x:Key="miSelected" BasedOn="{StaticResource defaultMenuItem}">
+            <Setter Property="Background" Value="DarkGray"/>
         </Style>
     </Window.Resources>
     <StackPanel>
         
         <!-- Barra de herramientas -->
-        <Menu>
+        <Menu x:Name="mHerramientas">
             <MenuItem Header="Dibujar" Click="MenuItem_Click" Tag="dibujar"/>
             <MenuItem Header="Borrar" Click="MenuItem_Click" Tag="borrar"/>
             <MenuItem Header="Mover" Click="MenuItem_Click" Tag="mover"/>
-            <MenuItem Header="Cambiar color" Visibility="Hidden" Tag="cambiar_color" Click="MenuItem_Click"/>
-            <MenuItem Header="Cambiar grosor" Visibility="Hidden" Tag="cambiar_grosor" Click="MenuItem_Click"/>
         </Menu>
 
         <!-- Canvas -->

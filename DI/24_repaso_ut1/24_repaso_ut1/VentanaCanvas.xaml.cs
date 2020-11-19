@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -9,10 +10,15 @@ namespace _24_repaso_ut1 {
     public partial class VentanaCanvas : Window {
 
         private Point currentPoint = new Point();
-        private string evnt = "dibujar";
+        private string evnt;
 
         /// <summary>Funcion main</summary>
         public VentanaCanvas() => InitializeComponent();
+
+        /// <summary>Funcion que se ejecuta cuando se carga la pagina</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
+        private void Window_Loaded(object sender, RoutedEventArgs e) => changeColorMenu(null);
 
         /// <summary>Evento que se ejecuta al hacer click en el canvas</summary>
         /// <param name="sender">Objeto que ejecuta la accion</param>
@@ -20,7 +26,7 @@ namespace _24_repaso_ut1 {
         private void canvasDibujo_MouseDown(object sender, MouseButtonEventArgs e) {
 
             // Evento que se produce si se pulsa el boton izquierdo del raton
-            if (e.LeftButton == MouseButtonState.Pressed) {
+            if (e.LeftButton == MouseButtonState.Pressed && evnt == "dibujar") {
 
                 // Situa el cursor en la posicion que hemos hecho click
                 currentPoint = e.GetPosition(this);
@@ -33,7 +39,7 @@ namespace _24_repaso_ut1 {
         private void canvasDibujo_MouseMove(object sender, MouseEventArgs e) {
 
             // Evento que se produce si se pulsa el boton izquierdo del raton
-            if (e.LeftButton == MouseButtonState.Pressed) {
+            if (e.LeftButton == MouseButtonState.Pressed && evnt == "dibujar") {
 
                 // Crea la linea
                 Line linea = new Line {
@@ -42,12 +48,13 @@ namespace _24_repaso_ut1 {
                 };
 
                 // Asigna la posicion inicial de la lina
-                linea.X1 = currentPoint.X;
-                linea.Y1 = currentPoint.Y - 50;
+                linea.X1 = currentPoint.X; linea.Y1 = currentPoint.Y - 50;
 
                 // Asigna la posicion final de la linea
-                linea.X2 = e.GetPosition(this).X;
-                linea.Y2 = e.GetPosition(this).Y - 50;
+                linea.X2 = e.GetPosition(this).X; linea.Y2 = e.GetPosition(this).Y - 50;
+
+                // Crea un evento para cada linea creada
+                linea.MouseLeftButtonDown += new MouseButtonEventHandler(linea_MouseDown);
 
                 // Situa el cursor en el ultimo vector que hemos dejado el cursor
                 currentPoint = e.GetPosition(this);
@@ -57,21 +64,41 @@ namespace _24_repaso_ut1 {
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e) {
+        /// <summary>"Borra" las lineas que hemos generado</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
+        private void linea_MouseDown(object sender, MouseButtonEventArgs e) {
+            if (evnt == "borrar") { canvasDibujo.Children.Remove((Line)sender); }
+        }
 
-            MenuItem mi = (MenuItem)sender;
-            mi.Background = new SolidColorBrush(Colors.Black);
+        /// <summary>Cambia las propiedades de los elementos del menu</summary>
+        /// <param name="sender">Objeto que ejecuta la accion</param>
+        /// <param name="e">Objeto evento</param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e) => changeColorMenu((MenuItem)sender);
 
-            // Hay que quitar los colorinchis a los otros items cuando se pulsa uno
+        /// <summary>Cambia las propiedades del menu superior dependiendo del boton que pulsemos</summary>
+        /// <param name="mi" type="MenuItem || Null">MenuItem seleccionado en la interfaz</param>
+        private void changeColorMenu(MenuItem? mi) {
 
-            evnt = "";
-            /*
-             * dibujar
-             * borrar
-             * mover
-             * cambiar_color
-             * cambiar_grosor
-             */
+            // Se actualiza el estilo de los items del menu
+            foreach (MenuItem item in mHerramientas.Items) {
+                item.Style = (Style)this.Resources["defaultMenuItem"];
+            }
+
+            // Si no se envia un objeto null se selecciona el item pulsado
+            if (mi != null) {
+
+                mi.Style = (Style)this.Resources["miSelected"];
+                evnt = mi.Tag.ToString();
+            }
+            
+            // Si se envia un objeto null se selecciona el primer item
+            else {
+
+                MenuItem firstItem = (MenuItem)mHerramientas.Items[0];
+                evnt = firstItem.Tag.ToString();
+                firstItem.Style = (Style)this.Resources["miSelected"];
+            }            
         }
     }
 }
