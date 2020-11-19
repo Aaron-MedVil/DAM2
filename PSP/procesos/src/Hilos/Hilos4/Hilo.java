@@ -8,7 +8,7 @@ public class Hilo {
 		CrearHiloThread cht = new CrearHiloThread();
 		
 		chr.run();
-		cht.run();
+		cht.start();
 		for (int i = 0; i < 3; i++) { System.out.println("Hilo_Main[" + i + "]"); }
 	}
 }
