@@ -19,7 +19,7 @@
             <Setter Property="Background" Value="BlueViolet" />
             <Setter Property="Foreground" Value="NavajoWhite" />
         </Style>
-        <Style TargetType="Button" BasedOn="{StaticResource boton_para_heredar}"></Style>
+        <Style TargetType="Button" BasedOn="{StaticResource boton_para_heredar}"/>
     </Window.Resources>
     <StackPanel>
 

@@ -8,5 +8,11 @@
             <Setter Property="Orientation" Value="Horizontal"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+        <Style TargetType="Window" x:Key="windowDark">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+        <Style TargetType="Window" x:Key="windowWhite">
+            <Setter Property="Background" Value="white"/>
+        </Style>
     </Application.Resources>
 </Application>

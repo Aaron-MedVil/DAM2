@@ -26,3 +26,5 @@ D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\VentanaCan
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\App.baml
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\ManejoFicheros.baml
 D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\obj\Debug\netcoreapp3.1\ManejoFicheros.g.cs
+D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+D:\Github\DAM2\DI\24_repaso_ut1\24_repaso_ut1\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll

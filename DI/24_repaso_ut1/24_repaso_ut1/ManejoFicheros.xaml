@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="ManejoFicheros"
         Height="450" Width="800"
         MinHeight="450" MinWidth="800"
         MaxHeight="450" MaxWidth="800"
+        ResizeMode="NoResize"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -23,23 +25,67 @@
         </Style>
         <Style TargetType="RichTextBox">
             <Setter Property="Width" Value="800"/>
-            <Setter Property="Height" Value="415"/>
+            <Setter Property="Height" Value="405"/>
+            <Setter Property="Padding" Value="5, 10, 20, 50"/>
         </Style>
+
+        <RoutedUICommand x:Key="cmmGuardar" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+S</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="cmmGuardarComo" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+SHIFT+S</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="cmmAbrir" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+A</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="cmmNuevo" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+N</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="cerrarVentana" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>ESC</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="commEliminar" Text="">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+ESC</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
     </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource cmmGuardar}" Executed="commandGuardar"/>
+        <CommandBinding Command="{StaticResource cmmGuardarComo}" Executed="commandGuardarComo"/>
+        <CommandBinding Command="{StaticResource cmmAbrir}" Executed="commandAbrir"/>
+        <CommandBinding Command="{StaticResource cmmNuevo}" Executed="commandNuevo"/>
+        <CommandBinding Command="{StaticResource cerrarVentana}" Executed="commandCerrarVentana"/>
+        <CommandBinding Command="{StaticResource commEliminar}" Executed="commandEliminar"/>
+    </Window.CommandBindings>
     <StackPanel>
 
         <!-- Menu de herramientas -->
         <Menu>
-            <MenuItem Header="Guardar"/>
-            <MenuItem Header="Abrir"/>
-            <MenuItem Header="Nuevo"/>
+            <MenuItem Header="{md:PackIcon Kind=ContentSave}" Command="{StaticResource cmmGuardar}"/>
+            <MenuItem Header="{md:PackIcon Kind=ContentSaveAll}" Command="{StaticResource cmmGuardarComo}"/>
+            <MenuItem Header="{md:PackIcon Kind=Folder}" Command="{StaticResource cmmAbrir}"/>
+            <MenuItem Header="{md:PackIcon Kind=FileDocument}" Command="{StaticResource cmmNuevo}"/>
+            <MenuItem Header="{md:PackIcon Kind=Delete}" Command="{StaticResource commEliminar}"/>
+            <MenuItem Header="{md:PackIcon Kind=Close}" Command="{StaticResource cerrarVentana}"/>
         </Menu>
 
         <!-- Editor de texto -->
         <RichTextBox x:Name="textEditor">
             <FlowDocument>
                 <Paragraph>
-                    <Run>Hola</Run>
+                    <Run>Bienvenido</Run>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
