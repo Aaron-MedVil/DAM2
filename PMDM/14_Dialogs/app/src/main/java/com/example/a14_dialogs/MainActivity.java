@@ -89,13 +89,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btnCheckedDialog:
+                idiomas.clear();
                 AlertDialog.Builder adBtnChecked = new AlertDialog.Builder(this);
                 adBtnChecked.setTitle("Conocimiento en idiomas");
+                adBtnChecked.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String mensaje = "Idiomas que conoces:";
+                        for (Object idioma:idiomas) { mensaje += "\n- " + idioma; }
+                        Toast.makeText(getApplication(), mensaje, Toast.LENGTH_SHORT).show();
+                    }
+                });
                 adBtnChecked.setMultiChoiceItems(R.array.idiomas, null, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        if (isChecked) { idiomas.add(which); }
-                        else if(idiomas.contains(which)) { idiomas.remove(Integer.valueOf(which)); }
+                        String option = getResources().getStringArray(R.array.idiomas)[which];
+                        if (isChecked) { idiomas.add(option); }
+                        else if(idiomas.contains(option)) { idiomas.remove(option); }
                         Toast.makeText(getApplication(), "Opciones seleccionadas " + idiomas.size(), Toast.LENGTH_SHORT).show();
                     }
                 });
