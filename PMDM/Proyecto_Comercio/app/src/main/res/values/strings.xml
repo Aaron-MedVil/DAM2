@@ -1,9 +1,4 @@
 <resources>
 
     <string name="app_name">Proyecto_Comercio</string>
-
-    <integer-array name="productImages">
-        <item>@drawable/haken_virus</item>
-        <item>@drawable/inflames_clayman</item>
-    </integer-array>
 </resources>
