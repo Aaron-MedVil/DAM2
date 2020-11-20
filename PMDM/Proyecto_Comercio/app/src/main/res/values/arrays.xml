@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Array imagenes -->
     <integer-array name="productImages">
         <item>@drawable/haken_virus</item>
         <item>@drawable/inflames_clayman</item>
     </integer-array>
+
+    <!-- Array productos -->
+    <string-array name="productNames">
+        <item>Haken - Virus</item>
+        <item>In Flames - Clayman</item>
+    </string-array>
+
+    <!-- Array precios -->
+    <string-array name="productPrices">
+        <item>Min: 10€ - Max: 19€"</item>
+        <item>Min: 8€ - Max: 12€"</item>
+    </string-array>
 </resources>
