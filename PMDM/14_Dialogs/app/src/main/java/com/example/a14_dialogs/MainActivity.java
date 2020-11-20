@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -133,6 +135,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btnTimePickerDialog:
+                Calendar timeCalendar = Calendar.getInstance();
+                TimePickerDialog dgTimePicker = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        String hFormat = (hourOfDay < 10) ? "0" + hourOfDay : String.valueOf(hourOfDay);
+                        String amPm = (hourOfDay < 12) ? "A.M." : "P.M.";
+                        String mFormat = (minute < 10) ? "0" + minute : String.valueOf(minute);
+                        Toast.makeText(getApplication(), hFormat + ":" + mFormat + " " + amPm, Toast.LENGTH_SHORT).show();
+                    }
+                }, timeCalendar.get(Calendar.HOUR_OF_DAY), timeCalendar.get(Calendar.MINUTE), false);
+                dgTimePicker.show();
                 break;
         }
     }
