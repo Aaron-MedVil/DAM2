@@ -165,4 +165,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void closeApp(View view) {
+        this.finishAffinity();
+        System.exit(0);
+    }
 }
