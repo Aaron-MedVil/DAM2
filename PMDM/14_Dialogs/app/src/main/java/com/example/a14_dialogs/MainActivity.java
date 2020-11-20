@@ -6,11 +6,14 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -118,6 +121,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btnPersoDialog:
+                AlertDialog.Builder adPerso = new AlertDialog.Builder(this);
+                LayoutInflater layout = getLayoutInflater();
+                adPerso.setView(layout.inflate(R.layout.custom_layout, null));
+                adPerso.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        EditText user = findViewById(R.id.etUser);
+                        Toast.makeText(getApplication(), "Bienvenido " + user.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                adPerso.show();
                 break;
 
             case R.id.btnDatePickerDialog:
