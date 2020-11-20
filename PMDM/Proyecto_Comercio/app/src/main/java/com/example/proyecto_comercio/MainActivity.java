@@ -39,16 +39,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Rellena el layout de productos
     public void fillLayoutProductos() {
 
-        // Obtenemos los valores del array de imagenes
+        // Obtenemos los valores del array de imagenes, nombres y precios
         TypedArray imgs = getResources().obtainTypedArray(R.array.productImages);
-
-        String nombre = "Haken - Virus";
-        String precio = "Min: 10€ - Max: 19€";
+        String[] names = getResources().getStringArray(R.array.productNames);
+        String[] prices = getResources().getStringArray(R.array.productPrices);
 
         // Insertamos los registros en el arraylist
         listProductos = new ArrayList<>();
         for (int i = 0; i < imgs.length(); i++) {
-            listProductos.add(new Producto(nombre, precio, imgs.getResourceId(i, 0)));
+            listProductos.add(new Producto(names[i], prices[i], imgs.getResourceId(i, 0)));
         }
 
         // Asignamos los elementos del arraylist al layout
