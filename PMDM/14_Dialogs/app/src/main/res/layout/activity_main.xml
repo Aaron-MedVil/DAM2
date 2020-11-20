@@ -91,4 +91,12 @@
         android:backgroundTint="@android:color/holo_purple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnCloseApp"
+        android:onClick="closeApp"
+        android:text="@string/btnCloseApp"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
