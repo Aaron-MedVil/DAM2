@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <integer-array name="productImages">
+        <item>@drawable/haken_virus</item>
+        <item>@drawable/inflames_clayman</item>
+    </integer-array>
+</resources>
