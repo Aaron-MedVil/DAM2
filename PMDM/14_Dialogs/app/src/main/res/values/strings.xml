@@ -10,4 +10,8 @@
     <string name="btnPersoDialog">Diálogo personalizado</string>
     <string name="btnDatePickerDialog">Diálogo date picker</string>
     <string name="btnTimePickerDialog">Diálogo time picker</string>
+
+    <string name="etUser">Usuario</string>
+    <string name="etPass">Contraseña</string>
+    <string name="btnLogin">Acceso</string>
 </resources>
