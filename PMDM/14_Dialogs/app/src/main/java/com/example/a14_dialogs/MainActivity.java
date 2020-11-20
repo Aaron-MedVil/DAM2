@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -127,8 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 adPerso.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // EditText user = findViewById(R.id.etUser);
-                        Toast.makeText(getApplication(), "Bienvenido", Toast.LENGTH_SHORT).show();
+                        Dialog d = (Dialog)dialog;
+                        EditText etUser = (EditText)d.findViewById(R.id.etUser);
+                        Toast.makeText(getApplication(), "Bienvenido " + etUser.getText().toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
                 adPerso.show();
