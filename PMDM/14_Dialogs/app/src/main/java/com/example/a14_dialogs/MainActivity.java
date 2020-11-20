@@ -127,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
                 adPerso.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        EditText user = findViewById(R.id.etUser);
-                        Toast.makeText(getApplication(), "Bienvenido " + user.getText().toString(), Toast.LENGTH_SHORT).show();
+                        // EditText user = findViewById(R.id.etUser);
+                        Toast.makeText(getApplication(), "Bienvenido", Toast.LENGTH_SHORT).show();
                     }
                 });
                 adPerso.show();
