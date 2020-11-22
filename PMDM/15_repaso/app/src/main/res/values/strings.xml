@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">15_repaso</string>
+
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Acceso</string>
+
+    <string name="nombreAnimal">Nombre del animal</string>
+    <string name="descripcionAnimal">Descripción del animal</string>
+</resources>
