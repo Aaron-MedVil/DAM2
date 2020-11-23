@@ -17,5 +17,6 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\AMedi\.nuget\packages\materialdesignthemes\3.2.0</PkgMaterialDesignThemes>
+    <PkgExtended_Wpf_Toolkit Condition=" '$(PkgExtended_Wpf_Toolkit)' == '' ">C:\Users\AMedi\.nuget\packages\extended.wpf.toolkit\4.0.1</PkgExtended_Wpf_Toolkit>
   </PropertyGroup>
 </Project>

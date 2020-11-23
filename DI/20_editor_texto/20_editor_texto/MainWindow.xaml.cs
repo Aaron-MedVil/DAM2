@@ -1,4 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -59,7 +63,7 @@ namespace _20_editor_texto {
         /// <summary>Ejecuta un documento que seleccionemos</summary>
         /// <param name="sender">Objeto que produce el evento</param>
         /// <param name="e">Objeto con la informacion del evento</param>
-        private void ejecutarAyuda(object sender, RoutedEventArgs e) {
+        private void showAyuda(object sender, ExecutedRoutedEventArgs e) {
 
             string ruta = @"D:\Github\DAM2\DI\20_editor_texto\20_editor_texto\bin\Debug\netcoreapp3.1\resources\ago_doc.pdf";
 
@@ -114,8 +118,7 @@ namespace _20_editor_texto {
         /// <param name="e">Objeto con la informacion del evento</param>
         private void abrirDocumento(object sender, ExecutedRoutedEventArgs e) {
 
-            if (gestDoc.openDoc(nomDocumento) == true) { MessageBox.Show("Fichero abierto correctamente"); }
-            else { MessageBox.Show("Error al abrir el documento"); }
+            if (gestDoc.openDoc(nomDocumento) == true) { MessageBox.Show("Fichero abierto correctamente"); } else { MessageBox.Show("Error al abrir el documento"); }
         }
 
         /// <summary>Activa la corrección ortográfica en tiempo real</summary>
@@ -143,6 +146,85 @@ namespace _20_editor_texto {
         /// <param name="e">Objeto con la informacion del evento</param>
         private void EventoColor(object sender, RoutedPropertyChangedEventArgs<Color?> e) => gestDoc.changePropText("color");
 
+        /// <summary>Cambia el tamaño del texto</summary>
+        /// <param name="sender">Objeto que produce el evento</param>
+        /// <param name="e">Objeto con la informacion del evento</param>
         private void fontSizeChanged(object sender, SelectionChangedEventArgs e) => gestDoc.changePropText("fontSize");
+
+        /// <summary>Cambia la familia del texto</summary>
+        /// <param name="sender">Objeto que produce el evento</param>
+        /// <param name="e">Objeto con la informacion del evento</param>
+        private void fontFamilyChanged(object sender, SelectionChangedEventArgs e) => gestDoc.changePropText("fontFamily");
+
+        /// <summary>Busca y reemplaza una cadena de texto</summary>
+        /// <param name="sender">Objeto que produce el evento</param>
+        /// <param name="e">Objeto con la informacion del evento</param>
+        private void buscarReemplazarShow(object sender, RoutedEventArgs e) {
+
+            VentanaGoesBrrrr vgb = new VentanaGoesBrrrr();
+            vgb.ShowDialog();
+
+            if (vgb.accion == "Cancelar") { return; }
+
+            var textoBuscar = vgb.palabraAbuscar.Text.Trim();
+            var textoCambio = vgb.PalabraCambio.Text.Trim();
+
+            if (textoBuscar == "") { return; }
+
+            // Buscara palabras y remarcarlas las encontradas en rojo
+            if (textoCambio == "") {
+
+                cajaTexto.SelectAll();
+                cajaTexto.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(Colors.Black));
+                cajaTexto.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+
+                Regex reg = new Regex(textoBuscar.Trim(), RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+                TextPointer position = cajaTexto.Document.ContentStart;
+                List<TextRange> ranges = new List<TextRange>();
+
+                while (position != null) {
+
+                    if (position.GetPointerContext(LogicalDirection.Forward) == TextPointerContext.Text) {
+
+                        string text = position.GetTextInRun(LogicalDirection.Forward);
+                        var matchs = reg.Matches(text);
+
+                        foreach (Match match in matchs) {
+
+                            TextPointer start = position.GetPositionAtOffset(match.Index);
+                            TextPointer end = start.GetPositionAtOffset("Hola".Trim().Length);
+
+                            TextRange textrange = new TextRange(start, end);
+                            ranges.Add(textrange);
+                        }
+                    }
+
+                    position = position.GetNextContextPosition(LogicalDirection.Forward);
+                }
+
+                foreach (TextRange range in ranges) {
+
+                    range.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(Colors.Red));
+                    range.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+                }
+            }
+            else {
+
+                var textRange = new TextRange(cajaTexto.Document.ContentStart, cajaTexto.Document.ContentEnd);
+                string rtf;
+
+                using (var memoryStream = new MemoryStream()) {
+                    textRange.Save(memoryStream, DataFormats.Rtf);
+                    rtf = ASCIIEncoding.Default.GetString(memoryStream.ToArray());
+                }
+
+                rtf = rtf.Replace(textoBuscar, textoCambio);
+
+                MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(rtf));
+                cajaTexto.SelectAll();
+                cajaTexto.Selection.Load(stream, DataFormats.Rtf);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -156,15 +157,19 @@ namespace _20_editor_texto {
                 }
                 else if (prop == "color") {
 
-                    // Color coloruso = (Color)selectorColor.SelectedColor;
-                    // Brush mibrush = new SolidColorBrush(coloruso);
-                    // rango.ApplyPropertyValue(TextElement.ForegroundProperty, mibrush);
+                    Color coloruso = (Color)mw.selectorColor.SelectedColor;
+                    Brush mibrush = new SolidColorBrush(coloruso);
+                    rango.ApplyPropertyValue(TextElement.ForegroundProperty, mibrush);
                 }
                 else if (prop == "fontSize") {
 
-                    // rango.ApplyPropertyValue(TextElement.FontSizeProperty, (int)mw.cbFontSize.SelectedItem);
+                    int valor = (int)mw.cbFontSize.SelectedItem;
+                    rango.ApplyPropertyValue(TextElement.FontSizeProperty, (double)valor);
+                } else if (prop == "fontFamily") {
+
+                    FontFamily familia = (FontFamily)mw.cbFontType.SelectedItem;
+                    rango.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily(familia.FamilyNames.Values.First()));
                 }
-                else if (prop == "fontFamily") {}
             } else { MessageBox.Show("Propiedad no definida"); }
         }
     }

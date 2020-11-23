@@ -1,0 +1,41 @@
+﻿<Window x:Class="_20_editor_texto.VentanaGoesBrrrr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="VentanaGoesBrrrr" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="none" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
+
+    <Border BorderThickness="1" BorderBrush="#000">
+        
+        <StackPanel Orientation="Horizontal" Height="450" Width="800">
+
+            <!-- Contenedor izquierdo -->
+            <StackPanel Orientation="Vertical" Width="400" VerticalAlignment="Center">
+
+                <!-- Texto a buscar -->
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <Label Content="Texto a buscar"/>
+                    <TextBox Width="293" x:Name="palabraAbuscar"/>
+                </StackPanel>
+
+                <!-- Boton cancelar -->
+                <Button Content="Cancelar" Height="50" Margin="10" Click="Salir_Click"/>
+            </StackPanel>
+
+            <!-- Contenedor derecho -->
+            <StackPanel Orientation="Vertical" Width="400" VerticalAlignment="Center">
+
+                <!-- reemplazar por -->
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <Label Content="Reemplazar por"/>
+                    <TextBox Width="285" x:Name="PalabraCambio"/>
+                </StackPanel>
+
+                <!-- Boton Ejecutar -->
+                <Button Content="Ejecutar" Height="50" Margin="10" Click="Salir_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
