@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "C4QI5Xanz2H8mO9OGy+7IemHodnV5W19G5UI+OHPcZLNPiOoqg1QG/9re64EarER0umstaxiKdcHu6ZnttHsBA==",
+  "dgSpecHash": "Vgv2oYwozYTbI8s9o3171Mh6VaeOphrBXAciZw2hRnEugN3jlhixchJ2ko7DV5vSOeOoSSUn2CCvOuBqfxha+w==",
   "success": true,
   "projectFilePath": "D:\\Github\\DAM2\\DI\\20_editor_texto\\20_editor_texto\\20_editor_texto.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
