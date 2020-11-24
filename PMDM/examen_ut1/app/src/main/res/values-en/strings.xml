@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Burgos Cinema</string>
+    <string name="rbF1">Star Cinema</string>
+    <string name="rbF2">United Cinema</string>
+    <string name="btnPrecios">Prices</string>
+    <string name="msgLoadDialog">Wait please...</string>
+    <string name="titleLoadDialog">Fetch app data</string>
+    <string name="titleDialogPrecios">Price info</string>
+    <string name="gru">Despicable me</string>
+    <string name="spiderman">Spiderman</string>
+    <string name="eduardo_manostijeras">Edward Scissorhands</string>
+    <string name="golpe_pequena_china">Big Trouble in Little China</string>
+    <string name="lo_que_el_viento_se_llevo">Gone with the Wind</string>
+    <string name="sala1">Room 1</string>
+    <string name="sala2">Room 2</string>
+    <string name="sala3">Room 3</string>
+    <string name="sala4">Room 4</string>
+    <string name="sala5">Room 5</string>
+    <string name="btnCloseDialog">Okay</string>
+</resources>

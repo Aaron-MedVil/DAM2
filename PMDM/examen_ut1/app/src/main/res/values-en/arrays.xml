@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listPrecios">
+        <item>Normal price: 7€</item>
+        <item>Audience day: 5€</item>
+        <item>Under 12 years old: 6,50€</item>
+        <item>Over 65 years old: 6€</item>
+        <item>Student card: 6,50€</item>
+        <item>Young card: 6,50€</item>
+    </string-array>
+</resources>

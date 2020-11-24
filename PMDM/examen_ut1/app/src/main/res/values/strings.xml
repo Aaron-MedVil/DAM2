@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Cines Burgos</string>
+    <string name="btnPrecios">Precios</string>
+    <string name="rbF1">Cines Estrella</string>
+    <string name="rbF2">Cines Unidos</string>
+    <string name="titleDialogPrecios">Información de los precios</string>
+    <string name="eduardo_manostijeras">Eduardo Manostijeras</string>
+    <string name="spiderman">Spiderman</string>
+    <string name="lo_que_el_viento_se_llevo">Lo que el viento se llevó</string>
+    <string name="golpe_pequena_china">Golpe en la pequeña china</string>
+    <string name="gru">Gru, mi villano favorito</string>
+    <string name="titleLoadDialog">Cargando datos de la aplicación</string>
+    <string name="msgLoadDialog">Espere por favor...</string>
+    <string name="sala1">Sala 1</string>
+    <string name="sala2">Sala 2</string>
+    <string name="sala3">Sala 3</string>
+    <string name="sala4">Sala 4</string>
+    <string name="sala5">Sala 5</string>
+    <string name="btnCloseDialog">Aceptar</string>
+</resources>

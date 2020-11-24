@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listPrecios">
+        <item>Precio normal: 7€</item>
+        <item>Día del espectador: 5€</item>
+        <item>Menores 12 años: 6,50€</item>
+        <item>Mayores 65 años: 6€</item>
+        <item>Carnet estudiante: 6,50€</item>
+        <item>Carnet joven: 6,50€</item>
+    </string-array>
+</resources>

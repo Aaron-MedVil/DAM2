@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" android:orientation="vertical">
+
+    <!-- Boton de precios -->
+    <Button
+        android:text="@string/btnPrecios"
+        android:onClick="cargarPrecios"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Lista de peliculas -->
+    <ListView
+        android:id="@+id/listaPeliculas"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+    <!-- Botones seleccion fragmentos -->
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbF1"
+            android:text="@string/rbF1"
+            android:onClick="cambiarFragmento"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+
+        <RadioButton
+            android:id="@+id/rbF2"
+            android:text="@string/rbF2"
+            android:onClick="cambiarFragmento"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+    </RadioGroup>
+
+    <!-- Contenedor fragmentos -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
