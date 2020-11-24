@@ -4,11 +4,12 @@ public class Hilo {
 
 	public static void main(String[] args) {
 		
-		Thread chr = new Thread();
-		CrearHiloThread cht = new CrearHiloThread();
-		
-		chr.run();
-		cht.start();
-		for (int i = 0; i < 3; i++) { System.out.println("Hilo_Main[" + i + "]"); }
+		CrearHiloThread hilo1 = new CrearHiloThread(1);
+        hilo1.start();
+        
+        Thread hilo2 = new Thread(new CrearHiloRunnable(2));
+        hilo2.start();
+        
+        for(int i = 0; i<100;i++) { System.out.println("Ejecutándose hilo MAIN "+i); }
 	}
 }
