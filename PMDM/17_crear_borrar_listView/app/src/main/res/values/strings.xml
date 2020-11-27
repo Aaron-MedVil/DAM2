@@ -3,4 +3,8 @@
     <string name="textoAgregar">Nombre</string>
     <string name="botonAgregar">Añadir</string>
     <string name="tvInfo">Hacer una presión larga sobre el contacto que queramos borrar</string>
+    <string name="titleRemoveDialog">Importante</string>
+    <string name="msgRemoveDialog">¿Está seguro que desea eliminar el contacto?</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
