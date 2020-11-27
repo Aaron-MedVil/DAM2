@@ -1,9 +1,12 @@
 package com.example.a17_crear_borrar_listview;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import android.app.Application;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         Collections.sort(arrLista);
 
         // Creamos el adaptador y lo añadimos al layout
-        lista.setAdapter(new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, arrLista));
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, arrLista);
+        lista.setAdapter(adapter);
 
         // Añade un evento a los elementos de la lista
         lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -58,9 +62,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                 AlertDialog.Builder diag = new AlertDialog.Builder(MainActivity.this);
+                diag.setCancelable(false);
+                diag.setTitle(R.string.titleRemoveDialog);
+                diag.setMessage(getResources().getString(R.string.msgRemoveDialog));
+                diag.setNegativeButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                diag.setPositiveButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        arrLista.remove(position);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                diag.show();
 
-                // arrLista.remove(which);
-                // lista.notifyDataSetChanged();
                 return false;
             }
         });
