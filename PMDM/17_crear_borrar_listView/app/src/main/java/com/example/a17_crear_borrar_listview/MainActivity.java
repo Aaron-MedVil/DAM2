@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText textoAgregar;
     private ListView lista;
     private ArrayList<String> arrLista;
+    private ArrayAdapter adapter;
 
     /**
      * Funcion que se ejecuta al crear la actividad
@@ -53,37 +54,37 @@ public class MainActivity extends AppCompatActivity {
         Collections.sort(arrLista);
 
         // Creamos el adaptador y lo añadimos al layout
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, arrLista);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, arrLista);
         lista.setAdapter(adapter);
 
         // Añade un evento a los elementos de la lista
         lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                AlertDialog.Builder diag = new AlertDialog.Builder(MainActivity.this);
-                diag.setCancelable(false);
-                diag.setTitle(R.string.titleRemoveDialog);
-                diag.setMessage(getResources().getString(R.string.msgRemoveDialog));
-                diag.setNegativeButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                diag.setPositiveButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        arrLista.remove(position);
-                        adapter.notifyDataSetChanged();
-                    }
-                });
-                diag.show();
+            AlertDialog.Builder diag = new AlertDialog.Builder(MainActivity.this);
+            diag.setCancelable(false);
+            diag.setTitle(R.string.titleRemoveDialog);
+            diag.setMessage(getResources().getString(R.string.msgRemoveDialog));
+            diag.setNegativeButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            diag.setPositiveButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    arrLista.remove(position);
+                    adapter.notifyDataSetChanged();
+                }
+            });
+            diag.show();
 
-                return false;
-            }
-        });
-    }
+            return false;
+        }
+    });
+}
 
     /**
      * Funcion que se ejecuta al pulsar el boton agregar elemento
@@ -96,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (!textoAgregarText.matches("")) {
 
+            arrLista.add(textoAgregarText);
+            adapter.notifyDataSetChanged();
+            textoAgregar.setText("");
+
+            /*
             // Se crea el SnackBar
             Snackbar snc = Snackbar.make(view, textoAgregar.getText() + " Agregado", Snackbar.LENGTH_LONG);
 
@@ -108,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             // Se muestra el SnackBar
-            snc.show();
+            snc.show(); */
         } else { Toast.makeText(MainActivity.this, "Tiene que indicar un nombre", Toast.LENGTH_SHORT).show(); }
     }
 }
