@@ -12,9 +12,13 @@ public class Ejemplo_04 {
 		String[] archivos = f.list();
 		
 		System.out.println("Ficheros en el directorio actual");
+		
 		for (String string : archivos) {
+			
 			File f2 = new File(f, string);
-			System.out.println("Nombre: " + f2.getName());
+			System.out.println("Nombre: " + f2.getName() + " "
+					+ "¿Es fichero?: " + f2.isFile() + " "
+					+ "¿Es directorio?: " + f2.isDirectory());
 		}
 	}
 }
