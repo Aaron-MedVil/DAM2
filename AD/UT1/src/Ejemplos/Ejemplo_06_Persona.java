@@ -2,7 +2,7 @@ package Ejemplos;
 
 import java.io.Serializable;
 
-public class Ejemplo_06_Persona {
+public class Ejemplo_06_Persona implements Serializable {
 	
 	private String nombre;
 	private int edad;
