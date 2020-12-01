@@ -13,7 +13,12 @@ public class Ejemplo_06_Write {
 		File fichero = new File("./src/Ejemplos/Res/fichPersona.dat");
 		
 		FileOutputStream fout = new FileOutputStream(fichero, true);
-		ObjectOutputStream oos = new ObjectOutputStream(fout);
+		// ObjectOutputStream oos = new ObjectOutputStream(fout);
+		ObjectOutputStream oos;
+		
+		if (fichero.exists()) {
+			
+		}
 		
 		String nombres[] = {"Ana", "Luis", "Alicia", "Pedro"};
 		int edades[] = {14, 15, 16, 17};
