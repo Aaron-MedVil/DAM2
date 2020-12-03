@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <!-- Agregar elemento -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal">
+
+        <!-- Texto agregar -->
+        <EditText
+            android:id="@+id/textoAgregar"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:hint="@string/textoAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- Boton agregar -->
+        <Button
+            android:onClick="agregarElemento"
+            android:id="@+id/botonAgregar"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:text="@string/botonAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- Lista elementos -->
+    <ListView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <!-- Informacion -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <!-- Texto -->
+        <TextView
+            android:gravity="center_horizontal"
+            android:text="@string/tvInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>
