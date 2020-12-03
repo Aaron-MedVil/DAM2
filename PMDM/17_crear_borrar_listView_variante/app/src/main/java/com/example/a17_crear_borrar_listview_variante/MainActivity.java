@@ -7,10 +7,12 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -115,38 +117,51 @@ public class MainActivity extends AppCompatActivity {
      */
     public void agregarElemento(View view)  {
 
-        textoAgregar = findViewById(R.id.textoAgregar);
-        String textoAgregarText = textoAgregar.getText().toString();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater layout = getLayoutInflater();
+        dialog.setView(layout.inflate(R.layout.dialog_layout, null));
+        dialog.setPositiveButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Dialog d = (Dialog)dialog;
+                EditText textoAgregar = (EditText)d.findViewById(R.id.textoAgregar);
 
-        if (!textoAgregarText.matches("")) {
+                String textoAgregarText = textoAgregar.getText().toString();
 
-            // Oculta el teclado al añadir un elemento
-            InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                if (!textoAgregarText.matches("")) {
 
-            // Se duplica el array de elementos
-            arrayListDup.clear();
-            arrayListDup.addAll(arrLista);
+                    // Se duplica el array de elementos
+                    arrayListDup.clear();
+                    arrayListDup.addAll(arrLista);
 
-            String selItem = textoAgregar.getText().toString();
+                    String selItem = textoAgregar.getText().toString();
 
-            // Se añade el elemento a la lista, se recarga la vista y se borra el texto del textbox
-            arrLista.add(textoAgregarText);
-            adapter.notifyDataSetChanged();
-            textoAgregar.setText("");
-
-            // Se crea el SnackBar
-            Snackbar snc = Snackbar.make(view, "Se ha creado " + selItem, Snackbar.LENGTH_LONG);
-            snc.setAction("Deshacer", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    arrLista.clear();
-                    arrLista.addAll(arrayListDup);
+                    // Se añade el elemento a la lista, se recarga la vista y se borra el texto del textbox
+                    arrLista.add(textoAgregarText);
                     adapter.notifyDataSetChanged();
+                    textoAgregar.setText("");
+
+                    // Se crea el SnackBar
+                    Snackbar snc = Snackbar.make(view, "Se ha creado " + selItem, Snackbar.LENGTH_LONG);
+                    snc.setAction("Deshacer", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            arrLista.clear();
+                            arrLista.addAll(arrayListDup);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                    snc.show();
                 }
-            });
-            snc.show();
-        }
-        else { Toast.makeText(MainActivity.this, "Tiene que indicar un nombre", Toast.LENGTH_SHORT).show(); }
+                else { Toast.makeText(MainActivity.this, "Tiene que indicar un nombre", Toast.LENGTH_SHORT).show(); }
+            }
+        });
+        dialog.setNegativeButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 }
