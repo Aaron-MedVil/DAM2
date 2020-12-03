@@ -3,8 +3,9 @@ package Hilos.Hilos5;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		Hilo h = new Hilo();
+		h.start();
+		h.interrupt();
 	}
-
 }
