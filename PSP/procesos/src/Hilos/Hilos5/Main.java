@@ -9,8 +9,5 @@ public class Main {
 		
 		Thread.sleep(2000);
 		h.interrupt();
-		
-		// if (h.isInterrupted() == true) { System.out.println("El hilo ha muerto"); }
-		// else { System.out.println("Hilo en ejecucion"); }
 	}
 }
