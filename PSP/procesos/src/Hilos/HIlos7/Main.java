@@ -9,17 +9,17 @@ public class Main {
 		// Ejecutamos el hilo
 		h.start();
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		// Suspendemos el hilo
 		h.suspender();
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		// Reanudamos el hilo
 		h.reanudar();
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		// Interrumpimos el hilo
 		h.interrupt();
