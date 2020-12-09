@@ -40,5 +40,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void crearAlarma(View view) {
+
+        createAlarm("Pruebas", 14, 00);
     }
 }
