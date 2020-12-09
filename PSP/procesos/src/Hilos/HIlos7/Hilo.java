@@ -38,7 +38,10 @@ public class Hilo extends Thread {
 	public void run() {
 		
 		while(!isInterrupted()) {
-			try { enSuspension(); }
+			try {
+				enSuspension();
+				sleep(500);
+			}
 			catch (InterruptedException e) { interrupt(); }
 			System.out.println("Soy un hilo activo");
 		}
