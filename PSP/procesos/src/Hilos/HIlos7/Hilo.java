@@ -22,7 +22,7 @@ public class Hilo extends Thread {
 	}
 	
 	/**
-	 * Codigo que ejecuta el hilo cuando esta en suspension
+	 * Metodo que ejecuta el hilo cuando esta en suspension
 	 * @throws InterruptedException 
 	 */
 	public synchronized void enSuspension() throws InterruptedException {
@@ -30,5 +30,19 @@ public class Hilo extends Thread {
 			wait();
 			System.out.println("Hilo en espera");
 		}
+	}
+	
+	/**
+	 * Metodo que ejecuta el hilo
+	 */
+	public void run() {
+		
+		while(!isInterrupted()) {
+			try { enSuspension(); }
+			catch (InterruptedException e) { e.printStackTrace(); }
+			System.out.println("Soy un hilo activo");
+		}
+		
+		System.out.println("El hilo ha muerto");
 	}
 }
