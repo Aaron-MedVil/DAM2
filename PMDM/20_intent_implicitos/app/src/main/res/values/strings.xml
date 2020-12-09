@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">20_intent_implicitos</string>
+    <string name="btnAlarma">Crear alarma</string>
 </resources>
