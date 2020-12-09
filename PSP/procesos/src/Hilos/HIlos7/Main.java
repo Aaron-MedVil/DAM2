@@ -4,22 +4,24 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 		
+		final int t = 2000;
+		
 		Hilo h = new Hilo();
 		
 		// Ejecutamos el hilo
 		h.start();
 		
-		Thread.sleep(1000);
+		Thread.sleep(t);
 		
 		// Suspendemos el hilo
 		h.suspender();
 		
-		Thread.sleep(1000);
+		Thread.sleep(t);
 		
 		// Reanudamos el hilo
 		h.reanudar();
 		
-		Thread.sleep(1000);
+		Thread.sleep(t);
 		
 		// Interrumpimos el hilo
 		h.interrupt();
