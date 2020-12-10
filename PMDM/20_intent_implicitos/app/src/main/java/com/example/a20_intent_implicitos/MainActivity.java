@@ -2,13 +2,17 @@ package com.example.a20_intent_implicitos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText etBuscar;
 
     /**
      * Metodo que se ejecuta al crearse la aplicacion
@@ -45,6 +49,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Metodo para realizar busquedas en el navegador
+     * @param query
+     */
+    public void searchWeb(String query) {
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        intent.putExtra(SearchManager.QUERY, query);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    /**
      * Metodo que se ejecuta cuando se pulsa el boton para crear la alarma
      * @param view
      */
@@ -60,5 +76,15 @@ public class MainActivity extends AppCompatActivity {
     public void realizarLlamada(View view) {
 
         dialPhoneNumber("652693979");
+    }
+
+    /**
+     * Metodo que se ejecuta cuando se pulsa el boton para buscar un campo
+     * @param view
+     */
+    public void buscarNavegador(View view) {
+
+        etBuscar = findViewById(R.id.etBuscar);
+        searchWeb(etBuscar.getText().toString());
     }
 }
