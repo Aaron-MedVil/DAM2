@@ -12,6 +12,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!-- EditText Buscar -->
+        <EditText
+            android:id="@+id/etBuscar"
+            android:hint="@string/etBuscar"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- Boton buscar -->
+        <Button
+            android:text="@string/btnBuscar"
+            android:onClick="buscarNavegador"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <!-- Boton alarma -->
         <Button
             android:id="@+id/botonAlarma"
