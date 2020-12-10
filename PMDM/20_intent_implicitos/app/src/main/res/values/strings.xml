@@ -2,4 +2,6 @@
     <string name="app_name">20_intent_implicitos</string>
     <string name="btnAlarma">Crear alarma</string>
     <string name="btnLlamada">Marcar número</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="etBuscar">Campo a buscar</string>
 </resources>
