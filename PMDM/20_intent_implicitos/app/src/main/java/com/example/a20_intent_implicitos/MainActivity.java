@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 .putExtra(AlarmClock.EXTRA_MESSAGE, message)
                 .putExtra(AlarmClock.EXTRA_HOUR, hour)
                 .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        if (intent.resolveActivity(getPackageManager()) != null) { startActivity(intent); }
     }
 
     /**
@@ -43,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void dialPhoneNumber(String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        if (intent.resolveActivity(getPackageManager()) != null) { startActivity(intent); }
     }
 
     /**
