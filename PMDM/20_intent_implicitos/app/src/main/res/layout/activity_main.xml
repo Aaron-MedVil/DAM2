@@ -4,12 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
+    <!-- Boton alarma -->
     <Button
         android:id="@+id/botonAlarma"
         android:onClick="crearAlarma"
         android:text="@string/btnAlarma"
+        android:textSize="25dp"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Boton llamada -->
+    <Button
+        android:id="@+id/botonMarcar"
+        android:onClick="realizarLlamada"
+        android:text="@string/btnLlamada"
         android:textSize="25dp"
         android:layout_margin="15dp"
         android:layout_width="match_parent"
