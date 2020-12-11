@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "22_change_content_when_change_device"
