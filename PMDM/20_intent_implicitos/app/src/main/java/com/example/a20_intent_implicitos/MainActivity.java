@@ -64,19 +64,13 @@ public class MainActivity extends AppCompatActivity {
      * Metodo que se ejecuta cuando se pulsa el boton para crear la alarma
      * @param view
      */
-    public void crearAlarma(View view) {
-
-        createAlarm("Pruebas", 14, 00);
-    }
+    public void crearAlarma(View view) { createAlarm("Pruebas", 14, 00); }
 
     /**
      * Metodo que se ejecuta cuando se pulsa el boton para realizar una llamada
      * @param view
      */
-    public void realizarLlamada(View view) {
-
-        dialPhoneNumber("652693979");
-    }
+    public void realizarLlamada(View view) { dialPhoneNumber("652693979"); }
 
     /**
      * Metodo que se ejecuta cuando se pulsa el boton para buscar un campo
