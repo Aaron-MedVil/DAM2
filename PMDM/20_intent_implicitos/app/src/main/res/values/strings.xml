@@ -4,4 +4,5 @@
     <string name="btnLlamada">Marcar número</string>
     <string name="btnBuscar">Buscar</string>
     <string name="etBuscar">Campo a buscar</string>
+    <string name="twGestorAlarmas">Nuestro propio gestor de alarmas</string>
 </resources>
