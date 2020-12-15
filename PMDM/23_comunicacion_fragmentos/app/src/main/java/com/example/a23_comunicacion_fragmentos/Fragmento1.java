@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,50 +18,57 @@ import android.view.ViewGroup;
  */
 public class Fragmento1 extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText etNombreF1; Button btnSendF1; TextView twNombreF2;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Fragmento1() {
-        // Required empty public constructor
-    }
+    /**
+     * Constructor de la clase
+     */
+    public Fragmento1() {}
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment Fragmento1.
      */
-    // TODO: Rename and change types and number of parameters
-    public static Fragmento1 newInstance(String param1, String param2) {
+    public static Fragmento1 newInstance() {
         Fragmento1 fragment = new Fragmento1();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
+    /**
+     * Metodo para crear la clase
+     * @param savedInstanceState
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
+    /**
+     * Metodo que se ejecuta cuando se crea la clase
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return vista de la clase
+     */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragmento1, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // Instanciamos la vista del xml y la guardamos en una variable
+        View v = inflater.inflate(R.layout.fragment_fragmento1, container, false);
+
+        etNombreF1 = v.findViewById(R.id.etNombreF1);
+        btnSendF1 = v.findViewById(R.id.btnSendF1);
+
+        // Evento click del boton enviar
+        btnSendF1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                twNombreF2 = getActivity().findViewById(R.id.twNombreF2);
+                twNombreF2.setText(etNombreF1.getText().toString());
+            }
+        });
+
+        return v;
     }
 }
