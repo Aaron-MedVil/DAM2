@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/fragmentoTablet"
-        class="com.example.a22_change_content_when_change_device.Tablet"
         android:layout_weight="1"
+        android:name="com.example.a22_change_content_when_change_device.Tablet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <fragment
         android:id="@+id/fragmentoMobile"
-        class="com.example.a22_change_content_when_change_device.mobile"
+        android:name="com.example.a22_change_content_when_change_device.mobile"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="match_parent"/>
