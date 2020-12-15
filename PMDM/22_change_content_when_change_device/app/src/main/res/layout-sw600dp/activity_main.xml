@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:text="Tablet"
+    <fragment
+        android:id="@+id/fragmentoTablet"
+        class="com.example.a22_change_content_when_change_device.Tablet"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-</FrameLayout>
+        android:layout_height="match_parent"/>
+
+    <fragment
+        android:id="@+id/fragmentoMobile"
+        class="com.example.a22_change_content_when_change_device.mobile"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+</LinearLayout>
