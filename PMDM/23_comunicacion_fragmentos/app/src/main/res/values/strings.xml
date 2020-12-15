@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">23_comunicacion_fragmentos</string>
+    <string name="app_name">Comunicación de fragmentos</string>
+    <string name="nombre">Nombre</string>
+    <string name="btnSend">Enviar</string>
 </resources>
