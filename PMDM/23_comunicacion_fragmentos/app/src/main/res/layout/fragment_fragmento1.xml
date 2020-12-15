@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmento1"
+    android:padding="10sp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etNombreF1"
+        android:hint="@string/nombre"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSendF1"
+        android:text="@string/btnSend"
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"/>
+</LinearLayout>
