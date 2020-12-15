@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -64,6 +65,11 @@ public class Fragmento1 extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // Oculta el teclado al añadir un elemento
+                InputMethodManager imm = (InputMethodManager) getContext().getSystemService(getActivity().INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                // Cambia el valor del edit text del fragmento 2
                 twNombreF2 = getActivity().findViewById(R.id.twNombreF2);
                 twNombreF2.setText(etNombreF1.getText().toString());
             }
