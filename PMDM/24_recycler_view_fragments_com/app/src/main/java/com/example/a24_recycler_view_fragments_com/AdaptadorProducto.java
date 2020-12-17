@@ -27,6 +27,11 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
         return new ViewHolderProducto(v);
     }
 
+    /**
+     * Metodo que asigna los valores de la clase producto a los objetos del layout
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolderProducto holder, int position) {
 
@@ -39,9 +44,16 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
         holder.imageViewItemRecycler.setImageResource(imgProd);
     }
 
+    /**
+     * Devuelve el tamaño de la lista
+     * @return
+     */
     @Override
     public int getItemCount() { return listProducto.size(); }
 
+    /**
+     * Clase en la que definimos los campos del RecyclerView
+     */
     public class ViewHolderProducto extends RecyclerView.ViewHolder {
 
         TextView item_recycler_producto, item_recycler_descripcion;
