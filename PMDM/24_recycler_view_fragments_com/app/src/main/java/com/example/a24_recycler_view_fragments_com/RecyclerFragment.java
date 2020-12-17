@@ -67,6 +67,10 @@ public class RecyclerFragment extends Fragment {
      */
     private void llenarLista() {
 
-        listProducto.add(new Producto());
+        listProducto.add(new Producto("Catedral", "Catedral bonita", R.drawable.catedral));
+        listProducto.add(new Producto("Acueducto", "Es alto", R.drawable.acueducto));
+        listProducto.add(new Producto("Casa de las conchas", "Casa con conchas", R.drawable.conchas));
+        listProducto.add(new Producto("Muralla", "Muralla grande", R.drawable.murallas));
+        listProducto.add(new Producto("San Pablo", "Un santo", R.drawable.sanpablo));
     }
 }
