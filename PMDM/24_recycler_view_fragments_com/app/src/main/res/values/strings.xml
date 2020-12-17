@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">24_recycler_view_fragments_com</string>
+    <string name="item_recycler_descripcion">Descripcion</string>
+    <string name="item_recycler_producto">Producto</string>
 </resources>
