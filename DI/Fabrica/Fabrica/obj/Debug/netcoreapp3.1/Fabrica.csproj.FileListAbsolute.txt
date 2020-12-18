@@ -1,0 +1,50 @@
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csprojAssemblyReference.cache
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\App.g.cs
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica_MarkupCompile.cache
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica_MarkupCompile.lref
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.exe
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.deps.json
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.json
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.dev.json
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.dll
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.pdb
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.baml
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.g.resources
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfoInputs.cache
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfo.cs
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CoreCompileInputs.cache
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CopyComplete
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.dll
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.pdb
+Q:\Verano2020\Di\Core\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.genruntimeconfig.cache
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csprojAssemblyReference.cache
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\App.g.cs
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica_MarkupCompile.cache
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.pdb
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.exe
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.dll.config
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.deps.json
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.json
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.dev.json
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.pdb
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.baml
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.g.resources
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfoInputs.cache
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfo.cs
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CoreCompileInputs.cache
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CopyComplete
+E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.genruntimeconfig.cache
