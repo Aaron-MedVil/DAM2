@@ -51,14 +51,25 @@ public class RecyclerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        // Creamos una vista con el layout del fragmento
         View v = inflater.inflate(R.layout.fragment_recycler, container, false);
 
         listProducto = new ArrayList<Producto>();
         rv = v.findViewById(R.id.idContFragmentRecycler);
+
+        // Añadimos un layout a los elementos de la lista
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // Añadimos elementos a la lista
         llenarLista();
 
+        // Añadimos la lista al adaptador
+        AdaptadorProducto ap = new AdaptadorProducto(listProducto);
+
+        // Añadimos el adaptador a la vista
+        rv.setAdapter(ap);
+
+        // Devolvemos la vista
         return v;
     }
 
