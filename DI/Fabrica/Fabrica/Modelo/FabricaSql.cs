@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows;
 
 namespace Fabrica.Modelo {
 
@@ -42,7 +41,7 @@ namespace Fabrica.Modelo {
             return retornos;
         }
 
-        /// <summary></summary>
+        /// <summary>Carga los datos de la tabla de materias primas y lo almacena en un DataTable</summary>
         /// <param name="args">Argumentos para la sentencia</param>
         /// <returns type="Dictionary">Datos de la consulta</returns>
         public Dictionary<String, dynamic> cargaDatosMateriasPrimas(Dictionary<string, string>? args) {
