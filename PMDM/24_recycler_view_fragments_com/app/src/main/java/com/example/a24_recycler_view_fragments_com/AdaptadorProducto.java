@@ -16,6 +16,14 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
     ArrayList<Producto> listProducto;
 
     /**
+     * Constructor de la clase
+     * @param listProducto
+     */
+    public AdaptadorProducto(ArrayList<Producto> listProducto) {
+        this.listProducto = listProducto;
+    }
+
+    /**
      * Carga el layout personalizado que hemos creado en la vista
      * @param parent
      * @param viewType
@@ -23,7 +31,13 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
      */
     @NonNull @Override
     public ViewHolderProducto onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler, null, false);
+
+        // Añadimos al layout de los elementos las propiedades de ancho y alto
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        v.setLayoutParams(lp);
+
         return new ViewHolderProducto(v);
     }
 
