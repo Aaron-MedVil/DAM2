@@ -35,7 +35,6 @@
         <!-- Menu superior -->
         <ToolBar>
             <DockPanel.Dock>Top</DockPanel.Dock>
-            <ToolBar.Height>124</ToolBar.Height>
             <ToolBar.Background>#FFF0CCCC</ToolBar.Background>
 
             <!-- Boton primer registro -->
@@ -98,30 +97,37 @@
 
         <!-- Formulario -->
         <Grid>
-            <Grid.Height>500</Grid.Height>
             <DockPanel.Dock>Bottom</DockPanel.Dock>
-            
-            <!-- Definicion de columnas -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="17*"/>
-                <ColumnDefinition Width="38*"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="id" HorizontalAlignment="Left" Margin="165,34,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="2,0.474"/>
-            <RadioButton Content="descripcion" Name="bNombre" HorizontalAlignment="Left" Margin="82,81,0,0" VerticalAlignment="Top" Width="110"/>
-            <RadioButton Content="Id Proveedor" Name="bPoblacion" HorizontalAlignment="Left" Margin="73,129,0,0" VerticalAlignment="Top" Width="122" Height="29"/>
 
-            <Label Content="   Stock" HorizontalAlignment="Left" Margin="128,227,0,0" VerticalAlignment="Top" Width="63" Height="29" RenderTransformOrigin="1.133,0.53"/>
-            <Label Content=" Stock Mínimo" HorizontalAlignment="Left" Margin="73,272,0,198" Width="118"/>
-            <Label Content="Precio Coste" HorizontalAlignment="Left" Margin="94,326,0,0" VerticalAlignment="Top" Width="101" Height="29"/>
-
+            <!-- Form id-->
+            <Label Content="id" HorizontalAlignment="Left" Margin="165,34,0,0" VerticalAlignment="Top" Width="26"/>
             <TextBox x:Name="cId" HorizontalAlignment="Left" Height="23" Margin="208,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="cDescripcion" HorizontalAlignment="Left" Height="23" Margin="208,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" RenderTransformOrigin="0.52,2.257" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="cProveedor" HorizontalAlignment="Left" Height="23" Margin="208,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" Grid.ColumnSpan="2"/>
+            
+            <!-- Form descripcion -->
+            <RadioButton Content="descripcion" Name="bNombre" HorizontalAlignment="Left" Margin="82,81,0,0" VerticalAlignment="Top" Width="110"/>
+            <TextBox x:Name="cDescripcion" HorizontalAlignment="Left" Height="23" Margin="208,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="424"/>
+            
+            <!-- Form proveedor -->
+            <RadioButton Content="Id Proveedor" Name="bPoblacion" HorizontalAlignment="Left" Margin="73,129,0,0" VerticalAlignment="Top" Width="122" Height="29"/>
+            <TextBox x:Name="cProveedor" HorizontalAlignment="Left" Height="23" Margin="208,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337"/>
+            
+            <!-- Form stock -->
+            <Label Content="Stock" HorizontalAlignment="Left" Margin="128,227,0,0" VerticalAlignment="Top" Width="63" Height="29"/>
             <TextBox x:Name="cStock" HorizontalAlignment="Left" Height="23" Margin="208,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="cStockMinimo" HorizontalAlignment="Left" Height="23" Margin="208,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Grid.ColumnSpan="2"/>
+            
+            <!-- Form stock minimo -->
+            <Label Content="Stock Mínimo" HorizontalAlignment="Left" Margin="73,272,0,198" Width="118"/>
+            <TextBox x:Name="cStockMinimo" HorizontalAlignment="Left" Height="23" Margin="208,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+
+            <!-- Form precio coste -->
+            <Label Content="Precio Coste" HorizontalAlignment="Left" Margin="94,326,0,0" VerticalAlignment="Top" Width="101" Height="29"/>
             <TextBox x:Name="cPrecioCoste" HorizontalAlignment="Left" Height="23" Margin="208,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <RadioButton Content="id  Familia" x:Name="bFamilia" HorizontalAlignment="Left" Margin="94,170,0,0" VerticalAlignment="Top" Width="101" Height="29"/>
-            <TextBox x:Name="cFamilia" HorizontalAlignment="Left" Height="23" Margin="208,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Grid.ColumnSpan="2"/>
+
+            <!-- Form familia -->
+            <RadioButton Content="id Familia" x:Name="bFamilia" HorizontalAlignment="Left" Margin="94,170,0,0" VerticalAlignment="Top" Width="101" Height="29"/>
+            <TextBox x:Name="cFamilia" HorizontalAlignment="Left" Height="23" Margin="208,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218"/>
+            
+            <!-- Form imagen -->
             <Label Content="Imagen" HorizontalAlignment="Left" Margin="125,372,0,0" VerticalAlignment="Top" Width="66" Height="29"/>
             <TextBox x:Name="cTImagen" HorizontalAlignment="Left" Height="23" Margin="208,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         </Grid>
