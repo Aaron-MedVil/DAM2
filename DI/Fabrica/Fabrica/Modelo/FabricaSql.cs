@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,19 +7,19 @@ namespace Fabrica.Modelo {
 
     class FabricaSql {
 
-        private String connStr = ConfigurationManager.ConnectionStrings["connFabricaSql"].ConnectionString;
+        private string connStr = ConfigurationManager.ConnectionStrings["connFabricaSql"].ConnectionString;
         private SqlConnection conn = null;
         private SqlDataAdapter adp = null;
         private SqlCommand cmd = null;
         private SqlDataReader reader = null;
 
-        private Dictionary<String, dynamic> retornos = null;
+        private Dictionary<string, dynamic> retornos = null;
 
         /// <summary>Comprueba la conexion a la base de datos</summary>
         /// <returns type="Dictionary">Informacion de la conexion</returns>
-        public Dictionary<String, dynamic> checkConn() {
+        public Dictionary<string, dynamic> checkConn() {
 
-            retornos = new Dictionary<String, dynamic>();
+            retornos = new Dictionary<string, dynamic>();
 
             bool isConn = false;
             string msg = "Error al conectar a la base de datos";
@@ -44,7 +43,7 @@ namespace Fabrica.Modelo {
         /// <summary>Carga los datos de la tabla de materias primas y lo almacena en un DataTable</summary>
         /// <param name="args">Argumentos para la sentencia</param>
         /// <returns type="Dictionary">Datos de la consulta</returns>
-        public Dictionary<String, dynamic> cargaDatosMateriasPrimas(Dictionary<string, string>? args) {
+        public Dictionary<string, dynamic> cargaDatosMateriasPrimas(Dictionary<string, string>? args) {
 
             DataTable dataTabla = new DataTable();
 
@@ -65,15 +64,15 @@ namespace Fabrica.Modelo {
                 // Carga los argumentos en la sentencia
                 if (args != null) {
 
+                    // Añade el parametro por defecto
                     cmd.CommandText += " WHERE 1 = @def";
+                    cmd.Parameters.AddWithValue("@def", 1);
 
+                    // Añade los parametros de los argumentos
                     foreach (var param in args) {
-
                         cmd.CommandText += " AND " + param.Key + " = @" + param.Key;
                         cmd.Parameters.AddWithValue("@" + param.Key, param.Value);
                     }
-
-                    cmd.Parameters.AddWithValue("@def", 1);
                 }
 
                 // Conecta la sentencia y la conexion
@@ -91,7 +90,8 @@ namespace Fabrica.Modelo {
 
                     status = true;
                     msg = "Datos de la primera conexion";
-                } else { msg = "No se devolvieron datos"; }
+                }
+                else { msg = "No se devolvieron datos"; }
             }
             catch (SqlException e) { msg = e.ToString(); }
             finally { if (conn.State == ConnectionState.Open) { conn.Close(); } }

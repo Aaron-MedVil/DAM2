@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -23,12 +20,12 @@ namespace Fabrica {
         /// <param name="e">Parametros del evento</param>
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
-            Dictionary<String, dynamic> resultConn = new Dictionary<string, dynamic>();
+            Dictionary<string, dynamic> resultConn = new Dictionary<string, dynamic>();
             resultConn = fabricaSql.checkConn();
 
             if ((bool)resultConn["status"]) {
 
-                Dictionary<String, dynamic> result = new Dictionary<string, dynamic>();
+                Dictionary<string, dynamic> result = new Dictionary<string, dynamic>();
                 result = fabricaSql.cargaDatosMateriasPrimas(null);
 
                 if ((bool)result["status"]) {
@@ -41,8 +38,8 @@ namespace Fabrica {
         }
 
         /// <summary>Visualiza los datos en la interfaz</summary>
-        /// <param name="registro">Registros</param>
-        public void visualizaRegistro(DataRow registro) {
+        /// <param name="registro">Registros de la base de datos</param>
+        private void visualizaRegistro(DataRow registro) {
 
             cId.Text          = registro["id"].ToString();
             cDescripcion.Text = registro["descripcion"].ToString();
@@ -56,22 +53,67 @@ namespace Fabrica {
             cDescripcion.Focus();
         }
 
-        private void SiguienteRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void SiguienteRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("SiguienteRegistro");
+        }
 
-        private void AnterioreRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void AnterioreRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("AnterioreRegistro");
+        }
 
-        private void PrimerRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void PrimerRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("PrimerRegistro");
+        }
 
-        private void UltimoRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void UltimoRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("UltimoRegistro");
+        }
 
-        private void NuevoRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void NuevoRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("NuevoRegistro");
+        }
 
-        private void GrabarRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void GrabarRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("GrabarRegistro");
+        }
 
-        private void BorrarRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void BorrarRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("BorrarRegistro");
+        }
 
-        private void BuscarRegistro(object sender, RoutedEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void BuscarRegistro(object sender, RoutedEventArgs e) {
+            MessageBox.Show("BuscarRegistro");
+        }
 
-        private void BuscarRegistroSiguiente(object sender, MouseButtonEventArgs e) {}
+        /// <summary></summary>
+        /// <param name="sender">Objeto que lanza la accion</param>
+        /// <param name="e">Parametros del evento</param>
+        private void BuscarRegistroSiguiente(object sender, MouseButtonEventArgs e) {
+            MessageBox.Show("BuscarRegistroSiguiente");
+        }
     }
 }

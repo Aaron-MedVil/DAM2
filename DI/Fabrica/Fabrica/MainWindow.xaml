@@ -8,96 +8,71 @@
         Title="Gestión Clientes" MinHeight="691" MinWidth="1107"
         WindowState="Maximized" Loaded="Window_Loaded">
 
-    <Window.Resources>
-        <Style x:Key="nombreCampos" TargetType="Control" >
-            <Setter Property="FontFamily" Value="Sitka Small"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Top"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="#FFB28536"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Background" Value="{x:Null}"/>
-        </Style>
-        <Style TargetType="Label" BasedOn="{StaticResource nombreCampos}"/>
-        <Style TargetType="RadioButton">
-            <Setter Property="FontFamily" Value="Stencil"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Top"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="Brown"/>
-            <Setter Property="Background" Value="{x:Null}"/>
-        </Style>
-    </Window.Resources>
-
     <DockPanel>
 
         <!-- Menu superior -->
-        <ToolBar>
-            <DockPanel.Dock>Top</DockPanel.Dock>
-            <ToolBar.Background>#FFF0CCCC</ToolBar.Background>
+        <ToolBar Style="{StaticResource menuControl}">
 
             <!-- Boton primer registro -->
-            <Button Width="98" Height="98" Click="PrimerRegistro">
+            <Button Click="PrimerRegistro">
                 <Button.ToolTip>Primero</Button.ToolTip>
-                <estilo:PackIcon Kind="SkipPrevious" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="SkipPrevious"/>
             </Button>
 
             <!-- Boton anterior registro -->
-            <Button Width="98" Height="98" Click="AnterioreRegistro">
+            <Button Click="AnterioreRegistro">
                 <Button.ToolTip>Anterior</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="PreviousTitle" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="PreviousTitle"/>
             </Button>
 
             <!-- Boton siguiente registro -->
-            <Button Width="98" Height="98" Click="SiguienteRegistro">
+            <Button Click="SiguienteRegistro">
                 <Button.ToolTip>Siguiente</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="NextTitle" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="NextTitle"/>
             </Button>
             
             <!-- Boton ultimo registro -->
-            <Button Width="98" Height="98" Click="UltimoRegistro">
+            <Button Click="UltimoRegistro">
                 <Button.ToolTip>Ultimo</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="SkipNext" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="SkipNext"/>
             </Button>
 
             <Separator/>
 
             <!-- Boton nuevo registro -->
-            <Button Width="98" Height="98" Click="NuevoRegistro">
+            <Button Click="NuevoRegistro">
                 <Button.ToolTip>Nuevo Registro</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="NewspaperPlus" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="NewspaperPlus"/>
             </Button>
             
             <!-- Boton grabar registo-->
-            <Button Width="98" Height="98" Click="GrabarRegistro">
+            <Button Click="GrabarRegistro">
                 <Button.ToolTip>Grabar Registro</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="Harddisk" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="Harddisk"/>
             </Button>
             
             <!-- Boton borrar registro -->
-            <Button Width="98" Height="98" Click="BorrarRegistro">
+            <Button Click="BorrarRegistro">
                 <Button.ToolTip>"Borrar Registro</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="DeleteForever" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="DeleteForever"/>
             </Button>
             
             <!-- Boton buscar registro -->
-            <Button Width="98" Height="98" Click="BuscarRegistro" MouseDown="BuscarRegistroSiguiente">
+            <Button Click="BuscarRegistro" MouseDown="BuscarRegistroSiguiente">
                 <Button.ToolTip>Buscar Registro</Button.ToolTip>
                 <Button.Margin>30, 0, 0, 0</Button.Margin>
-                <estilo:PackIcon Kind="FindInPage" Width="98" Height="98"/>
+                <estilo:PackIcon Kind="FindInPage"/>
             </Button>
         </ToolBar>
 
         <!-- Formulario -->
-        <Grid>
-            <DockPanel.Dock>Bottom</DockPanel.Dock>
+        <Grid Style="{StaticResource contForm}">
 
             <!-- Form id-->
             <Label Content="id" HorizontalAlignment="Left" Margin="165,34,0,0" VerticalAlignment="Top" Width="26"/>
