@@ -15,7 +15,9 @@ public class Index {
 
 	public static void main(String[] args) throws Exception {
 
-		String xPathExpression = "/espacio/galaxia/estrella/planeta";
+		// String xPathExpression = "/espacio/galaxia/estrella/planeta";
+		// String xPathExpression = "//planeta";
+		String xPathExpression = "/espacio/galaxia/estrella | /espacio/galaxia/sistema_estelar/estrella";
 
 		// Carga del documento xml
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -28,7 +30,7 @@ public class Index {
 		// Consultas
 		NodeList nodos = (NodeList) xpath.evaluate(xPathExpression, documento, XPathConstants.NODESET);
 		for (int i = 0; i < nodos.getLength(); i++) {
-			System.out.println(nodos.item(i).getNodeName() + " : " + nodos.item(i).getAttributes().getNamedItem("nombre"));
+			System.out.println(nodos.item(i).getNodeName() + ": " + nodos.item(i).getAttributes().getNamedItem("nombre"));
 		}
 	}
 }
