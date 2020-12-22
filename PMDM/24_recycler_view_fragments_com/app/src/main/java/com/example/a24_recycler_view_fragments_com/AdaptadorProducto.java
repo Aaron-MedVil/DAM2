@@ -56,15 +56,23 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
         String nomProd = producto.getNomProducto(), descProd = producto.getDescProducto();
         int imgProd = producto.getImgProducto();
 
+        // Asignamos al layout los valores de los elementos de la lista
         holder.item_recycler_producto.setText(nomProd);
         holder.item_recycler_descripcion.setText(descProd);
         holder.imageViewItemRecycler.setImageResource(imgProd);
 
+        // Creamos un evento click en los elementos de la lista
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Creamos una intencion
                 Intent intent = new Intent(holder.itemView.getContext(), Detalle_Activity.class);
+
+                // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("item_producto", (Serializable) producto);
+
+                // Iniciamos la actividad
                 holder.itemView.getContext().startActivity(intent);
             }
         });
