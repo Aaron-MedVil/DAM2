@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.Serializable;
-
-public class Detalle_Activity extends AppCompatActivity implements Serializable {
+public class Detalle_Activity extends AppCompatActivity {
 
     private ImageView imageViewDetalle;
     private TextView textViewNombreDetalle, textViewDescripcionDetalle;
