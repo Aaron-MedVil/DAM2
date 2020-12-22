@@ -10,15 +10,16 @@
 
     <ImageView
         android:id="@+id/imageViewDetalle"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewNombreDetalle"
         android:layout_marginLeft="10sp"
-        android:layout_width="70sp"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/imageViewDetalle"/>
@@ -26,7 +27,8 @@
     <TextView
         android:id="@+id/textViewDescripcionDetalle"
         android:layout_marginLeft="10sp"
-        android:layout_width="70sp"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/textViewNombreDetalle"
         app:layout_constraintLeft_toLeftOf="@+id/textViewNombreDetalle"/>

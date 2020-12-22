@@ -1,6 +1,8 @@
 package com.example.a24_recycler_view_fragments_com;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
 
     private String nomProducto, descProducto;
     private int imgProducto;
