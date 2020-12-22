@@ -20,9 +20,10 @@ public class Detalle_Activity extends AppCompatActivity {
         textViewNombreDetalle = findViewById(R.id.textViewNombreDetalle);
         textViewDescripcionDetalle = findViewById(R.id.textViewDescripcionDetalle);
 
+        // Recuperamos los datos que hemos enviado como parametros
         Producto producto = (Producto)getIntent().getSerializableExtra("item_producto");
 
-
+        // Asignamos los datos que hemos enviado con la interfaz de la actividad
         imageViewDetalle.setImageResource(producto.getImgProducto());
         textViewNombreDetalle.setText(producto.getNomProducto());
         textViewDescripcionDetalle.setText(producto.getDescProducto());
