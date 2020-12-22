@@ -67,13 +67,13 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
             public void onClick(View v) {
 
                 // Creamos una intencion
-                Intent intent = new Intent(holder.itemView.getContext(), Detalle_Activity.class);
+                Intent intent = new Intent(v.getContext(), Detalle_Activity.class);
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("item_producto", (Serializable) producto);
 
                 // Iniciamos la actividad
-                holder.itemView.getContext().startActivity(intent);
+                v.getContext().startActivity(intent);
             }
         });
     }
