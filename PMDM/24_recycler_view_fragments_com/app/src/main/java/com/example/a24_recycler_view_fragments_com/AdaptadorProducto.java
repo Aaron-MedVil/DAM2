@@ -1,5 +1,7 @@
 package com.example.a24_recycler_view_fragments_com;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.ViewHolderProducto> {
@@ -56,6 +59,15 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Vi
         holder.item_recycler_producto.setText(nomProd);
         holder.item_recycler_descripcion.setText(descProd);
         holder.imageViewItemRecycler.setImageResource(imgProd);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), Detalle_Activity.class);
+                intent.putExtra("item_producto", (Serializable) producto);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     /**
