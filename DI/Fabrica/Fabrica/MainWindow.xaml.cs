@@ -26,6 +26,7 @@ namespace Fabrica {
             if ((bool)resultConn["status"]) {
 
                 Dictionary<string, dynamic> result = new Dictionary<string, dynamic>();
+
                 result = fabricaSql.cargaDatosMateriasPrimas(null);
 
                 if ((bool)result["status"]) {

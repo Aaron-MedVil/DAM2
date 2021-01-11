@@ -70,6 +70,7 @@ namespace Fabrica.Modelo {
 
                     // Añade los parametros de los argumentos
                     foreach (var param in args) {
+
                         cmd.CommandText += " AND " + param.Key + " = @" + param.Key;
                         cmd.Parameters.AddWithValue("@" + param.Key, param.Value);
                     }
