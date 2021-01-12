@@ -7,8 +7,7 @@
     },
     "additionalProbingPaths": [
       "C:\\Users\\AMedi\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\AMedi\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\AMedi\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
