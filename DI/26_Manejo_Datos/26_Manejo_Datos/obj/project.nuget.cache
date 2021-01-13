@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qeuvmI+0+t7+/FIcu/f7EiZs/Rtbf3skwoNXD4r1GfKxAzr/muNl5ZK6XkDh5Tld+RwHhUjkxUzROJqNFuB5Vw==",
+  "success": true,
+  "projectFilePath": "D:\\Github\\DAM2\\DI\\26_Manejo_Datos\\26_Manejo_Datos\\26_Manejo_Datos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
