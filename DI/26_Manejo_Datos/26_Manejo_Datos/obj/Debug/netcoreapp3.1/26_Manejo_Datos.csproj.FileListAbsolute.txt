@@ -19,3 +19,4 @@ D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\26_Man
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\26_Manejo_Datos.csproj.CopyComplete
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\App.baml

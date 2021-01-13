@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CRUD JSON" MinHeight="450" MinWidth="800" WindowState="Maximized" Loaded="Window_Loaded">
 
-    <Grid Background="#333" ShowGridLines="True">
+    <Grid Background="#333">
 
         <!-- Definicion de columnas -->
         <Grid.ColumnDefinitions>
@@ -18,13 +18,35 @@
         <!-- Menu lateral -->
         <DockPanel Style="{StaticResource menu-lateral}">
             <Grid.Column>0</Grid.Column>
-            <StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
 
-                <!-- Boton home -->
-                <Button>
-                    <md:PackIcon Kind="Home"/>
-                </Button>
-            </StackPanel>
+                    <!-- Boton Home -->
+                    <Button x:Name="btn_home" Click="btn_home_Click">
+                        <md:PackIcon Kind="Home"/>
+                    </Button>
+                    
+                    <!-- Boton Json -->
+                    <Button x:Name="btn_json" Click="btn_json_Click">
+                        <md:PackIcon Kind="CodeJson"/>
+                    </Button>
+                    
+                    <!-- Boton Database -->
+                    <Button x:Name="btn_db" Click="btn_db_Click">
+                        <md:PackIcon Kind="Database"/>
+                    </Button>
+                    
+                    <!-- Boton Database -->
+                    <Button x:Name="btn_user" Click="btn_user_Click">
+                        <md:PackIcon Kind="User"/>
+                    </Button>
+                    
+                    <!-- Boton Logout -->
+                    <Button x:Name="btn_logout" Click="btn_logout_Click">
+                        <md:PackIcon Kind="ExitToApp"/>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
         </DockPanel>
 
         <!-- Contenido -->

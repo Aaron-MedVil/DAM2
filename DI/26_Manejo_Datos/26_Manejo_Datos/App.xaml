@@ -11,8 +11,33 @@
                 <Style TargetType="StackPanel">
                     <Setter Property="Orientation" Value="Vertical"/>
                     <Style.Resources>
-                        <Style TargetType="Button">
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Margin" Value="0, 2, 0, 2"/>
                             <Setter Property="Height" Value="100"/>
+                            <Setter Property="Foreground" Value="#fff"/>
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#8E44AD" Opacity="0.6"/>
+                                </Setter.Value>                                
+                            </Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" TargetName="Border">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="#8E44AD" Opacity="0.9"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                             <Style.Resources>
                                 <Style TargetType="md:PackIcon">
                                     <Setter Property="Height" Value="50"/>
