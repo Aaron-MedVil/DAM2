@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="CRUD JSON" MinHeight="450" MinWidth="800" WindowState="Maximized" Loaded="Window_Loaded">
 
-    <Grid Background="#333">
+    <Grid>
+        <Grid.Background>#333</Grid.Background>
 
         <!-- Definicion de columnas -->
         <Grid.ColumnDefinitions>
@@ -41,8 +42,8 @@
                         <md:PackIcon Kind="User"/>
                     </Button>
                     
-                    <!-- Boton Logout -->
-                    <Button x:Name="btn_logout" Click="btn_logout_Click">
+                    <!-- Boton Exit -->
+                    <Button x:Name="btn_exit" Click="btn_exit_Click">
                         <md:PackIcon Kind="ExitToApp"/>
                     </Button>
                 </StackPanel>
@@ -50,6 +51,6 @@
         </DockPanel>
 
         <!-- Contenido -->
-        <DockPanel x:Name="contPages" Grid.Column="1"/>
+        <DockPanel x:Name="cont_pages" Grid.Column="1"/>
     </Grid>
 </Window>
