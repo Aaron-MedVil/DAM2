@@ -6,4 +6,8 @@ ExamenUT1_Ej1/Salida/*
 ExamenUT1_Ej1/Logs/*
 ExamenUT1_Ej2/*.class
 ExamenUT1_Ej2/Salida/*
+/.gitignore
+/Ejemplos/
+/ExamenUT1_Ej1/
+/ExamenUT1_Ej2/
 /Hilos/
