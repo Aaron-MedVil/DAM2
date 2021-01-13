@@ -22,9 +22,7 @@
 
                 <!-- Boton home -->
                 <Button>
-                    <Button.Content>
-                        <md:PackIcon Kind="Home"/>
-                    </Button.Content>
+                    <md:PackIcon Kind="Home"/>
                 </Button>
             </StackPanel>
         </DockPanel>
