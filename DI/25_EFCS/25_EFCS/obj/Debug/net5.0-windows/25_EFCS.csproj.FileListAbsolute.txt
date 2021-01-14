@@ -2,7 +2,6 @@ D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS.csprojAssembl
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\App.g.cs
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS_MarkupCompile.cache
-D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS_MarkupCompile.lref
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\bin\Debug\net5.0-windows\25_EFCS.exe
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\bin\Debug\net5.0-windows\25_EFCS.deps.json
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\bin\Debug\net5.0-windows\25_EFCS.runtimeconfig.json
@@ -57,3 +56,5 @@ D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS.dll
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\ref\25_EFCS.dll
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS.pdb
 D:\Github\DAM2\DI\25_EFCS\25_EFCS\obj\Debug\net5.0-windows\25_EFCS.genruntimeconfig.cache
+D:\Github\DAM2\DI\25_EFCS\25_EFCS\bin\Debug\net5.0-windows\MaterialDesignColors.dll
+D:\Github\DAM2\DI\25_EFCS\25_EFCS\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll

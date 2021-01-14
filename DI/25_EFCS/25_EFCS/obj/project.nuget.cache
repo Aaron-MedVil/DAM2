@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "QpjUJgJvLjNFJchizn0wEazO+s0Cole9OM9Zi0AGXW0cfmIPhZFiLugyBEsd7Mtt2sVsusiFTxV5A+PJBtjiTg==",
+  "dgSpecHash": "5CKWA8HhPCYi//3DGciNpxOVbIVGjwfvzATQsdyuMBYE/3uretXQgWGPCsCeKYoJ3z72LYrkd4qtW8Q4/ZAhbQ==",
   "success": true,
   "projectFilePath": "D:\\Github\\DAM2\\DI\\25_EFCS\\25_EFCS\\25_EFCS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AMedi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\AMedi\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
     "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\AMedi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

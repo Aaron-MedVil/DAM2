@@ -3,10 +3,172 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_25_EFCS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" MinHeight="450" MinWidth="800" WindowState="Maximized" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="proveedoresViewSource"/>
+
+        <Style x:Key="TextBoxCapturaError" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style  TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Arial Unicode MS"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Text" Value=""/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="nombreCampos" TargetType="Control" >
+            <Setter Property="FontFamily" Value="Sitka Small"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#FFB28536"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <Style  TargetType="Label" BasedOn="{StaticResource nombreCampos}"/>
+        <Style  TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Stencil"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Brown"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
 
+        <!-- Definicion de filas -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="326*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar superior -->
+        <ToolBar Margin="10,10,10,6" Background="#FFB2AFAF">
+            
+            <!-- Brand -->
+            <Image HorizontalAlignment="Center" Height="55" VerticalAlignment="Center" Width="101"/>
+            
+            <!-- Boton Visualizar Registros -->
+            <Button x:Name="VisualizarRegistro" Height="60" VerticalAlignment="Stretch" Width="75" HorizontalAlignment="Center">
+                <materialDesign:PackIcon Kind="FolderOpen" Width="45" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+            
+            <!-- Boton Grabar Registros -->
+            <Button x:Name="GrabarRegistro" Height="60" VerticalAlignment="Stretch" Width="75">
+                <materialDesign:PackIcon Kind="ContentSaveEdit" Width="63" Height="47" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+            </Button>
+            
+            <!-- Boton Borrar Registros -->
+            <Button x:Name="BorrarRegistro" Height="60" VerticalAlignment="Stretch" Width="75">
+                <materialDesign:PackIcon Kind="delete" Width="60" Height="50" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <!-- Boton Crear Pdf -->
+            <Button x:Name="ListadoPdf" Height="60" VerticalAlignment="Stretch" Width="75">
+                <materialDesign:PackIcon Kind="Printer" Width="93" Height="50" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <!-- Boton Finalizar -->
+            <Button x:Name="Finalizar" Height="60" VerticalAlignment="Stretch" Width="75">
+                <materialDesign:PackIcon Kind="ExitToApp" Width="77" Height="52" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+            </Button>
+        </ToolBar>
+
+        <!-- Contenido -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,10,10,10" Grid.Row="1">
+            
+            <!-- Tabla -->
+            <DataGrid x:Name="proveedoresDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource proveedoresViewSource}}" Margin="13,13,13,300" RowDetailsVisibilityMode="VisibleWhenSelected" Width="1059" Height="339">
+                
+                <!-- Definicion de columnas -->
+                <DataGrid.Columns>
+                    
+                    <!-- Columna Id -->
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="100">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    
+                    <!-- Columna Nombre -->
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+
+                    <!-- Columna Nif -->
+                    <DataGridTextColumn Header="NIF" Binding="{Binding Nif}" Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    
+                    <!-- Columna Direccion -->
+                    <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    
+                    <!-- Columna Poblacion -->
+                    <DataGridTextColumn Header="Población" Binding="{Binding Poblacion}" Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    
+                    <!-- Columna Provincia -->
+                    <DataGridTextColumn Header="Provincia" Binding="{Binding Provincia}" Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FFA5D67C"/>
+                                <Setter Property="Foreground" Value="#FF5F4F4F"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </Window>
