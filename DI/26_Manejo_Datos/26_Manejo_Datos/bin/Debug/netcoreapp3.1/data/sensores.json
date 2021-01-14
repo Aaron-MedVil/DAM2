@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "descripcionSensor": "Xwe_34",
+    "fecha": "26/11/2020",
+    "hora": "12:23:12",
+    "latitud": "123.454656657",
+    "longitud": "123.454656657",
+    "humedad": 34.5,
+    "temperatura": 34.5
+
+  },
+  {
+    "id": 2,
+    "descripcionSensor": "Xwe_34",
+    "fecha": "26/11/2020",
+    "hora": "14:23:12",
+    "latitud": "123.454656657",
+    "longitud": "-23.3455656767",
+    "humedad": 45.5,
+    "temperatura": 21.5
+
+  }
+]
