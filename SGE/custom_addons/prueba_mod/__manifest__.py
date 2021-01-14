@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "prueba_mod",
+    'name': "Mi_Modulo",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        Mi primer módulo
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'description': """
+        Primer módulo que creamos para odoo en python
+    """,
+
+    'author': "Aarón Medina",
+    'website': "https://github.com/Aaron-MedVil",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
