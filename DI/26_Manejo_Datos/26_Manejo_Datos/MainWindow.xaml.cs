@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
 namespace _26_Manejo_Datos {
 
@@ -11,13 +10,9 @@ namespace _26_Manejo_Datos {
         /// <summary>Carga los datos iniciales de la aplicacion</summary>
         /// <param name="sender">Elemento que realiza la accion</param>
         /// <param name="e">Parametros de la accion</param>
-        private void Window_Loaded(object sender, RoutedEventArgs e) => checkSession();
-
-        /// <summary>Comprueba si existe una sesion activa y si no existe la crea</summary>
-        private void checkSession() {
-
-            /*if (!Globals.sessionStatus) { MessageBox.Show("Iniciar sesion"); }
-            else { MessageBox.Show("Cargar Datos"); }*/
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            cont_pages.Children.Clear();
+            cont_pages.Children.Add(new Components.Home());
         }
 
         /// <summary>Sale de la aplicacion</summary>
@@ -25,13 +20,43 @@ namespace _26_Manejo_Datos {
         /// <param name="e">Parametros de la accion</param>
         private void btn_exit_Click(object sender, RoutedEventArgs e) => this.Close();
 
+        /// <summary>Carga la pagina home</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_home_Click(object sender, RoutedEventArgs e) {
+            cont_pages.Children.Clear();
+            cont_pages.Children.Add(new Components.Home());
+        }
 
-        private void btn_home_Click(object sender, RoutedEventArgs e) { /* cont_pages */ }
+        /// <summary>Carga la pagina de gestion del fichero JSON</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_json_Click(object sender, RoutedEventArgs e) {
 
-        private void btn_json_Click(object sender, RoutedEventArgs e) { /* cont_pages */ }
+            if (!Globals.sessionStatus) {
+                cont_pages.Children.Clear();
+                cont_pages.Children.Add(new Components.Json_Gest());
+            } else { MessageBox.Show("El usuario identificado no tiene acceso a esta parte del programa"); }
+        }
 
-        private void btn_db_Click(object sender, RoutedEventArgs e) { /* cont_pages */ }
+        /// <summary>Carga la pagina de gestion de la base de datos</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_db_Click(object sender, RoutedEventArgs e) {
 
-        private void btn_user_Click(object sender, RoutedEventArgs e) { /* cont_pages */ }
+            if (Globals.sessionStatus) {
+                cont_pages.Children.Clear();
+                cont_pages.Children.Add(new Components.Db_Gest());
+            }
+            else { MessageBox.Show("El usuario identificado no tiene acceso a esta parte del programa"); }
+        }
+
+        /// <summary>Carga la pagina de usuario</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_user_Click(object sender, RoutedEventArgs e) {
+            cont_pages.Children.Clear();
+            cont_pages.Children.Add(new Components.User_Gest());
+        }
     }
 }

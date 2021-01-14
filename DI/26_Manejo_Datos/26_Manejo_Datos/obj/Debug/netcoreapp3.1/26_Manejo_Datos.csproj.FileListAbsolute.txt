@@ -20,3 +20,11 @@ D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\bin\Debug\netcoreapp3.1\Materi
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\26_Manejo_Datos.csproj.CopyComplete
 D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\App.baml
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Home.baml
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Home.g.cs
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Db_Gest.g.cs
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Json_Gest.g.cs
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\User_Gest.g.cs
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Db_Gest.baml
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\Json_Gest.baml
+D:\Github\DAM2\DI\26_Manejo_Datos\26_Manejo_Datos\obj\Debug\netcoreapp3.1\Components\User_Gest.baml
