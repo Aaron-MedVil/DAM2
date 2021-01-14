@@ -52,7 +52,7 @@ namespace _26_Manejo_Datos.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/26_Manejo_Datos;component/components/json_gest.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/26_Manejo_Datos;V1.0.0.0;component/components/json_gest.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\Json_Gest.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
