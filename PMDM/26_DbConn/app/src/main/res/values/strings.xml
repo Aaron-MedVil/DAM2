@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">26_DbConn</string>
+    <string name="codigo">Código</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripción</string>
+    <string name="pvp">PVP</string>
+    <string name="btnInsertar">Insertar</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="btnModificar">Modificar</string>
+    <string name="btnEliminar">Eliminar</string>
 </resources>
