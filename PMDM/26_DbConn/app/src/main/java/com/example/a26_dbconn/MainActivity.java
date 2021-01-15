@@ -2,11 +2,15 @@ package com.example.a26_dbconn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,9 +60,14 @@ public class MainActivity extends AppCompatActivity {
                                 // Llamamos al metodo para insertar un producto
                                 int res = prodDb.InsertaProducto(MainActivity.this, prod);
 
+                                // Oculta el teclado3
+                                InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                                 // Comprobamos si se ha insertado el registro
-                                if (res == 1) { Toast.makeText(MainActivity.this, "Insertado correctamente", Toast.LENGTH_SHORT).show(); }
-                                else { Toast.makeText(MainActivity.this, "Error al insertar", Toast.LENGTH_SHORT).show(); }
+                                String msgRes = (res == 1) ? "Insertado correctamente" : "Error al insertar";
+                                Snackbar snc = Snackbar.make(v, msgRes, Snackbar.LENGTH_LONG);
+                                snc.show();
 
                                 limpiarFormulario();
                             }
