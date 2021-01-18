@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Mi_Modulo",
+    'name': "Módulo de pruebas",
 
     'summary': """
         Mi primer módulo
