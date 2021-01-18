@@ -4,38 +4,40 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace _25_EFCS
-{
-    public partial class FabricaContext : DbContext
-    {
-        public FabricaContext()
-        {
-        }
+namespace _25_EFCS {
 
-        public FabricaContext(DbContextOptions<FabricaContext> options)
-            : base(options)
-        {
-        }
+    public partial class FabricaContext : DbContext {
+
+        public FabricaContext() {}
+
+        public FabricaContext(DbContextOptions<FabricaContext> options) : base(options) {}
 
         public virtual DbSet<Familium> Familia { get; set; }
         public virtual DbSet<MateriasPrima> MateriasPrimas { get; set; }
         public virtual DbSet<Proveedore> Proveedores { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        /// <summary>Configuracuion de la conexion a la base de datos</summary>
+        /// <param name="optionsBuilder"></param>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+
+            if (!optionsBuilder.IsConfigured) {
+
+                /* #warning To protect potentially sensitive information in your connection string, you should move it out of source code.
+                 * You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration -
+                 * see https://go.microsoft.com/fwlink/?linkid=2131148.
+                 * For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263. */
                 optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Initial Catalog=Fabrica;User ID=SA;Password=sa_sa_2018@2018sa;");
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        /// <summary>Propiedades de las tablas de la base de datos</summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Familium>(entity =>
-            {
+            // Tabla de familias
+            modelBuilder.Entity<Familium>(entity => {
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
@@ -43,8 +45,8 @@ namespace _25_EFCS
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<MateriasPrima>(entity =>
-            {
+            // Tabla de materias primas
+            modelBuilder.Entity<MateriasPrima>(entity => {
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
@@ -77,8 +79,8 @@ namespace _25_EFCS
                     .HasConstraintName("FK_Familia");
             });
 
-            modelBuilder.Entity<Proveedore>(entity =>
-            {
+            // Tabla de proveedores
+            modelBuilder.Entity<Proveedore>(entity => {
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Cp)
