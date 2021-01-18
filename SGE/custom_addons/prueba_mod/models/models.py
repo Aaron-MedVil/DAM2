@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class prueba_mod(models.Model):
-#     _name = 'prueba_mod.prueba_mod'
-#     _description = 'prueba_mod.prueba_mod'
+class prueba_mod(models.Model):
+    _name = 'prueba_mod.prueba_mod'
+    _description = 'prueba_mod.prueba_mod'
 
 #     name = fields.Char()
 #     value = fields.Integer()
