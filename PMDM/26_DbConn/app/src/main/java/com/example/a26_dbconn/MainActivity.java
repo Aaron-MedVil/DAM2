@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 // Oculta el teclado
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-                // Comprobamos que los campos de texto no esten vacios
                 if (!isEmptyEt(etCod)) {
 
                     if (!isEmptyEt(etNom)) {
@@ -120,6 +119,44 @@ public class MainActivity extends AppCompatActivity {
 
                     if (prod != null) { visualizarRegistro(prod); }
                     else { Toast.makeText(MainActivity.this, "No se han encontrado registros con ese código", Toast.LENGTH_SHORT).show(); }
+                }
+                else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
+            }
+        });
+
+        // Asignamos un metodo click al boton de modificar
+        btnModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Oculta el teclado
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                if (!isEmptyEt(etCod)) {
+
+                    if (!isEmptyEt(etNom)) {
+
+                        if (!isEmptyEt(etDesc)) {
+
+                            if (!isEmptyEt(etPvp)) {
+
+                                prod.setCodigo(Integer.parseInt(etCod.getText().toString()));
+                                prod.setNombre(etNom.getText().toString());
+                                prod.setDescripcion(etDesc.getText().toString());
+                                prod.setPrecio(Double.parseDouble(etPvp.getText().toString()));
+
+                                int res = prodDb.ModificarProducto(MainActivity.this, prod);
+
+                                // Comprobamos si se ha insertado el registro
+                                String msgRes = (res == 1) ? "Producto modificado correctamente" : "Error al modificar el producto";
+                                Snackbar snc = Snackbar.make(v, msgRes, Snackbar.LENGTH_LONG);
+                                snc.show();
+                            }
+                            else { Toast.makeText(MainActivity.this, "El campo precio está vacío", Toast.LENGTH_SHORT).show(); }
+                        }
+                        else { Toast.makeText(MainActivity.this, "El campo descripción está vacío", Toast.LENGTH_SHORT).show(); }
+                    }
+                    else { Toast.makeText(MainActivity.this, "El campo nombre está vacío", Toast.LENGTH_SHORT).show(); }
                 }
                 else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
             }
