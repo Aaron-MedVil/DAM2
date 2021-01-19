@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class DbConn extends SQLiteOpenHelper {
 
     // Sentencia para crear la tabla
-    final String TB_PRODUCTO = "CREATE TABLE productos (idProd INT PRIMARY KEY, nomProd TEXT, descProd TEXT, pvpProd REAL)";
+    private final String TB_PRODUCTO = "CREATE TABLE productos (idProd INT PRIMARY KEY, nomProd TEXT, descProd TEXT, pvpProd REAL)";
 
     /**
      * Constructor de la clase
