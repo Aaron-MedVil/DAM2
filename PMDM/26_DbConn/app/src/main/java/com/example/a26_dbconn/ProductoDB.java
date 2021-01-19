@@ -86,8 +86,6 @@ public class ProductoDB {
 
         Cursor c = db.rawQuery(sql, null);
 
-        Log.d("Registro", c.toString()); // Debug log
-
         if (c.moveToFirst()) {
 
             prod.setCodigo(c.getInt(0));
@@ -95,12 +93,37 @@ public class ProductoDB {
             prod.setDescripcion(c.getString(2));
             prod.setPrecio(c.getDouble(3));
 
-            Log.d("Prod", prod.toString()); // Debug log
-
             db.close();
 
             return prod;
         }
         else { return null; }
+    }
+
+    /**
+     * Metodo que obtiene la conexion a la base de datos para modificar un registro
+     * @param context
+     * @param prod
+     * @return
+     */
+    public int ModificarProducto(Context context, Producto prod) {
+
+        int res = 0;
+
+        String sql = "UPDATE productos" +
+                " SET idProd = " + prod.getCodigo() + ", nomProd = '" + prod.getNombre() + "', descProd = '" + prod.getDescripcion() + "', pvpProd = " + prod.getPrecio() +
+                " WHERE idProd = " + prod.getCodigo();
+
+        SQLiteDatabase db = this.getConn(context);
+
+        try {
+
+            db.execSQL(sql);
+            res = 1;
+        }
+        catch(Exception e) { Log.e("Error", e.toString()); }
+        finally { db.close(); }
+
+        return res;
     }
 }
