@@ -60,24 +60,46 @@ public class MainActivity extends AppCompatActivity {
                                 // Llamamos al metodo para insertar un producto
                                 int res = prodDb.InsertaProducto(MainActivity.this, prod);
 
-                                // Oculta el teclado3
+                                // Oculta el teclado
                                 InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
                                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
                                 // Comprobamos si se ha insertado el registro
-                                String msgRes = (res == 1) ? "Insertado correctamente" : "Error al insertar";
+                                String msgRes = (res == 1) ? "Producto insertado correctamente" : "Error al insertar el producto";
                                 Snackbar snc = Snackbar.make(v, msgRes, Snackbar.LENGTH_LONG);
                                 snc.show();
 
                                 limpiarFormulario();
                             }
-                            else { Toast.makeText(MainActivity.this, "El campo precio esta vacío", Toast.LENGTH_SHORT).show(); }
+                            else { Toast.makeText(MainActivity.this, "El campo precio está vacío", Toast.LENGTH_SHORT).show(); }
                         }
-                        else { Toast.makeText(MainActivity.this, "El campo descripción esta vacío", Toast.LENGTH_SHORT).show(); }
+                        else { Toast.makeText(MainActivity.this, "El campo descripción está vacío", Toast.LENGTH_SHORT).show(); }
                     }
-                    else { Toast.makeText(MainActivity.this, "El campo nombre esta vacío", Toast.LENGTH_SHORT).show(); }
+                    else { Toast.makeText(MainActivity.this, "El campo nombre está vacío", Toast.LENGTH_SHORT).show(); }
                 }
-                else { Toast.makeText(MainActivity.this, "El campo código esta vacío", Toast.LENGTH_SHORT).show(); }
+                else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
+            }
+        });
+
+        // Asignamos un metodo on click al boton de eliminar
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!isEmptyEt(etCod)) {
+
+                    String codigo = etCod.getText().toString();
+                    int res = prodDb.EliminarProducto(MainActivity.this, Integer.parseInt(codigo));
+
+                    // Oculta el teclado3
+                    InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                    // Comprobamos si se ha insertado el registro
+                    String msgRes = (res == 1) ? "Producto eliminado correctamente" : "Error al eliminar el producto";
+                    Snackbar snc = Snackbar.make(v, msgRes, Snackbar.LENGTH_LONG);
+                }
+                else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
             }
         });
     }
