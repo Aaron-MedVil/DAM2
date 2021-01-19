@@ -1,6 +1,7 @@
 package com.example.a26_dbconn;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -22,7 +23,7 @@ public class ProductoDB {
     }
 
     /**
-     * Metodo que contiene la conexion a la base de datos para insertar un registro
+     * Metodo que obtiene la conexion a la base de datos para insertar un registro
      * @param context
      * @param prod
      * @return
@@ -33,7 +34,6 @@ public class ProductoDB {
 
         String sql = "INSERT INTO productos (idProd, nomProd, descProd, pvpProd)" +
                 "VALUES ( " + prod.getCodigo() + " , '" + prod.getNombre() + "', '" + prod.getDescripcion() + "', " + prod.getPrecio() + ")";
-
         SQLiteDatabase db = this.getConn(context);
 
         try {
@@ -48,7 +48,7 @@ public class ProductoDB {
     }
 
     /**
-     * Metodo que contiene la conexion a la base de datos para eliminar un registro
+     * Metodo que obtiene la conexion a la base de datos para eliminar un registro
      * @param context
      * @param codProd
      * @return
@@ -58,7 +58,6 @@ public class ProductoDB {
         int res = 0;
 
         String sql = "DELETE FROM productos WHERE idProd = " + codProd;
-
         SQLiteDatabase db = this.getConn(context);
 
         try {
@@ -70,5 +69,38 @@ public class ProductoDB {
         finally { db.close(); }
 
         return res;
+    }
+
+    /**
+     * Metodo que obtiene la conexion a la base de datos para buscar un registro
+     * @param context
+     * @param codProd
+     * @return
+     */
+    public Producto BuscarProducto(Context context, int codProd) {
+
+        Producto prod = new Producto();
+
+        String sql = "SELECT idProd, nomProd, descProd, pvpProd FROM productos WHERE idProd = " + codProd;
+        SQLiteDatabase db = this.getConn(context);
+
+        Cursor c = db.rawQuery(sql, null);
+
+        Log.d("Registro", c.toString()); // Debug log
+
+        if (c.moveToFirst()) {
+
+            prod.setCodigo(c.getInt(0));
+            prod.setNombre(c.getString(1));
+            prod.setDescripcion(c.getString(2));
+            prod.setPrecio(c.getDouble(3));
+
+            Log.d("Prod", prod.toString()); // Debug log
+
+            db.close();
+
+            return prod;
+        }
+        else { return null; }
     }
 }
