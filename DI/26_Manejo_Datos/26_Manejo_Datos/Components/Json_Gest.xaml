@@ -3,7 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
-    
-    <Grid></Grid>
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded">
+    <DockPanel>
+        <DockPanel.Margin>5</DockPanel.Margin>
+
+        <!-- Titulo -->
+        <StackPanel>
+            <DockPanel.Dock>Top</DockPanel.Dock>
+            <Label Style="{StaticResource h-1}">CRUD JSON</Label>
+            <Separator/>
+        </StackPanel>
+
+        <!-- Toolbar -->
+        <StackPanel Orientation="Vertical">
+            <DockPanel.Dock>Top</DockPanel.Dock>
+
+            <!-- Herramientas Manejo Registros -->
+            <Grid Style="{StaticResource nav-tools}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Boton Nuevo Registro -->
+                <Button Grid.Column="0">
+                    <md:PackIcon Kind="Plus"/>
+                </Button>
+
+                <!-- Boton Guardar Registro -->
+                <Button Grid.Column="1">
+                    <md:PackIcon Kind="ContentSave"/>
+                </Button>
+
+                <!-- Boton Eliminar Registro -->
+                <Button Grid.Column="2">
+                    <md:PackIcon Kind="Delete"/>
+                </Button>
+            </Grid>
+
+            <!-- Herramientas Desplazamiento Registros -->
+            <Grid Style="{StaticResource nav-tools}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Boton Primer Registro -->
+                <Button Grid.Column="0">
+                    <md:PackIcon Kind="FirstPage"/>
+                </Button>
+
+                <!-- Boton Anterior -->
+                <Button Grid.Column="1">
+                    <md:PackIcon Kind="SkipPrevious"/>
+                </Button>
+
+                <!-- Boton Siguiente -->
+                <Button Grid.Column="2">
+                    <md:PackIcon Kind="SkipNext"/>
+                </Button>
+
+                <!-- Boton Primer Registro -->
+                <Button Grid.Column="3">
+                    <md:PackIcon Kind="LastPage"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+        <!-- Contenido -->
+        <Grid Background="Aqua">
+            <Grid.Margin>0, 5, 0, 0</Grid.Margin>
+
+            <!-- Formulario -->
+            <StackPanel Background="Orange" Orientation="Vertical">
+
+                <StackPanel Background="Red" Height="50">
+                    <Label>Pruebas 1</Label>
+                    <TextBlock/>
+                </StackPanel>
+                
+                <StackPanel Background="Brown" Height="50"></StackPanel>
+                <StackPanel Background="Purple" Height="50"></StackPanel>
+                <StackPanel Background="Blue" Height="50"></StackPanel>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
 </UserControl>

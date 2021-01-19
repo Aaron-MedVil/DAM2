@@ -6,6 +6,7 @@
 
     <Application.Resources>
 
+        <!-- Estilo Sidebar Personalizado -->
         <Style x:Key="menu-lateral" TargetType="DockPanel">
             <Style.Resources>
                 <Style TargetType="StackPanel">
@@ -48,6 +49,52 @@
                             </Style.Resources>
                         </Style>
                     </Style.Resources>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <!-- Estilo Titulo Personalizado -->
+        <Style x:Key="h-1" TargetType="Label">
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+
+        <!-- Estilo Toolbar Personalizado -->
+        <Style x:Key="nav-tools" TargetType="Grid">
+            <Setter Property="Margin" Value="0, 5, 0, 0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="40"/>
+            <Style.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="Padding" Value="5, 0, 5, 0"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="#5D6BE2" Opacity="0.6"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="#5D6BE2" Opacity="0.9"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </Style.Resources>
         </Style>

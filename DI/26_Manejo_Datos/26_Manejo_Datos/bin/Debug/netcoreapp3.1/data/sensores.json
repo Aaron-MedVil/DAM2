@@ -8,7 +8,6 @@
     "longitud": "123.454656657",
     "humedad": 34.5,
     "temperatura": 34.5
-
   },
   {
     "id": 2,
@@ -19,6 +18,5 @@
     "longitud": "-23.3455656767",
     "humedad": 45.5,
     "temperatura": 21.5
-
   }
 ]

@@ -52,7 +52,7 @@ namespace _26_Manejo_Datos.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/26_Manejo_Datos;V1.0.0.0;component/components/user_gest.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/26_Manejo_Datos;component/components/user_gest.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\User_Gest.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

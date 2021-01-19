@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace _26_Manejo_Datos {
 
@@ -14,11 +15,6 @@ namespace _26_Manejo_Datos {
             cont_pages.Children.Clear();
             cont_pages.Children.Add(new Components.Home());
         }
-
-        /// <summary>Sale de la aplicacion</summary>
-        /// <param name="sender">Elemento que realiza la accion</param>
-        /// <param name="e">Parametros de la accion</param>
-        private void btn_exit_Click(object sender, RoutedEventArgs e) => this.Close();
 
         /// <summary>Carga la pagina home</summary>
         /// <param name="sender">Elemento que realiza la accion</param>
@@ -58,5 +54,15 @@ namespace _26_Manejo_Datos {
             cont_pages.Children.Clear();
             cont_pages.Children.Add(new Components.User_Gest());
         }
+
+        /// <summary>Sale de la aplicacion</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_exit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+
+        /// <summary>Sale de la aplicacion</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void Window_Closed(object sender, EventArgs e) => Application.Current.Shutdown();
     }
 }
