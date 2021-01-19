@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         Producto prod = new Producto();
         ProductoDB prodDb = new ProductoDB();
+        InputMethodManager imm = (InputMethodManager)MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
 
         // Obtenemos los elementos EditText de la interfaz
         etCod = findViewById(R.id.etCod);
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // Oculta el teclado
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                 // Comprobamos que los campos de texto no esten vacios
                 if (!isEmptyEt(etCod)) {
 
@@ -59,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
                                 // Llamamos al metodo para insertar un producto
                                 int res = prodDb.InsertaProducto(MainActivity.this, prod);
-
-                                // Oculta el teclado
-                                InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-                                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
                                 // Comprobamos si se ha insertado el registro
                                 String msgRes = (res == 1) ? "Producto insertado correctamente" : "Error al insertar el producto";
@@ -86,14 +86,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // Oculta el teclado
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                 if (!isEmptyEt(etCod)) {
 
                     String codigo = etCod.getText().toString();
                     int res = prodDb.EliminarProducto(MainActivity.this, Integer.parseInt(codigo));
-
-                    // Oculta el teclado
-                    InputMethodManager imm = (InputMethodManager) MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
                     // Comprobamos si se ha insertado el registro
                     String msgRes = (res == 1) ? "Producto eliminado correctamente" : "Error al eliminar el producto";
@@ -101,6 +100,26 @@ public class MainActivity extends AppCompatActivity {
                     snc.show();
 
                     limpiarFormulario();
+                }
+                else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
+            }
+        });
+
+        // Asignamos un metodo click al boton de buscar
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Oculta el teclado
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                if (!isEmptyEt(etCod)) {
+
+                    String codigo = etCod.getText().toString();
+                    Producto prod = prodDb.BuscarProducto(MainActivity.this, Integer.parseInt(codigo));
+
+                    if (prod != null) { visualizarRegistro(prod); }
+                    else { Toast.makeText(MainActivity.this, "No se han encontrado registros con ese código", Toast.LENGTH_SHORT).show(); }
                 }
                 else { Toast.makeText(MainActivity.this, "El campo código está vacío", Toast.LENGTH_SHORT).show(); }
             }
@@ -116,6 +135,17 @@ public class MainActivity extends AppCompatActivity {
         etNom.setText("");
         etDesc.setText("");
         etPvp.setText("");
+    }
+
+    /**
+     * Completa los campos de la vista con los datos de un producto
+     */
+    private void visualizarRegistro(Producto p) {
+
+        etCod.setText(String.valueOf(p.getCodigo()));
+        etNom.setText(p.getNombre());
+        etDesc.setText(p.getDescripcion());
+        etPvp.setText(String.valueOf(p.getPrecio()));
     }
 
     /**
