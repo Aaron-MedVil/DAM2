@@ -95,6 +95,23 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
+                    <Style.Resources>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Orientation" Value="Horizontal"/>
+                            <Style.Resources>
+                                <Style TargetType="md:PackIcon">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                </Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="#fff"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </Style.Resources>
+                        </Style>
+                    </Style.Resources>
                 </Style>
             </Style.Resources>
         </Style>

@@ -13,8 +13,9 @@ namespace _26_Manejo_Datos.Components {
         private string jsonPath = Environment.CurrentDirectory + "/data/sensores.json";
         private string json = null;
         private List<Sensor> mediciones = null;
-        private int indiceList = 0;
-        private Sensor currentReg = null, registro = null;
+        private int indiceList;
+        private Sensor registro = null;
+        private bool nuevo = false;
 
         /// <summary>Carga los componentes de la ventana</summary>
         public Json_Gest() => InitializeComponent();
@@ -22,19 +23,7 @@ namespace _26_Manejo_Datos.Components {
         /// <summary>Carga los datos iniciales de la ventana</summary>
         /// <param name="sender">Elemento que realiza la accion</param>
         /// <param name="e">Parametros de la accion</param>
-        private void UserControl_Loaded(object sender, RoutedEventArgs e) {
-
-            vaciarFormulario();
-
-            try {
-
-                json = File.ReadAllText(jsonPath);
-                mediciones = JsonConvert.DeserializeObject<List<Sensor>>(json);
-                registro = mediciones.ElementAt(indiceList);
-                visualizarRegistros(registro);
-            } 
-            catch (Exception err) { MessageBox.Show("Error al cargar el fichero. Pongase en contacto con el administrador."); }
-        }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e) => cargarDefReg();
 
         /// <summary>Muestra el primer registro</summary>
         /// <param name="sender">Elemento que realiza la accion</param>
@@ -76,11 +65,92 @@ namespace _26_Manejo_Datos.Components {
             visualizarRegistros(registro);
         }
 
-        private void btn_delete_reg_Click(object sender, RoutedEventArgs e) {}
+        /// <summary>Elimina el registro actual</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_delete_reg_Click(object sender, RoutedEventArgs e) {
 
-        private void btn_save_reg_Click(object sender, RoutedEventArgs e) {}
+            // Eliminar registro actual y guardarlo en el fichero json
+            mediciones.Remove((Sensor)mediciones.ElementAt(indiceList));
 
-        private void btn_new_reg_Click(object sender, RoutedEventArgs e) {}
+            // Guarda el registro actual en el fichero JSON
+            string newJson = JsonConvert.SerializeObject(mediciones);
+            File.WriteAllText(jsonPath, newJson);
+
+            // Aqui vuelve a cargar los datos iniciales
+            cargarDefReg();
+
+            MessageBox.Show("Registro eliminado correctamente");
+        }
+
+        /// <summary>Crea/Edita un registro</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_save_reg_Click(object sender, RoutedEventArgs e) {
+
+            // Edita un registro actual
+            if (!nuevo) { MessageBox.Show("Editar registro"); }
+
+            // Crea un registro nuevo
+            else {
+
+                /* ========== Comprobar si los campos no estan vacios y que los datos de los campos son correctos ========== */
+
+                // Crea el registro en la lista mediciones
+                Sensor newSensor = new Sensor() {
+                    Id = int.Parse(tb_json_id.Text.ToString()),
+                    DescripcionSensor = tb_json_descripcion.Text.ToString(),
+                    Fecha = tb_json_fecha.Text.ToString(),
+                    Hora = tb_json_hora.Text.ToString(),
+                    Latitud = tb_json_latitud.Text.ToString(),
+                    Longitud = tb_json_longitud.Text.ToString(),
+                    Humedad = float.Parse(tb_json_humedad.Text.ToString()),
+                    Temperatura = float.Parse(tb_json_temperatura.Text.ToString())
+                };
+                mediciones.Add(newSensor);
+
+                // Guarda el registro actual en el fichero JSON
+                string newJson = JsonConvert.SerializeObject(mediciones);
+                File.WriteAllText(jsonPath, newJson);
+
+                // Visualiza el registro que hemos creado
+                indiceList = mediciones.Count - 1;
+                registro = mediciones.ElementAt(indiceList);
+                visualizarRegistros(registro);
+
+                MessageBox.Show("Registro creado correctamente");
+            }
+        }
+
+        /// <summary>Vacia los campos del formulario y </summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_new_reg_Click(object sender, RoutedEventArgs e) {
+
+            nuevo = true;
+            vaciarFormulario();
+        }
+
+        /// <summary>Sincroniza los datos de la aplicacion con los datos del fichero JSON</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_update_reg_Click(object sender, RoutedEventArgs e) => cargarDefReg();
+
+        /// <summary>Muestra los registros de un sensor en los campos del formulario</summary>
+        /// <param name="r">Registros del sensor</param>
+        private void visualizarRegistros(Sensor r) {
+
+            nuevo = false;
+
+            tb_json_id.Text = r.Id.ToString();
+            tb_json_descripcion.Text = r.DescripcionSensor.ToString();
+            tb_json_fecha.Text = r.Fecha.ToString();
+            tb_json_hora.Text = r.Hora.ToString();
+            tb_json_latitud.Text = r.Latitud.ToString();
+            tb_json_longitud.Text = r.Longitud.ToString();
+            tb_json_humedad.Text = r.Humedad.ToString();
+            tb_json_temperatura.Text = r.Temperatura.ToString();
+        }
 
         /// <summary>Limpia los campos del formulario</summary>
         private void vaciarFormulario() {
@@ -95,20 +165,20 @@ namespace _26_Manejo_Datos.Components {
             tb_json_temperatura.Text = "";
         }
 
-        /// <summary>Muestra los registros de un sensor en los campos del formulario</summary>
-        /// <param name="r">Registros del sensor</param>
-        private void visualizarRegistros(Sensor r) {
+        /// <summary>Carga el fichero JSON y carga el primer registro</summary>
+        private void cargarDefReg() {
 
-            currentReg = r;
+            vaciarFormulario();
+            indiceList = 0;
+            nuevo = false;
 
-            tb_json_id.Text = r.Id.ToString();
-            tb_json_descripcion.Text = r.DescripcionSensor.ToString();
-            tb_json_fecha.Text = r.Fecha.ToString();
-            tb_json_hora.Text = r.Hora.ToString();
-            tb_json_latitud.Text = r.Latitud.ToString();
-            tb_json_longitud.Text = r.Longitud.ToString();
-            tb_json_humedad.Text = r.Humedad.ToString();
-            tb_json_temperatura.Text = r.Temperatura.ToString();
+            try {
+
+                json = File.ReadAllText(jsonPath);
+                mediciones = JsonConvert.DeserializeObject<List<Sensor>>(json);
+                registro = mediciones.ElementAt(indiceList);
+                visualizarRegistros(registro);
+            } catch (Exception err) { MessageBox.Show("Error al cargar el fichero. Pongase en contacto con el administrador."); }
         }
     }
 }

@@ -26,21 +26,39 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                
+                <!-- Boton Actualizar Datos -->
+                <Button Grid.Column="0" x:Name="btn_update_reg" Click="btn_update_reg_Click">
+                    <StackPanel>
+                        <md:PackIcon Kind="Update"/>
+                        <Label Content="Recargar"/>
+                    </StackPanel>
+                </Button>
 
                 <!-- Boton Nuevo Registro -->
-                <Button Grid.Column="0" x:Name="btn_new_reg" Click="btn_new_reg_Click">
-                    <md:PackIcon Kind="Plus"/>
+                <Button Grid.Column="1" x:Name="btn_new_reg" Click="btn_new_reg_Click">
+                    <StackPanel>
+                        <md:PackIcon Kind="Plus"/>
+                        <Label>Nuevo</Label>
+                    </StackPanel>
                 </Button>
 
                 <!-- Boton Guardar Registro -->
-                <Button Grid.Column="1" x:Name="btn_save_reg" Click="btn_save_reg_Click">
-                    <md:PackIcon Kind="ContentSave"/>
+                <Button Grid.Column="2" x:Name="btn_save_reg" Click="btn_save_reg_Click">
+                    <StackPanel>
+                        <md:PackIcon Kind="ContentSave"/>
+                        <Label Content="Guardar"/>
+                    </StackPanel>
                 </Button>
 
                 <!-- Boton Eliminar Registro -->
-                <Button Grid.Column="2" x:Name="btn_delete_reg" Click="btn_delete_reg_Click">
-                    <md:PackIcon Kind="Delete"/>
+                <Button Grid.Column="3" x:Name="btn_delete_reg" Click="btn_delete_reg_Click">
+                    <StackPanel>
+                        <md:PackIcon Kind="Delete"/>
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
                 </Button>
             </Grid>
 
