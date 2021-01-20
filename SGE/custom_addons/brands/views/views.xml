@@ -1,36 +1,46 @@
 <odoo>
   <data>
-
-    <!-- Vista de la pagina formulario de brands -->
-    <record model="ir.iu.view" id="view_brands_form">
+    <record model="ir.ui.view" id="view_brands_form">
       <field name="name">view.brands.form</field>
       <field name="model">brand.template</field>
-      <field name="arch" type="xml">
-        <form string="Brand_Form">
+      <field name="arch" type='xml'>
+        <form string="BrandForm">
           <sheet>
-            <group name="group_top">
-              <group name="group_left">
-                <field name="name"/>
-              </group>
-              <group name="group_write"></group>
+            <group>
+              <field name="name"/>
             </group>
           </sheet>
         </form>
       </field>
     </record>
 
-    <!-- Vista de la pagina arbol de brands -->
-    <record model="ir.iu.view" id="view_brands_tree">
+    <record model="ir.ui.view" id="view_brands_tree">
       <field name="name">view.brands.tree</field>
       <field name="model">brand.template</field>
-      <field name="arch" type="xml">
-        <tree string="Brand_Tree">
+      <field name="arch" type='xml'>
+        <tree string="BrandTree">
           <field name="name"/>
-        </form>
+        </tree>
       </field>
     </record>
 
-    <!-- Vista del campo brand en la pagina de productos -->
+    <record model="ir.actions.act_window" id="action_brand">
+      <field name="name">action.brand</field>
+      <field name="type"> ir.actions.act_window</field>
+      <field name="res_model">brand.template</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Brands
+        </p>
+        <p>
+          Click 'New' to create a new brand.
+        </p>
+      </field>
+    </record>
+
+
+    <!-- Extender el product.template-->
     <record model="ir.ui.view" id="brands_product_form">
       <field name="name">brands.product.form</field>
       <field name="model">product.template</field>
@@ -41,5 +51,11 @@
         </xpath>
       </field>
     </record>
+
+
+    <menuitem id="canary1" name="Custom CRM" sequence="10"/>
+    <menuitem id="canary2" name="Operaciones" parent="canary1" sequence="0"/>
+    
+
   </data>
 </odoo>
