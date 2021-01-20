@@ -98,5 +98,40 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <!-- Estilo Formularios Personalizado -->
+        <Style x:Key="form-control" TargetType="Grid">
+            <Setter Property="Margin" Value="0, 5, 0, 5"/>
+            <Style.Resources>
+                <Style TargetType="DockPanel">
+                    <Setter Property="LastChildFill" Value="True"/>
+                    <Setter Property="Margin" Value="5, 0, 5, 0"/>
+                    <Style.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#fff"/>
+                            <Setter Property="FontSize" Value="25"/>
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0, 0, 0, 5"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="FontStyle" Value="Italic"/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Width" Value="Auto"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Width" Value="Auto"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="PasswordChar" Value="*"/>
+                        </Style>
+                    </Style.Resources>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>

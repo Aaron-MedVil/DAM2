@@ -29,17 +29,17 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Boton Nuevo Registro -->
-                <Button Grid.Column="0">
+                <Button Grid.Column="0" x:Name="btn_new_reg" Click="btn_new_reg_Click">
                     <md:PackIcon Kind="Plus"/>
                 </Button>
 
                 <!-- Boton Guardar Registro -->
-                <Button Grid.Column="1">
+                <Button Grid.Column="1" x:Name="btn_save_reg" Click="btn_save_reg_Click">
                     <md:PackIcon Kind="ContentSave"/>
                 </Button>
 
                 <!-- Boton Eliminar Registro -->
-                <Button Grid.Column="2">
+                <Button Grid.Column="2" x:Name="btn_delete_reg" Click="btn_delete_reg_Click">
                     <md:PackIcon Kind="Delete"/>
                 </Button>
             </Grid>
@@ -55,43 +55,120 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Boton Primer Registro -->
-                <Button Grid.Column="0">
+                <Button Grid.Column="0" x:Name="btn_first_reg" Click="btn_first_reg_Click">
                     <md:PackIcon Kind="FirstPage"/>
                 </Button>
 
                 <!-- Boton Anterior -->
-                <Button Grid.Column="1">
+                <Button Grid.Column="1" x:Name="btn_previous_reg" Click="btn_previous_reg_Click">
                     <md:PackIcon Kind="SkipPrevious"/>
                 </Button>
 
                 <!-- Boton Siguiente -->
-                <Button Grid.Column="2">
+                <Button Grid.Column="2" x:Name="btn_next_reg" Click="btn_next_reg_Click">
                     <md:PackIcon Kind="SkipNext"/>
                 </Button>
 
                 <!-- Boton Primer Registro -->
-                <Button Grid.Column="3">
+                <Button Grid.Column="3" x:Name="btn_last_reg" Click="btn_last_reg_Click">
                     <md:PackIcon Kind="LastPage"/>
                 </Button>
             </Grid>
         </StackPanel>
 
         <!-- Contenido -->
-        <Grid Background="Aqua">
+        <Grid>
             <Grid.Margin>0, 5, 0, 0</Grid.Margin>
 
             <!-- Formulario -->
-            <StackPanel Background="Orange" Orientation="Vertical">
+            <ScrollViewer>
+                <ScrollViewer.VerticalScrollBarVisibility>Auto</ScrollViewer.VerticalScrollBarVisibility>
+                <StackPanel Orientation="Vertical">
 
-                <StackPanel Background="Red" Height="50">
-                    <Label>Pruebas 1</Label>
-                    <TextBlock/>
+                    <!-- ID, Descripcion -->
+                    <Grid Style="{StaticResource form-control}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ID -->
+                        <DockPanel Grid.Column="0">
+                            <TextBlock Text="ID"/>
+                            <TextBox x:Name="tb_json_id"/>
+                        </DockPanel>
+
+                        <!-- Descripcion -->
+                        <DockPanel Grid.Column="1">
+                            <TextBlock Text="Descripción"/>
+                            <TextBox x:Name="tb_json_descripcion"/>
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Fecha, Hora -->
+                    <Grid Style="{StaticResource form-control}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Fecha -->
+                        <DockPanel Grid.Column="0">
+                            <TextBlock Text="Fecha"/>
+                            <TextBox x:Name="tb_json_fecha"/>
+                        </DockPanel>
+                        
+                        <!-- Hora -->
+                        <DockPanel Grid.Column="1">
+                            <TextBlock Text="Hora"/>
+                            <TextBox x:Name="tb_json_hora"/>
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Latitud, Longitud -->
+                    <Grid Style="{StaticResource form-control}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Latitud -->
+                        <DockPanel Grid.Column="0">
+                            <TextBlock Text="Latitud"/>
+                            <TextBox x:Name="tb_json_latitud"/>
+                        </DockPanel>
+                        
+                        <!-- Longitud -->
+                        <DockPanel Grid.Column="1">
+                            <TextBlock Text="Longitud"/>
+                            <TextBox x:Name="tb_json_longitud"/>
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Humedad, Temperatura -->
+                    <Grid Style="{StaticResource form-control}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Humedad -->
+                        <DockPanel Grid.Column="0">
+                            <TextBlock Text="Humedad"/>
+                            <TextBox x:Name="tb_json_humedad"/>
+                        </DockPanel>
+                        
+                        <!-- Temperatura -->
+                        <DockPanel Grid.Column="1">
+                            <TextBlock Text="Temperatura"/>
+                            <TextBox x:Name="tb_json_temperatura"/>
+                        </DockPanel>
+                    </Grid>
                 </StackPanel>
-                
-                <StackPanel Background="Brown" Height="50"></StackPanel>
-                <StackPanel Background="Purple" Height="50"></StackPanel>
-                <StackPanel Background="Blue" Height="50"></StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </DockPanel>
 </UserControl>
