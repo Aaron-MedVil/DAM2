@@ -10,11 +10,13 @@ namespace _26_Manejo_Datos.Components {
 
     public partial class Json_Gest : UserControl {
 
-        private string jsonPath = Environment.CurrentDirectory + "/data/sensores.json";
-        private string json = null;
+        private PdfGenerator pdfGenerator = new PdfGenerator();
         private List<Sensor> mediciones = null;
-        private int indiceList;
         private Sensor registro = null;
+        private string jsonPath = Environment.CurrentDirectory + "/data/sensores.json";
+        private string pdfName = Environment.CurrentDirectory + "/docs/sensores.pdf";
+        private string json = null;
+        private int indiceList;
         private bool nuevo = false;
 
         /// <summary>Carga los componentes de la ventana</summary>
@@ -89,7 +91,28 @@ namespace _26_Manejo_Datos.Components {
         private void btn_save_reg_Click(object sender, RoutedEventArgs e) {
 
             // Edita un registro actual
-            if (!nuevo) { MessageBox.Show("Editar registro"); }
+            if (!nuevo) {
+
+                // Obtiene los datos editados del registro
+                mediciones.ElementAt(indiceList).Id = int.Parse(tb_json_id.Text.ToString());
+                mediciones.ElementAt(indiceList).DescripcionSensor = tb_json_descripcion.Text.ToString();
+                mediciones.ElementAt(indiceList).Fecha = tb_json_fecha.Text.ToString();
+                mediciones.ElementAt(indiceList).Hora = tb_json_hora.Text.ToString();
+                mediciones.ElementAt(indiceList).Latitud = tb_json_latitud.Text.ToString();
+                mediciones.ElementAt(indiceList).Longitud = tb_json_longitud.Text.ToString();
+                mediciones.ElementAt(indiceList).Humedad = float.Parse(tb_json_humedad.Text.ToString());
+                mediciones.ElementAt(indiceList).Temperatura = float.Parse(tb_json_temperatura.Text.ToString());
+
+                // Guarda el registro actual en el fichero JSON
+                string newJson = JsonConvert.SerializeObject(mediciones);
+                File.WriteAllText(jsonPath, newJson);
+
+                // Visualiza el registro que hemos editado
+                registro = mediciones.ElementAt(indiceList);
+                visualizarRegistros(registro);
+
+                MessageBox.Show("Registro editado correctamente");
+            }
 
             // Crea un registro nuevo
             else {
@@ -135,6 +158,11 @@ namespace _26_Manejo_Datos.Components {
         /// <param name="sender">Elemento que realiza la accion</param>
         /// <param name="e">Parametros de la accion</param>
         private void btn_update_reg_Click(object sender, RoutedEventArgs e) => cargarDefReg();
+
+        /// <summary>Llama al metodo que genera el fichero pdf</summary>
+        /// <param name="sender">Elemento que realiza la accion</param>
+        /// <param name="e">Parametros de la accion</param>
+        private void btn_generar_pdf_Click(object sender, RoutedEventArgs e) => pdfGenerator.pdfJSON(mediciones, pdfName);
 
         /// <summary>Muestra los registros de un sensor en los campos del formulario</summary>
         /// <param name="r">Registros del sensor</param>

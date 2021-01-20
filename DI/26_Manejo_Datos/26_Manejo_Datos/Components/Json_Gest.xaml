@@ -27,6 +27,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
                 <!-- Boton Actualizar Datos -->
@@ -58,6 +59,14 @@
                     <StackPanel>
                         <md:PackIcon Kind="Delete"/>
                         <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+                
+                <!-- Boton Generar Pdf -->
+                <Button Grid.Column="4" x:Name="btn_generar_pdf" Click="btn_generar_pdf_Click">
+                    <StackPanel>
+                        <md:PackIcon Kind="FilePdf"/>
+                        <Label Content="Generar PDF"/>
                     </StackPanel>
                 </Button>
             </Grid>
