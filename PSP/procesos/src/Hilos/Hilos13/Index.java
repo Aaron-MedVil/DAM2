@@ -2,16 +2,19 @@ package Hilos.Hilos13;
 
 public class Index {
 
+	/**
+	 * Metodo que ejecuta la aplicacion
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		PingPong pp = new PingPong();
 		
-		Ping pi = new Ping(pp, 1);
-		Pong po = new Pong(pp, 1);
+		Ping pi = new Ping(pp);
+		Pong po = new Pong(pp);
 		
 		pi.start();
 		po.start();
 
 	}
-
 }
