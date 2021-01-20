@@ -3,19 +3,17 @@ package Hilos.Hilos13;
 public class Ping extends Thread {
 
 	private PingPong pp;
-	private int n;
 	
-	public Ping(PingPong pp, int n) {
-		this.pp = pp;
-		this.n = n;
-	}
+	/**
+	 * Constructor de la clase
+	 * @param pp
+	 */
+	public Ping(PingPong pp) { this.pp = pp; }
 	
+	/**
+	 * Metodo que ejecuta la clase
+	 */
 	public void run() {
-		
-		int valor = 0;
-		for (int i = 0; i < 5; i++) {
-			valor = pp.ping();
-			System.out.println("Ping");
-		}
+		for (int i = 0; i < 5; i++) { pp.ping(); }
 	}
 }
