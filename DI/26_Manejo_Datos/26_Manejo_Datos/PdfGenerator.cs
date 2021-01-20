@@ -11,9 +11,10 @@ namespace _26_Manejo_Datos {
     class PdfGenerator {
 
         private Rectangle PageSize = new Rectangle(700f, 1024f);
-
-        /// <summary>Genera el fichero PDF del JSON</summary>
-        /// <param name="mediciones">Datos que guardaremos en el pdf</param>
+        
+        /// <summary>Genera un fichero PDF con los datos del JSON</summary>
+        /// <param name="mediciones">Datos para completar el fichero PDF</param>
+        /// <param name="pdfName">Nombre del fichero PDF</param>
         public void pdfJSON(List<Sensor> mediciones, string pdfName) {
 
             string[] nomCols = new string[] { "Id", "Sensor", "Fecha", "Hora", "Humedad", "Temperatura" };
@@ -40,11 +41,10 @@ namespace _26_Manejo_Datos {
                     DefaultCell = {
                         HorizontalAlignment = Element.ALIGN_CENTER,
                         VerticalAlignment = Element.ALIGN_CENTER,
-                        BackgroundColor = new BaseColor(199, 226, 226)
+                        BackgroundColor = new BaseColor(199, 226, 226),
+                        FixedHeight = 20f
                     }
                 };
-
-                // Asignar el array de anchos de columna a la tabla
                 titulos.SetTotalWidth(anchoColumnas);
                 foreach (string col in nomCols) { titulos.AddCell(col); }
                 titulos.WriteSelectedRows(0, -1, 10f, 940f, writer.DirectContent);
@@ -54,41 +54,35 @@ namespace _26_Manejo_Datos {
                     DefaultCell = {
                         HorizontalAlignment = Element.ALIGN_CENTER,
                         VerticalAlignment = Element.ALIGN_CENTER,
+                            FixedHeight = 20f
                     }
                 };
                 datos.SetTotalWidth(anchoColumnas);
+                foreach (Sensor s in mediciones) {
 
-                // Rellenamos la tabla de datos
-                foreach (Sensor r in mediciones) {
+                    datos.AddCell(s.Id.ToString());
+                    datos.AddCell(s.DescripcionSensor.ToString());
+                    datos.AddCell(s.Fecha.ToString());
+                    datos.AddCell(s.Hora.ToString());
+                    datos.AddCell(s.Temperatura.ToString());
+                    datos.AddCell(s.Humedad.ToString());
 
-                    datos.AddCell(r.Id.ToString());
-                    datos.AddCell(r.DescripcionSensor.ToString());
-                    datos.AddCell(r.Fecha.ToString());
-                    datos.AddCell(r.Hora.ToString());
-                    datos.AddCell(r.Temperatura.ToString());
-                    datos.AddCell(r.Humedad.ToString());
-
-                    // Asigna la posicion Y y resta el ancho de la columna para el siguiente registro
                     datos.WriteSelectedRows(0, -1, 10f, yPos, writer.DirectContent);
-
-                    // Limpiamos los datos de la columna
                     datos = new PdfPTable(nomCols.Length) {
                         DefaultCell = {
                             HorizontalAlignment = Element.ALIGN_CENTER,
                             VerticalAlignment = Element.ALIGN_CENTER,
+                            FixedHeight = 20f
                         }
                     };
                     datos.SetTotalWidth(anchoColumnas);
 
-                    if (yPos > 60) { yPos = yPos - 15; }
-                    else {
-
+                    if (yPos <= 60) {
                         yPos = 1000f - 20;
-
-                        // Página nueva
                         doc.NewPage();
                         titulos.WriteSelectedRows(0, -1, 10f, 1000f, writer.DirectContent);
                     }
+                    else { yPos = yPos - 20; }
                 }
 
                 // Cierra el fichero
