@@ -19,7 +19,7 @@ namespace _26_Manejo_Datos {
 
             string[] nomCols = new string[] { "Id", "Sensor", "Fecha", "Hora", "Humedad", "Temperatura" };
             float[] anchoColumnas = new float[] { 50f, 250f, 100f, 100f, 75f, 75f };
-            float yPos = 920f;
+            float yPos = 940f;
 
             try {
 
@@ -30,9 +30,9 @@ namespace _26_Manejo_Datos {
                 doc.Open();
 
                 /* ========== CABECERA ========== */
-                BaseColor foregroundTitle = new BaseColor(0, 210, 120);
-                Font fontTitle = FontFactory.GetFont(FontFactory.HELVETICA, 24f, Font.BOLD, foregroundTitle);
-                Chunk chkTitle = new Chunk("Listado Sensores", fontTitle);
+                BaseColor foregroundTitle = new BaseColor(28, 40, 51);
+                Font fontTitle = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 32f, Font.BOLD, foregroundTitle);
+                Chunk chkTitle = new Chunk("LISTADO SENSORES", fontTitle);
                 Phrase textTitle = new Phrase(0f, chkTitle);
                 doc.Add(new Paragraph(textTitle));
 
@@ -41,7 +41,7 @@ namespace _26_Manejo_Datos {
                     DefaultCell = {
                         HorizontalAlignment = Element.ALIGN_CENTER,
                         VerticalAlignment = Element.ALIGN_CENTER,
-                        BackgroundColor = new BaseColor(199, 226, 226),
+                        BackgroundColor = new BaseColor(173, 68, 99),
                         FixedHeight = 20f
                     }
                 };
@@ -60,6 +60,12 @@ namespace _26_Manejo_Datos {
                 datos.SetTotalWidth(anchoColumnas);
                 foreach (Sensor s in mediciones) {
 
+                    if (yPos <= 60) {
+                        yPos = 1000f - 20;
+                        doc.NewPage();
+                        titulos.WriteSelectedRows(0, -1, 10f, 1000f, writer.DirectContent);
+                    } else { yPos = yPos - 20; }
+
                     datos.AddCell(s.Id.ToString());
                     datos.AddCell(s.DescripcionSensor.ToString());
                     datos.AddCell(s.Fecha.ToString());
@@ -76,13 +82,6 @@ namespace _26_Manejo_Datos {
                         }
                     };
                     datos.SetTotalWidth(anchoColumnas);
-
-                    if (yPos <= 60) {
-                        yPos = 1000f - 20;
-                        doc.NewPage();
-                        titulos.WriteSelectedRows(0, -1, 10f, 1000f, writer.DirectContent);
-                    }
-                    else { yPos = yPos - 20; }
                 }
 
                 // Cierra el fichero
