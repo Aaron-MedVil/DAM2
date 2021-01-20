@@ -2,10 +2,12 @@ package Hilos.Hilos13;
 
 public class PingPong {
 	
-	private int numero;
 	private boolean disponible = false;
 	
-	public synchronized int ping() {
+	/**
+	 * Metodo para imprimir PING
+	 */
+	public synchronized void ping() {
 		
 		while(disponible == false) {
 			
@@ -13,12 +15,16 @@ public class PingPong {
 			catch (InterruptedException e) {}
 		}
 		
+		System.out.println("Ping");
+		
 		disponible = false;
 		notifyAll();
-		return numero;
 	}
 	
-	public synchronized void pong(int valor) {
+	/**
+	 * Metodo para imprimir PONG
+	 */
+	public synchronized void pong() {
 		
 		while(disponible == true) {
 			
@@ -26,7 +32,7 @@ public class PingPong {
 			catch (InterruptedException e) {}
 		}
 		
-		valor = numero;
+		System.out.println("Pong");
 		disponible = true;
 		notifyAll();
 	}
