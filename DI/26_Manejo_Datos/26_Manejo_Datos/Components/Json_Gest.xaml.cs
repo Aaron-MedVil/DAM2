@@ -90,6 +90,8 @@ namespace _26_Manejo_Datos.Components {
         /// <param name="e">Parametros de la accion</param>
         private void btn_save_reg_Click(object sender, RoutedEventArgs e) {
 
+            /* ========== Comprobar si los campos no estan vacios y que los datos de los campos son correctos ========== */
+
             // Edita un registro actual
             if (!nuevo) {
 
@@ -116,8 +118,6 @@ namespace _26_Manejo_Datos.Components {
 
             // Crea un registro nuevo
             else {
-
-                /* ========== Comprobar si los campos no estan vacios y que los datos de los campos son correctos ========== */
 
                 // Crea el registro en la lista mediciones
                 Sensor newSensor = new Sensor() {

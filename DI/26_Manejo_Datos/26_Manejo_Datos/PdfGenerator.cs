@@ -93,6 +93,9 @@ namespace _26_Manejo_Datos {
             catch (Exception err) { MessageBox.Show("Se ha producido un error al generar el fichero PDF"); }
         }
 
+
+        public void pdfDb(string pdfName) {}
+
         /// <summary>Abre un fichero PDF</summary>
         /// <param name="pdfName">Ruta del fichero PDF</param>
         public void openPdf(string pdfName) {

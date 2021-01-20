@@ -4,8 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:_26_Manejo_Datos"
              mc:Ignorable="d"
              Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <local:Sensor x:Key="data"/>
+    </UserControl.Resources>
+    
     <DockPanel>
         <DockPanel.Margin>5</DockPanel.Margin>
 
@@ -122,19 +128,40 @@
                         <!-- ID -->
                         <DockPanel Grid.Column="0">
                             <TextBlock Text="ID"/>
-                            <TextBox x:Name="tb_json_id"/>
+                            <TextBox x:Name="tb_json_id">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Id</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
 
                         <!-- Descripcion -->
                         <DockPanel Grid.Column="1">
                             <TextBlock Text="Descripción"/>
-                            <TextBox x:Name="tb_json_descripcion"/>
+                            <TextBox x:Name="tb_json_descripcion">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Descripcion</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                     </Grid>
 
                     <!-- Fecha, Hora -->
                     <Grid Style="{StaticResource form-control}">
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -143,19 +170,40 @@
                         <!-- Fecha -->
                         <DockPanel Grid.Column="0">
                             <TextBlock Text="Fecha"/>
-                            <TextBox x:Name="tb_json_fecha"/>
+                            <TextBox x:Name="tb_json_fecha">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Fecha</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                         
                         <!-- Hora -->
                         <DockPanel Grid.Column="1">
                             <TextBlock Text="Hora"/>
-                            <TextBox x:Name="tb_json_hora"/>
+                            <TextBox x:Name="tb_json_hora">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Hora</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                     </Grid>
 
                     <!-- Latitud, Longitud -->
                     <Grid Style="{StaticResource form-control}">
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -164,19 +212,40 @@
                         <!-- Latitud -->
                         <DockPanel Grid.Column="0">
                             <TextBlock Text="Latitud"/>
-                            <TextBox x:Name="tb_json_latitud"/>
+                            <TextBox x:Name="tb_json_latitud">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Latitud</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                         
                         <!-- Longitud -->
                         <DockPanel Grid.Column="1">
                             <TextBlock Text="Longitud"/>
-                            <TextBox x:Name="tb_json_longitud"/>
+                            <TextBox x:Name="tb_json_longitud">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Longitud</Binding.Path>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                     </Grid>
 
                     <!-- Humedad, Temperatura -->
                     <Grid Style="{StaticResource form-control}">
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -185,13 +254,37 @@
                         <!-- Humedad -->
                         <DockPanel Grid.Column="0">
                             <TextBlock Text="Humedad"/>
-                            <TextBox x:Name="tb_json_humedad"/>
+                            <TextBox x:Name="tb_json_humedad">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Humedad</Binding.Path>
+                                        <Binding.StringFormat>N2</Binding.StringFormat>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                         
                         <!-- Temperatura -->
                         <DockPanel Grid.Column="1">
                             <TextBlock Text="Temperatura"/>
-                            <TextBox x:Name="tb_json_temperatura"/>
+                            <TextBox x:Name="tb_json_temperatura">
+                                <TextBox.Text>
+                                    <Binding Source="{StaticResource data}">
+                                        <Binding.Path>Temperatura</Binding.Path>
+                                        <Binding.StringFormat>N2</Binding.StringFormat>
+                                        <Binding.ValidatesOnExceptions>True</Binding.ValidatesOnExceptions>
+                                        <Binding.UpdateSourceTrigger>PropertyChanged</Binding.UpdateSourceTrigger>
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </DockPanel>
                     </Grid>
                 </StackPanel>
