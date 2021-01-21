@@ -1,21 +1,28 @@
 <odoo>
   <data>
 
-    <!--  -->
+    <!-- Vista de formulario para crear un registro -->
     <record model="ir.ui.view" id="view_custom_brand_form">
       <field name="name">view.custom.brand.form</field>
       <field name="model">brand.template</field>
       <field name="arch" type="xml">
         <form string="BrandsForm">
           <sheet>
-            <field name="name"/>
+            <div>
+              <label for="name" string="Product name"/>
+              <field name="name" placeholder="Name"/>
+            </div>
+            <div>
+              <label for="description" string="Description"/>
+              <field name="description" placeholder="Description"/>
+            </div>
             <field name="logo"/>
           </sheet>
         </form>
       </field>
     </record>
 
-    <!--  -->
+    <!-- Vista de arbol de todos los registros -->
     <record model="ir.ui.view" id="view_custom_brand_tree">
       <field name="name">view.custom.brand.tree</field>
       <field name="model">brand.template</field>
@@ -26,7 +33,7 @@
       </field>
     </record>
 
-    <!--  -->
+    <!-- Vista añadir elementos (Solo cuando no hay registros) -->
     <record model="ir.actions.act_window" id="brands.action_window">
       <field name="name">Marcas</field>
       <field name="res_model">brand.template</field>
@@ -37,11 +44,16 @@
       </field>
     </record>
 
-    <!--  -->
+    <!-- Elemento del menu lateral -->
     <menuitem id="menu_marcas_root" name="Marcas" sequence="10"/>
+
+    <!-- Elemento en el menu superior de la pagina de marcas -->
     <menuitem id="menu_marcas_marcas" name="Marca" parent="menu_marcas_root" sequence="0" action="brands.action_window"/>
 
-    <!-- Opicion en la vista de producto -->
+    <!-- Elemento en el menu superior en la pagina de ventas -->
+    <menuitem id="menu_marcas_ventas" name="Marca" parent="sale.sale_menu_root" sequence="4" action="brands.action_window"/>
+
+    <!-- Opcion en la vista de producto -->
     <record model="ir.ui.view" id="view_brands_product_form">
       <field name="name">view.brands.product.form</field>
       <field name="model">product.template</field>
@@ -52,6 +64,5 @@
         </xpath>
       </field>
     </record>
-
   </data>
 </odoo>
