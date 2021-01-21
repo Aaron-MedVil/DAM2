@@ -1,48 +1,49 @@
 <odoo>
   <data>
-    <record model="ir.ui.view" id="view_brands_form">
-      <field name="name">view.brands.form</field>
+
+    <!--  -->
+    <record model="ir.ui.view" id="view_custom_brand_form">
+      <field name="name">view.custom.brand.form</field>
       <field name="model">brand.template</field>
-      <field name="arch" type='xml'>
-        <form string="BrandForm">
+      <field name="arch" type="xml">
+        <form string="BrandsForm">
           <sheet>
-            <group>
-              <field name="name"/>
-            </group>
+            <field name="name"/>
+            <field name="logo"/>
           </sheet>
         </form>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="view_brands_tree">
-      <field name="name">view.brands.tree</field>
+    <!--  -->
+    <record model="ir.ui.view" id="view_custom_brand_tree">
+      <field name="name">view.custom.brand.tree</field>
       <field name="model">brand.template</field>
-      <field name="arch" type='xml'>
-        <tree string="BrandTree">
+      <field name="arch" type="xml">
+        <tree string="BrandsTree">
           <field name="name"/>
         </tree>
       </field>
     </record>
 
-    <record model="ir.actions.act_window" id="action_brand">
-      <field name="name">action.brand</field>
-      <field name="type"> ir.actions.act_window</field>
+    <!--  -->
+    <record model="ir.actions.act_window" id="brands.action_window">
+      <field name="name">Marcas</field>
       <field name="res_model">brand.template</field>
       <field name="view_mode">tree,form</field>
       <field name="help" type="html">
-        <p class="oe_view_nocontent_create">
-          Brands
-        </p>
-        <p>
-          Click 'New' to create a new brand.
-        </p>
+        <p class="oe_view_nocontent_create">Marcas</p>
+        <p>Click 'Crear' para añadir nuevos elementos.</p>
       </field>
     </record>
 
+    <!--  -->
+    <menuitem id="menu_marcas_root" name="Marcas" sequence="10"/>
+    <menuitem id="menu_marcas_marcas" name="Marca" parent="menu_marcas_root" sequence="0" action="brands.action_window"/>
 
-    <!-- Extender el product.template-->
-    <record model="ir.ui.view" id="brands_product_form">
-      <field name="name">brands.product.form</field>
+    <!-- Opicion en la vista de producto -->
+    <record model="ir.ui.view" id="view_brands_product_form">
+      <field name="name">view.brands.product.form</field>
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_only_form_view"/>
       <field name="arch" type='xml'>
@@ -51,11 +52,6 @@
         </xpath>
       </field>
     </record>
-
-
-    <menuitem id="canary1" name="Custom CRM" sequence="10"/>
-    <menuitem id="canary2" name="Operaciones" parent="canary1" sequence="0"/>
-    
 
   </data>
 </odoo>
