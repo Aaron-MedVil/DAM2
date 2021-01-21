@@ -24,7 +24,7 @@ public class Main {
 			dir = InetAddress.getByName("www.google.es");
 			probarMetodos(dir);
 			
-			// Direcciones IP de una UR Lwww.google.es
+			// Direcciones IP de una URL www.google.es
 			System.out.println("\t DIRECCIONES IP PARA: " + dir.getHostName());
 			InetAddress[] direcciones = InetAddress.getAllByName(dir.getHostName());
 			for (int i = 0; i < direcciones.length; i++) {
