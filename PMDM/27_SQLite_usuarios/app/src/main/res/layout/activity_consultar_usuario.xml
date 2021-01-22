@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConsultarUsuario"
+    android:orientation="vertical"
+    android:layout_margin="5sp">
+
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/titulo_consutar_usuario"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="15sp"
+        android:layout_marginTop="15sp">
+
+        <!-- ET ID, Boton Buscar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <!-- ET Nombre -->
+        <EditText
+            android:hint="@string/tw_nombre_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ET Telefono -->
+        <EditText
+            android:hint="@string/tw_telefono_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Botonera -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Boton Actualizar, Boton Eliminar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Boton Actualizar -->
+            <Button
+                android:text="@string/btn_act_usuario"
+                android:layout_weight="1"
+                android:layout_marginRight="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <!-- Boton Eliminar -->
+            <Button
+                android:text="@string/btn_elim_usuario"
+                android:layout_weight="1"
+                android:layout_marginLeft="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- Boton Limpiar -->
+        <Button
+            android:text="@string/btn_limpiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

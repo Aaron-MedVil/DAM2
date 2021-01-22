@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarUsuario"
+    android:orientation="vertical"
+    android:layout_margin="5sp">
+
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/titulo_registrar_usuario"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15sp"
+        android:layout_marginBottom="15sp">
+
+        <!-- DNI -->
+        <EditText
+            android:id="@+id/tw_dni_reg_usuario"
+            android:hint="@string/tw_dni_usuario"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Nombre -->
+        <EditText
+            android:id="@+id/tw_nombre_reg_usuario"
+            android:hint="@string/tw_nombre_usuario"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Telefono -->
+        <EditText
+            android:id="@+id/tw_telefono_reg_usuario"
+            android:hint="@string/tw_telefono_usuario"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Boton registrar usuario -->
+    <Button
+        android:onClick="click_btn_reg_usuario"
+        android:id="@+id/btn_reg_usuario"
+        android:text="@string/btn_reg_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

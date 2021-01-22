@@ -20,6 +20,7 @@
 
     <!-- Boton consultar usuario-->
     <Button
+        android:onClick="consultarUsuario"
         android:id="@+id/btn_consultar"
         android:text="@string/btn_consultar"
         android:layout_marginTop="5sp"
@@ -29,6 +30,7 @@
 
     <!-- Boton listar usuarios -->
     <Button
+        android:onClick="listarUsuarios"
         android:id="@+id/btn_listar"
         android:text="@string/btn_listar"
         android:layout_marginTop="5sp"

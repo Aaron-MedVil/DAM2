@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">27_SQLite_usuarios</string>
+
+    <!-- Botones main activity -->
     <string name="btn_registrar">Registrar usuario</string>
     <string name="btn_consultar">Consultar usuario</string>
     <string name="btn_listar">Listar usuarios</string>
+
+    <!-- Titulos de activitys -->
+    <string name="titulo_registrar_usuario">REGISTRAR USUARIO</string>
+    <string name="titulo_consutar_usuario">CONSULTAR USUARIO</string>
+
+    <!-- Componentes formulario -->
+    <string name="tw_dni_usuario">DNI</string>
+    <string name="tw_nombre_usuario">NOMBRE</string>
+    <string name="tw_telefono_usuario">TELÉFONO</string>
+    <string name="btn_reg_usuario">REGISTRAR</string>
+    <string name="btn_act_usuario">ACTUALIZAR</string>
+    <string name="btn_elim_usuario">ELIMINAR</string>
+    <string name="btn_buscar_usuario">BUSCAR</string>
+    <string name="btn_limpiar">LIMPIAR</string>
 </resources>
