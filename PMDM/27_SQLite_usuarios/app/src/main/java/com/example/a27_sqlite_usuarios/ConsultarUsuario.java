@@ -2,11 +2,13 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ public class ConsultarUsuario extends AppCompatActivity {
 
     EditText dni_consultar_usuario, nombre_consultar_usuario, telefono_consultar_usuario;
     DbConn conn;
+    InputMethodManager imm;
 
     /**
      * Metodo que se ejecuta cuando se crea la clase
@@ -25,6 +28,8 @@ public class ConsultarUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_usuario);
+
+        imm = (InputMethodManager)this.getSystemService(Activity.INPUT_METHOD_SERVICE);
 
         dni_consultar_usuario = findViewById(R.id.dni_consultar_usuario);
         nombre_consultar_usuario = findViewById(R.id.nombre_consultar_usuario);
@@ -52,6 +57,8 @@ public class ConsultarUsuario extends AppCompatActivity {
         }
         catch (Exception err) { Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show(); }
         finally { if (db.isOpen()) { db.close(); } }
+
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**
