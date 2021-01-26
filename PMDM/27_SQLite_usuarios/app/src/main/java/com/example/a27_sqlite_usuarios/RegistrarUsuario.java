@@ -40,23 +40,35 @@ public class RegistrarUsuario extends AppCompatActivity {
      */
     public void click_btn_reg_usuario(View view) {
 
-        DbConn conn = new DbConn(this, "bdUsuarios", null, 1);
-        SQLiteDatabase db = conn.getWritableDatabase();
+        if (!isEmptyEt(tw_dni_reg_usuario)) {
 
-        ContentValues values = new ContentValues();
-        values.put(CAMPO_DNI, tw_dni_reg_usuario.getText().toString());
-        values.put(CAMPO_NOMBRE, tw_nombre_reg_usuario.getText().toString());
-        values.put(CAMPO_TELEFONO, tw_telefono_reg_usuario.getText().toString());
+            if (!isEmptyEt(tw_nombre_reg_usuario)) {
 
-        long result = db.insert(TABLA_USUARIOS, null, values);
+                if (!isEmptyEt(tw_telefono_reg_usuario)) {
 
-        if (result != -1) { Toast.makeText(getApplicationContext(), "Usuario registrado " + result, Toast.LENGTH_SHORT).show(); }
-        else { Toast.makeText(getApplicationContext(), "Error al registrar el usuario " + result, Toast.LENGTH_SHORT).show(); }
+                    DbConn conn = new DbConn(this, "bdUsuarios", null, 1);
+                    SQLiteDatabase db = conn.getWritableDatabase();
 
-        limpiarFormulario();
-        if (db.isOpen()) { db.close(); }
+                    ContentValues values = new ContentValues();
+                    values.put(CAMPO_DNI, tw_dni_reg_usuario.getText().toString());
+                    values.put(CAMPO_NOMBRE, tw_nombre_reg_usuario.getText().toString());
+                    values.put(CAMPO_TELEFONO, tw_telefono_reg_usuario.getText().toString());
 
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    long result = db.insert(TABLA_USUARIOS, null, values);
+
+                    if (result != -1) { Toast.makeText(getApplicationContext(), "Usuario registrado " + result, Toast.LENGTH_SHORT).show(); }
+                    else { Toast.makeText(getApplicationContext(), "Error al registrar el usuario " + result, Toast.LENGTH_SHORT).show(); }
+
+                    limpiarFormulario();
+                    if (db.isOpen()) { db.close(); }
+
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+                else { Toast.makeText(getApplicationContext(), "El campo teléfono no puede estar vacío", Toast.LENGTH_SHORT).show(); }
+            }
+            else { Toast.makeText(getApplicationContext(), "El campo nombre no puede estar vacío", Toast.LENGTH_SHORT).show(); }
+        }
+        else { Toast.makeText(getApplicationContext(), "El campo DNI no puede estar vacío", Toast.LENGTH_SHORT).show(); }
     }
 
     /**
@@ -66,5 +78,18 @@ public class RegistrarUsuario extends AppCompatActivity {
         tw_dni_reg_usuario.setText("");
         tw_nombre_reg_usuario.setText("");
         tw_telefono_reg_usuario.setText("");
+    }
+
+    /**
+     * Comprueba si un EditText esta vacio o no
+     * @param etText
+     * @return
+     */
+    private boolean isEmptyEt(EditText etText) {
+
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
+
+        return true;
     }
 }
