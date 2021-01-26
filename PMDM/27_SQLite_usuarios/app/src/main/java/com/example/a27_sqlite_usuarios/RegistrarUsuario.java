@@ -9,12 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.a27_sqlite_usuarios.utilidades.utilidades;
-
-import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_DNI;
-import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_NOMBRE;
-import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_TELEFONO;
-import static com.example.a27_sqlite_usuarios.utilidades.utilidades.TABLA_USUARIOS;
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.*;
 
 public class RegistrarUsuario extends AppCompatActivity {
 
