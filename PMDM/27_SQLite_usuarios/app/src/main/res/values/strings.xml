@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">27_SQLite_usuarios</string>
+    <string name="app_name">Manejo usuarios SQLite</string>
 
     <!-- Botones main activity -->
     <string name="btn_registrar">Registrar usuario</string>
