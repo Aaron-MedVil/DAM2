@@ -20,26 +20,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="15sp"
-        android:layout_marginTop="15sp">
+        android:orientation="vertical">
 
         <!-- ET ID, Boton Buscar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <!-- ET Id -->
+            <EditText
+                android:id="@+id/dni_consultar_usuario"
+                android:hint="@string/tw_dni_usuario"
+                android:layout_weight="1"
+                android:layout_marginRight="5sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Boton buscar -->
+            <Button
+                android:onClick="click_btn_buscar_consultar_usuario"
+                android:text="@string/btn_buscar_usuario"
+                android:layout_weight="2"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <!-- ET Nombre -->
         <EditText
+            android:id="@+id/nombre_consultar_usuario"
             android:hint="@string/tw_nombre_usuario"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <!-- ET Telefono -->
         <EditText
+            android:id="@+id/telefono_consultar_usuario"
             android:hint="@string/tw_telefono_usuario"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -58,24 +84,33 @@
 
             <!-- Boton Actualizar -->
             <Button
+                android:onClick="click_btn_actualizar_consultar_usuario"
                 android:text="@string/btn_act_usuario"
                 android:layout_weight="1"
                 android:layout_marginRight="5sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="5sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
             <!-- Boton Eliminar -->
             <Button
+                android:onClick="click_btn_eliminar_consultar_usuario"
                 android:text="@string/btn_elim_usuario"
                 android:layout_weight="1"
                 android:layout_marginLeft="5sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="5sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
 
         <!-- Boton Limpiar -->
         <Button
+            android:onClick="click_btn_limpiar_consultar_usuario"
             android:text="@string/btn_limpiar"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
