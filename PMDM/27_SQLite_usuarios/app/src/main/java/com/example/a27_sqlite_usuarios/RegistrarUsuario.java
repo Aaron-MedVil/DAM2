@@ -20,6 +20,10 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     private EditText tw_dni_reg_usuario, tw_nombre_reg_usuario, tw_telefono_reg_usuario;
 
+    /**
+     * Metodo que se ejecuta cuando se crea la clase
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,10 @@ public class RegistrarUsuario extends AppCompatActivity {
         tw_telefono_reg_usuario = findViewById(R.id.tw_telefono_reg_usuario);
     }
 
+    /**
+     * Registra los datos del usuario insertado en la base de datos
+     * @param view
+     */
     public void click_btn_reg_usuario(View view) {
 
         DbConn conn = new DbConn(this, "bdUsuarios", null, 1);
@@ -49,6 +57,9 @@ public class RegistrarUsuario extends AppCompatActivity {
         db.close();
     }
 
+    /**
+     * Vacia los campos del formulario
+     */
     private void limpiarFormulario() {
         tw_dni_reg_usuario.setText("");
         tw_nombre_reg_usuario.setText("");
