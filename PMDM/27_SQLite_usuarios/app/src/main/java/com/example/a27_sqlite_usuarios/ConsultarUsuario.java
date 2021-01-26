@@ -16,9 +16,9 @@ import static com.example.a27_sqlite_usuarios.utilidades.utilidades.*;
 
 public class ConsultarUsuario extends AppCompatActivity {
 
-    EditText dni_consultar_usuario, nombre_consultar_usuario, telefono_consultar_usuario;
-    DbConn conn;
-    InputMethodManager imm;
+    private EditText dni_consultar_usuario, nombre_consultar_usuario, telefono_consultar_usuario;
+    private DbConn conn;
+    private InputMethodManager imm;
 
     /**
      * Metodo que se ejecuta cuando se crea la clase
