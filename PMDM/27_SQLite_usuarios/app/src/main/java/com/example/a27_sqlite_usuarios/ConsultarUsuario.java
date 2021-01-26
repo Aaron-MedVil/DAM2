@@ -2,10 +2,20 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.*;
 
 public class ConsultarUsuario extends AppCompatActivity {
+
+    EditText dni_consultar_usuario, nombre_consultar_usuario, telefono_consultar_usuario;
+    DbConn conn;
 
     /**
      * Metodo que se ejecuta cuando se crea la clase
@@ -15,6 +25,12 @@ public class ConsultarUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_usuario);
+
+        dni_consultar_usuario = findViewById(R.id.dni_consultar_usuario);
+        nombre_consultar_usuario = findViewById(R.id.nombre_consultar_usuario);
+        telefono_consultar_usuario = findViewById(R.id.telefono_consultar_usuario);
+
+        conn = new DbConn(getApplicationContext(), "bdUsuarios", null, 1);
     }
 
     /**
@@ -22,14 +38,27 @@ public class ConsultarUsuario extends AppCompatActivity {
      * @param view
      */
     public void click_btn_buscar_consultar_usuario(View view) {
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+        String[] campos = new String[] {CAMPO_DNI, CAMPO_NOMBRE, CAMPO_TELEFONO}, params = new String[] {dni_consultar_usuario.getText().toString()};
+        String selection = CAMPO_DNI + " = ?";
+
+        try {
+
+            Cursor cursor = db.query(TABLA_USUARIOS, campos, selection, params, null, null, null);
+            cursor.moveToFirst();
+            nombre_consultar_usuario.setText(cursor.getString(1));
+            telefono_consultar_usuario.setText(cursor.getString(2));
+        }
+        catch (Exception err) { Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show(); }
+        finally { if (db.isOpen()) { db.close(); } }
     }
 
     /**
      * Boton para limpiar los campos del formulario
      * @param view
      */
-    public void click_btn_limpiar_consultar_usuario(View view) {
-    }
+    public void click_btn_limpiar_consultar_usuario(View view) { limpiarFormulario(); }
 
     /**
      * Elimina los datos de la base de datos del usuario buscado
@@ -43,5 +72,14 @@ public class ConsultarUsuario extends AppCompatActivity {
      * @param view
      */
     public void click_btn_actualizar_consultar_usuario(View view) {
+    }
+
+    /**
+     * Vacia los campos del formulario
+     */
+    private void limpiarFormulario() {
+        dni_consultar_usuario.setText("");
+        nombre_consultar_usuario.setText("");
+        telefono_consultar_usuario.setText("");
     }
 }
