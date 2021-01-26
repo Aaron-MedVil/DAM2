@@ -2,10 +2,12 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ import static com.example.a27_sqlite_usuarios.utilidades.utilidades.*;
 public class RegistrarUsuario extends AppCompatActivity {
 
     private EditText tw_dni_reg_usuario, tw_nombre_reg_usuario, tw_telefono_reg_usuario;
+    private InputMethodManager imm;
 
     /**
      * Metodo que se ejecuta cuando se crea la clase
@@ -23,6 +26,8 @@ public class RegistrarUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuario);
+
+        imm = (InputMethodManager)this.getSystemService(Activity.INPUT_METHOD_SERVICE);
 
         tw_dni_reg_usuario = findViewById(R.id.tw_dni_reg_usuario);
         tw_nombre_reg_usuario = findViewById(R.id.tw_nombre_reg_usuario);
@@ -49,7 +54,9 @@ public class RegistrarUsuario extends AppCompatActivity {
         else { Toast.makeText(getApplicationContext(), "Error al registrar el usuario " + result, Toast.LENGTH_SHORT).show(); }
 
         limpiarFormulario();
-        db.close();
+        if (db.isOpen()) { db.close(); }
+
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**
