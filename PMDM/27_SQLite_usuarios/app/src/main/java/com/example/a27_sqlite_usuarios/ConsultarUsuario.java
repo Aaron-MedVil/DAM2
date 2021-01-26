@@ -44,21 +44,25 @@ public class ConsultarUsuario extends AppCompatActivity {
      */
     public void click_btn_buscar_consultar_usuario(View view) {
 
-        SQLiteDatabase db = conn.getReadableDatabase();
-        String[] campos = new String[] {CAMPO_DNI, CAMPO_NOMBRE, CAMPO_TELEFONO}, params = new String[] {dni_consultar_usuario.getText().toString()};
-        String selection = CAMPO_DNI + " = ?";
+        if (!isEmptyEt(dni_consultar_usuario)) {
 
-        try {
+            SQLiteDatabase db = conn.getReadableDatabase();
+            String[] campos = new String[] {CAMPO_DNI, CAMPO_NOMBRE, CAMPO_TELEFONO}, params = new String[] {dni_consultar_usuario.getText().toString()};
+            String selection = CAMPO_DNI + " = ?";
 
-            Cursor cursor = db.query(TABLA_USUARIOS, campos, selection, params, null, null, null);
-            cursor.moveToFirst();
-            nombre_consultar_usuario.setText(cursor.getString(1));
-            telefono_consultar_usuario.setText(cursor.getString(2));
+            try {
+
+                Cursor cursor = db.query(TABLA_USUARIOS, campos, selection, params, null, null, null);
+                cursor.moveToFirst();
+                nombre_consultar_usuario.setText(cursor.getString(1));
+                telefono_consultar_usuario.setText(cursor.getString(2));
+            }
+            catch (Exception err) { Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show(); }
+            finally { if (db.isOpen()) { db.close(); } }
+
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-        catch (Exception err) { Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show(); }
-        finally { if (db.isOpen()) { db.close(); } }
-
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        else { Toast.makeText(getApplicationContext(), "El campo DNI no puede estar vacío", Toast.LENGTH_SHORT).show(); }
     }
 
     /**
@@ -88,5 +92,18 @@ public class ConsultarUsuario extends AppCompatActivity {
         dni_consultar_usuario.setText("");
         nombre_consultar_usuario.setText("");
         telefono_consultar_usuario.setText("");
+    }
+
+    /**
+     * Comprueba si un EditText esta vacio o no
+     * @param etText
+     * @return
+     */
+    private boolean isEmptyEt(EditText etText) {
+
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
+
+        return true;
     }
 }
