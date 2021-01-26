@@ -3,6 +3,7 @@ package com.example.a27_sqlite_usuarios;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -75,14 +76,46 @@ public class ConsultarUsuario extends AppCompatActivity {
      * Elimina los datos de la base de datos del usuario buscado
      * @param view
      */
-    public void click_btn_eliminar_consultar_usuario(View view) {
-    }
+    public void click_btn_eliminar_consultar_usuario(View view) {}
 
     /**
      * Actualiza los datos de la base de datos del usuario buscado
      * @param view
      */
     public void click_btn_actualizar_consultar_usuario(View view) {
+
+        if (!isEmptyEt(dni_consultar_usuario)) {
+
+            if (!isEmptyEt(nombre_consultar_usuario)) {
+
+                if (!isEmptyEt(telefono_consultar_usuario)) {
+
+                    SQLiteDatabase db = conn.getReadableDatabase();
+
+                    ContentValues values = new ContentValues();
+                    values.put(CAMPO_DNI, dni_consultar_usuario.getText().toString());
+                    values.put(CAMPO_NOMBRE, nombre_consultar_usuario.getText().toString());
+                    values.put(CAMPO_TELEFONO, telefono_consultar_usuario.getText().toString());
+                    String where = CAMPO_DNI + " = ?";
+                    String[] arrWhere = new String[] {dni_consultar_usuario.getText().toString()};
+
+                    try {
+
+                        long result = db.update(TABLA_USUARIOS, values, where, arrWhere);
+
+                        if (result != -1) { Toast.makeText(getApplicationContext(), "Usuario editado", Toast.LENGTH_SHORT).show(); }
+                        else { Toast.makeText(getApplicationContext(), "Error al editar el usuario", Toast.LENGTH_SHORT).show(); }
+                    }
+                    catch (Exception err) { Toast.makeText(getApplicationContext(), "Error al editar el usuario", Toast.LENGTH_SHORT).show(); }
+                    finally { if (db.isOpen()) { db.close(); } }
+
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+                else { Toast.makeText(getApplicationContext(), "El campo teléfono no puede estar vacío", Toast.LENGTH_SHORT).show(); }
+            }
+            else { Toast.makeText(getApplicationContext(), "El campo nombre no puede estar vacío", Toast.LENGTH_SHORT).show(); }
+        }
+        else { Toast.makeText(getApplicationContext(), "El campo DNI no puede estar vacío", Toast.LENGTH_SHORT).show(); }
     }
 
     /**
