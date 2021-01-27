@@ -16,13 +16,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		URL url = null;
-		
-		// Try/Catch para la clase URL
-		try { url = new URL("https://github.com/Aaron-MedVil"); }
-		catch (MalformedURLException err) { err.printStackTrace(); }
-		
-		// Try/Catch para los readers
+	
 		try {
+			
+			url = new URL("https://github.com/Aaron-MedVil");
 			
 			InputStream is = url.openStream();
 			InputStreamReader isr = new InputStreamReader(is);
@@ -31,6 +28,8 @@ public class Main {
 			String linea;
 			while ((linea = br.readLine()) != null) { System.out.println(linea); }
 		}
-		catch (IOException err) { err.printStackTrace(); }
+		catch (MalformedURLException mfuErr) { mfuErr.printStackTrace(); }
+		catch (IOException ioErr) { ioErr.printStackTrace(); }
+		catch (Exception err) { err.printStackTrace(); }
 	}
 }
