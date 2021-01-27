@@ -41,14 +41,14 @@ public class Main {
 	private static void Visualizar(URL url) {
 		
 		System.out.println("\t URL completa: " + url.toString() + ""
-				+ "\t getProtocol(): " + url.getProtocol()
-				+ "\t getHost(): " + url.getHost()
-				+ "\t getPort(): " + url.getPort()
-				+ "\t getFile(): " + url.getFile()
-				+ "\t getUserInfo(): " + url.getUserInfo()
-				+ "\t getPath(): " + url.getPath()
-				+ "\t getAuthority(): " + url.getAuthority()
-				+ "\t getQuery(): " + url.getQuery());
+				+ "\n\t getProtocol(): " + url.getProtocol()
+				+ "\n\t getHost(): " + url.getHost()
+				+ "\n\t getPort(): " + url.getPort()
+				+ "\n\t getFile(): " + url.getFile()
+				+ "\n\t getUserInfo(): " + url.getUserInfo()
+				+ "\n\t getPath(): " + url.getPath()
+				+ "\n\t getAuthority(): " + url.getAuthority()
+				+ "\n\t getQuery(): " + url.getQuery());
 		
 		System.out.println("========================================");
 	}
