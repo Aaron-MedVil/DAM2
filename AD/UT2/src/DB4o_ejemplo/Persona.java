@@ -1,3 +1,5 @@
+package DB4o_ejemplo;
+
 public class Persona {
 	private String nombre;
 	private String ciudad;
