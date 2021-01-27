@@ -1,3 +1,5 @@
+package DB4o_ejemplo;
+
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 
