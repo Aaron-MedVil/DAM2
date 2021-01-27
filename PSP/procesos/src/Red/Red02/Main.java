@@ -5,6 +5,10 @@ import java.net.URL;
 
 public class Main {
 
+	/**
+	 * Metodo principal de la clase
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		URL url;
@@ -30,17 +34,21 @@ public class Main {
 		catch (MalformedURLException e) { e.printStackTrace(); }
 	}
 
+	/**
+	 * Visualiza los datos de las url
+	 * @param url
+	 */
 	private static void Visualizar(URL url) {
 		
-		System.out.println("\t URL completa: " + url.toString());
-		System.out.println("\t getProtocol(): " + url.getProtocol());
-		System.out.println("\t getHost(): " + url.getHost());
-		System.out.println("\t getPort(): " + url.getPort());
-		System.out.println("\t getFile(): " + url.getFile());
-		System.out.println("\t getUserInfo(): " + url.getUserInfo());
-		System.out.println("\t getPath(): " + url.getPath());
-		System.out.println("\t getAuthority(): " + url.getAuthority());
-		System.out.println("\t getQuery(): " + url.getQuery());
+		System.out.println("\t URL completa: " + url.toString() + ""
+				+ "\t getProtocol(): " + url.getProtocol()
+				+ "\t getHost(): " + url.getHost()
+				+ "\t getPort(): " + url.getPort()
+				+ "\t getFile(): " + url.getFile()
+				+ "\t getUserInfo(): " + url.getUserInfo()
+				+ "\t getPath(): " + url.getPath()
+				+ "\t getAuthority(): " + url.getAuthority()
+				+ "\t getQuery(): " + url.getQuery());
 		
 		System.out.println("========================================");
 	}
