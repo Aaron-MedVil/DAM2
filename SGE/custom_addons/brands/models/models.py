@@ -20,8 +20,6 @@ class Brand(models.Model):
         if not self._check_recursion(parent='subBrand'):
             raise exceptions.ValidationError(('You cannot create recursive relationships.'))
 
-
-
 ## Modelo para la vista de producto
 class CustomBrand(models.Model):
     _inherit = 'product.template'
