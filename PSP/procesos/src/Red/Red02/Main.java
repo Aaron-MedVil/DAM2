@@ -1,5 +1,6 @@
 package Red.Red02;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Main {
@@ -18,7 +19,7 @@ public class Main {
 			
 			System.out.println("========================================");
 			System.out.println("CONSTRUCTOR PARA PROTOCOLO + URL + DIRECTORIO:");
-			url = new URL("https", "www.fpsantacatalina.com", "cifpsurvey/index.php/58317");
+			url = new URL("https", "www.fpsantacatalina.com", "/cifpsurvey/index.php/58317");
 			Visualizar(url);
 			
 			System.out.println("========================================");
@@ -26,7 +27,7 @@ public class Main {
 			url = new URL("http", "docs.oracle.com", 80, "/javase/7");
 			Visualizar(url);
 		}
-		catch (Exception e) { e.printStackTrace(); }
+		catch (MalformedURLException e) { e.printStackTrace(); }
 	}
 
 	private static void Visualizar(URL url) {
@@ -37,5 +38,10 @@ public class Main {
 		System.out.println("\t getPort(): " + url.getPort());
 		System.out.println("\t getFile(): " + url.getFile());
 		System.out.println("\t getUserInfo(): " + url.getUserInfo());
+		System.out.println("\t getPath(): " + url.getPath());
+		System.out.println("\t getAuthority(): " + url.getAuthority());
+		System.out.println("\t getQuery(): " + url.getQuery());
+		
+		System.out.println("========================================");
 	}
 }
