@@ -1,4 +1,4 @@
-package Red.Red01;
+package Red.InetAddress;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
