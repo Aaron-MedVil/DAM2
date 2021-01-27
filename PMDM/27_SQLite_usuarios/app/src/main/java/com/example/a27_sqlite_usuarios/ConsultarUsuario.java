@@ -76,7 +76,31 @@ public class ConsultarUsuario extends AppCompatActivity {
      * Elimina los datos de la base de datos del usuario buscado
      * @param view
      */
-    public void click_btn_eliminar_consultar_usuario(View view) {}
+    public void click_btn_eliminar_consultar_usuario(View view) {
+
+        if (!isEmptyEt(dni_consultar_usuario)) {
+
+            SQLiteDatabase db = conn.getReadableDatabase();
+
+            String where = CAMPO_DNI + " = ?";
+            String[] arrWhere = new String[] {dni_consultar_usuario.getText().toString()};
+
+            try {
+
+                int result = db.delete(TABLA_USUARIOS, where, arrWhere);
+
+                if (result > 0) { Toast.makeText(getApplicationContext(), "Usuario eliminado", Toast.LENGTH_SHORT).show(); }
+                else { Toast.makeText(getApplicationContext(), "Error al eliminar el usuario", Toast.LENGTH_SHORT).show(); }
+
+                limpiarFormulario();
+            }
+            catch (Exception err) { Toast.makeText(getApplicationContext(), "Error al eliminar el usuario", Toast.LENGTH_SHORT).show(); }
+            finally { if (db.isOpen()) { db.close(); } }
+
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        else { Toast.makeText(getApplicationContext(), "El campo DNI no puede estar vacío", Toast.LENGTH_SHORT).show(); }
+    }
 
     /**
      * Actualiza los datos de la base de datos del usuario buscado
