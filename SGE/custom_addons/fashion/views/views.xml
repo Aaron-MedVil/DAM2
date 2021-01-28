@@ -1,4 +1,49 @@
 <odoo>
 	<data>
+
+		<!-- Formulario de creacion -->
+		<record model="ir.ui.view" id="view_custom_seasson_form">
+			<field name="name">view.custom.seasson.form</field>
+			<field name="model">seassons.template</field>
+			<field name="arch" type="xml">
+				<form string="SeassonForm">
+					<sheet>
+						<group name="group_top">
+							<field name="name"/>
+							<field name="startDate"/>
+							<field name="endDate"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista añadir elementos -->
+		<record model="ir.actions.act_window" id="seassons_action_window">
+			<field name="name">seassons</field>
+			<field name="res_model">seassons.template</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">seassons</p>
+				<p>Click 'Crear' para añadir nuevos elementos.</p>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_custom_seasson_tree">
+			<field name="name">view_custom_seasson_tree</field>
+			<field name="model">seassons.template</field>
+			<field name="arch" type="xml">
+				<tree string="SeassonTree">
+					<field name="name"/>
+					<field name="startDate"/>
+					<field name="endDate"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Elemento que se mostrara en el sidebar -->
+		<menuitem id="menu_fashion_root" name="Fashion" sequence="10"/>
+
+		<menuitem id="menu_fashion_seassons" name="Seassons" parent="menu_fashion_root" sequence="0" action="seassons.action_window"/>
 	</data>
 </odoo>
