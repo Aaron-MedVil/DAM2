@@ -45,5 +45,9 @@ public class MainActivity extends AppCompatActivity {
      * Muestra la actividad para listar los usuarios
      * @param view
      */
-    public void listarUsuarios(View view) {}
+    public void listarUsuarios(View view) {
+
+        Intent intent = new Intent(MainActivity.this, ListarUsuario.class);
+        startActivity(intent);
+    }
 }
