@@ -125,9 +125,9 @@ public class ConsultarUsuario extends AppCompatActivity {
 
                     try {
 
-                        long result = db.update(TABLA_USUARIOS, values, where, arrWhere);
+                        int result = db.update(TABLA_USUARIOS, values, where, arrWhere);
 
-                        if (result != -1) { Toast.makeText(getApplicationContext(), "Usuario editado", Toast.LENGTH_SHORT).show(); }
+                        if (result > 0) { Toast.makeText(getApplicationContext(), "Usuario editado", Toast.LENGTH_SHORT).show(); }
                         else { Toast.makeText(getApplicationContext(), "Error al editar el usuario", Toast.LENGTH_SHORT).show(); }
                     }
                     catch (Exception err) { Toast.makeText(getApplicationContext(), "Error al editar el usuario", Toast.LENGTH_SHORT).show(); }
