@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListarUsuario">
+    tools:context=".ListarUsuario"
+    android:orientation="vertical"
+    android:layout_margin="5sp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/titulo_listar_usuarios"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Datos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Select usuario -->
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spn_listar_usuarios"
+            android:layout_marginTop="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"/>
+
+        <!-- Formulario Datos Usuario -->
+        <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/> -->
+    </LinearLayout>
+</LinearLayout>
