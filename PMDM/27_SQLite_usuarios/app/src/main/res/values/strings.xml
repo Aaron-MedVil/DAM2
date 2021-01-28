@@ -9,6 +9,7 @@
     <!-- Titulos de activitys -->
     <string name="titulo_registrar_usuario">REGISTRAR USUARIO</string>
     <string name="titulo_consutar_usuario">CONSULTAR USUARIO</string>
+    <string name="titulo_listar_usuarios">LISTAR USUARIOS</string>
 
     <!-- Componentes formulario -->
     <string name="tw_dni_usuario">DNI</string>
