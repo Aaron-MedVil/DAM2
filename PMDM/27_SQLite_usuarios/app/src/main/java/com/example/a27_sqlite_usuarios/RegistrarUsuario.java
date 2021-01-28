@@ -56,7 +56,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
                     long result = db.insert(TABLA_USUARIOS, null, values);
 
-                    if (result != -1) { Toast.makeText(getApplicationContext(), "Usuario registrado " + result, Toast.LENGTH_SHORT).show(); }
+                    if (result > 0) { Toast.makeText(getApplicationContext(), "Usuario registrado " + result, Toast.LENGTH_SHORT).show(); }
                     else { Toast.makeText(getApplicationContext(), "Error al registrar el usuario " + result, Toast.LENGTH_SHORT).show(); }
 
                     limpiarFormulario();
