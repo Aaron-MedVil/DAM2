@@ -8,33 +8,84 @@
     android:orientation="vertical"
     android:padding="10sp">
 
-    <!-- Boton registrar usuario -->
-    <Button
-        android:onClick="registrarUsuario"
-        android:id="@+id/btn_registrar"
-        android:text="@string/btn_registrar"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="5sp"
+    <!-- Botones usuarios -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <!-- Boton consultar usuario-->
-    <Button
-        android:onClick="consultarUsuario"
-        android:id="@+id/btn_consultar"
-        android:text="@string/btn_consultar"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="5sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <!-- Titulo -->
+        <TextView
+            android:text="@string/titulo_usuarios"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <!-- Boton listar usuarios -->
-    <Button
-        android:onClick="listarUsuarios"
-        android:id="@+id/btn_listar"
-        android:text="@string/btn_listar"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="5sp"
+        <!-- Boton registrar usuario -->
+        <Button
+            android:onClick="registrarUsuario"
+            android:id="@+id/btn_registrar"
+            android:text="@string/btn_registrar"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Boton consultar usuario-->
+        <Button
+            android:onClick="consultarUsuario"
+            android:id="@+id/btn_consultar"
+            android:text="@string/btn_consultar"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Boton listar usuarios -->
+        <Button
+            android:onClick="listarUsuarios"
+            android:id="@+id/btn_listar"
+            android:text="@string/btn_listar"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Botones cursos -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25sp">
+
+        <!-- Titulo -->
+        <TextView
+            android:text="@string/titulo_cursos"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Boton registrar cursos -->
+        <Button
+            android:onClick="registrarCursos"
+            android:id="@+id/btn_registrar_cursos"
+            android:text="@string/btn_registrar_cursos"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Boton consultar cursos -->
+        <Button
+            android:onClick="consultarCursos"
+            android:id="@+id/btn_consultar_cursos"
+            android:text="@string/btn_consultar_cursos"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>

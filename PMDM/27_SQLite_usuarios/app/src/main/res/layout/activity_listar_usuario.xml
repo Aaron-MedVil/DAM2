@@ -23,15 +23,48 @@
         android:orientation="vertical">
 
         <!-- Select usuario -->
-        <androidx.appcompat.widget.AppCompatSpinner
+        <Spinner
             android:id="@+id/spn_listar_usuarios"
             android:layout_marginTop="15sp"
+            android:layout_marginBottom="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <!-- Formulario Datos Usuario -->
-        <!-- <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/> -->
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- DNI, Nombre -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- ET DNI -->
+                <EditText
+                    android:id="@+id/et_dni_listar_usuario"
+                    android:hint="@string/tw_dni_usuario"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!-- ET Nombre -->
+                <EditText
+                    android:id="@+id/et_nombre_listar_usuario"
+                    android:hint="@string/tw_nombre_usuario"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- ET Telefono -->
+            <EditText
+                android:id="@+id/et_telefono_listar_usuario"
+                android:hint="@string/tw_telefono_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

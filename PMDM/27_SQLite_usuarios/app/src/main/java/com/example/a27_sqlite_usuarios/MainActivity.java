@@ -50,4 +50,24 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ListarUsuario.class);
         startActivity(intent);
     }
+
+    /**
+     * Muestra la actividad de registrar un curso
+     * @param view
+     */
+    public void registrarCursos(View view) {
+
+        Intent intent = new Intent(MainActivity.this, RegistrarCurso.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Muestra la actividad de consultar un curso
+     * @param view
+     */
+    public void consultarCursos(View view) {
+
+        Intent intent = new Intent(MainActivity.this, ConsultarCurso.class);
+        startActivity(intent);
+    }
 }
