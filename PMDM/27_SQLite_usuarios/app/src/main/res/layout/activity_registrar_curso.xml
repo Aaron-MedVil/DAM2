@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrarCurso">
+    tools:context=".RegistrarCurso"
+    android:orientation="vertical"
+    android:layout_margin="5sp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/titulo_registrar_curso"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_marginBottom="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ET nombre curso -->
+        <EditText
+            android:id="@+id/et_nombre_curso_registrar_curso"
+            android:hint="@string/tw_nombre_curso"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ET duracion -->
+        <EditText
+            android:inputType="number"
+            android:id="@+id/et_duracion_registrar_curso"
+            android:hint="@string/tw_duracion_curso"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Select usuario -->
+        <Spinner
+            android:id="@+id/spn_usuario_registrar_curso"
+            android:layout_marginTop="15sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Boton registrar -->
+    <Button
+        android:onClick="clickRegistrarCurso"
+        android:text="@string/btn_reg_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
