@@ -12,6 +12,8 @@
     <string name="titulo_registrar_usuario">REGISTRAR USUARIO</string>
     <string name="titulo_consutar_usuario">CONSULTAR USUARIO</string>
     <string name="titulo_listar_usuarios">LISTAR USUARIOS</string>
+    <string name="titulo_registrar_curso">REGISTRAR CURSO</string>
+    <string name="titulo_consultar_curso">CONSULTAR CURSO</string>
     <string name="titulo_usuarios">USUARIOS</string>
     <string name="titulo_cursos">CURSOS</string>
 
@@ -19,6 +21,8 @@
     <string name="tw_dni_usuario">DNI</string>
     <string name="tw_nombre_usuario">NOMBRE</string>
     <string name="tw_telefono_usuario">TELÉFONO</string>
+    <string name="tw_nombre_curso">NOMBRE CURSO</string>
+    <string name="tw_duracion_curso">DURACION</string>
     <string name="btn_reg_usuario">REGISTRAR</string>
     <string name="btn_act_usuario">ACTUALIZAR</string>
     <string name="btn_elim_usuario">ELIMINAR</string>
