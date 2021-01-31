@@ -5,12 +5,16 @@ import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
 public class Consulta1 {
-	static String BDPer = "DBPersonas.yap";
+	
+	static String BDPer = "data/DBPersonas.yap";
+	
 	public static void main(String[] args) {
+		
 		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), BDPer);
 
 		Persona per = new Persona(null, null);
 		ObjectSet<Persona> result = db.queryByExample(per);
+		
 		if (result.size() == 0)
 			System.out.println("No existen Registros de Personas..");
 		else {
@@ -21,8 +25,6 @@ public class Consulta1 {
 				System.out.printf("Nombre: %s, Ciudad: %s %n", p.getNombre(), p.getCiudad());
 			}
 		}
-		db.close(); // cerrar base de datos 
-
+		db.close();
 	}
-
 }
