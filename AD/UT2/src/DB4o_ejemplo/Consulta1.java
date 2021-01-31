@@ -21,7 +21,7 @@ public class Consulta1 {
 				System.out.printf("Nombre: %s, Ciudad: %s %n", p.getNombre(), p.getCiudad());
 			}
 		}
-		db.close(); // cerrar base de datos
+		db.close(); // cerrar base de datos 
 
 	}
 
