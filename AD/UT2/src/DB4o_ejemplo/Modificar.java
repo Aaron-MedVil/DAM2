@@ -5,13 +5,14 @@ import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
 public class Modificar {
-	static String BDPer = "DBPersonas.yap";
+	
+	static String BDPer = "data/DBPersonas.yap";
 	
 	public static void main(String[] args) {
+		
 		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), BDPer);
-
-		ObjectSet<Persona> result =
-		           db.queryByExample(new Persona("Juan",null));
+		ObjectSet<Persona> result = db.queryByExample(new Persona("Juan",null));
+		
 		if(result.size() == 0) 
 		        System.out.println("No existe Juan…");
 		else {	 
