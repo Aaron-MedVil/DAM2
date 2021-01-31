@@ -6,7 +6,7 @@ import com.db4o.ObjectSet;
 
 public class Eliminar {
 
-	final static String BDPer = "DBPersonas.yap";
+	final static String BDPer = "data/DBPersonas.yap";
 
 	public static void main(String[] args) {
 
