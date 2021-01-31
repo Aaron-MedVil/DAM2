@@ -4,8 +4,15 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 
 public class Main {
-	static String BDPer = "DBPersonas.yap";
+	
+	private static String BDPer = "data/DBPersonas.yap";
+	
+	/**
+	 * Metodo inicial de la clase
+	 * @param args
+	 */
 	public static void main(String[] args) {
+		
 		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), BDPer);
 
 		// Creamos Personas
@@ -15,12 +22,8 @@ public class Main {
 		Persona p4 = new Persona("Pedro", "Asturias");
 
 		// Almacenar objetos Persona en la base de datos
-		db.store(p1);
-		db.store(p2);
-		db.store(p3);
-		db.store(p4);
-
+		db.store(p1); db.store(p2); db.store(p3); db.store(p4);
 		db.close(); // cerrar base de datos
 
-	}// fin de main
-}// fin de la clase Main
+	}
+}
