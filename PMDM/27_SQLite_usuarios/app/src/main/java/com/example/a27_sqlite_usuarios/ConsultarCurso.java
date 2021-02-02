@@ -2,6 +2,7 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -66,7 +67,7 @@ public class ConsultarCurso extends AppCompatActivity {
             listaCursos = new ArrayList<Cursos>();
             listaUsuarios = new ArrayList<Usuarios>();
 
-            String sql = "SELECT " + CAMPO_DNI_USUARIO_CURSO + ", " + CAMPO_NOMBRE_CURSO + ", " + CAMPO_DURACION + ", " + CAMPO_DNI_USUARIO_CURSO +
+            String sql = "SELECT " + CAMPO_ID_CURSO + ", " + CAMPO_NOMBRE_CURSO + ", " + CAMPO_DURACION + ", " + CAMPO_DNI_USUARIO_CURSO +
                     ", " + CAMPO_DNI + ", " + CAMPO_NOMBRE + ", " + CAMPO_TELEFONO +
                     " FROM " + TABLA_CURSOS +
                     " JOIN " + TABLA_USUARIOS + " on " + CAMPO_DNI + " = " + CAMPO_DNI_USUARIO_CURSO;
@@ -123,14 +124,19 @@ public class ConsultarCurso extends AppCompatActivity {
                 u.setTelefono(listaUsuarios.get(position).getTelefono());
 
                 // Creamos una intencion
-                Intent intent = new Intent(view.getContext(), DetalleConsultaCurso.class);
+                Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
+
+                Bundle bundle = new Bundle();
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("curso", (Serializable) c);
                 intent.putExtra("usuario", (Serializable) u);
 
+                // Crea una nueva tarea
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 // Iniciamos la actividad
-                view.getContext().startActivity(intent);
+                getApplicationContext().startActivity(intent);
             }
         });
     }
