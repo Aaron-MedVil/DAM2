@@ -2,6 +2,7 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -123,10 +124,8 @@ public class ConsultarCurso extends AppCompatActivity {
                 u.setNombre(listaUsuarios.get(position).getNombre());
                 u.setTelefono(listaUsuarios.get(position).getTelefono());
 
-                Log.d("nombre curso", c.getNombre_curso());
-
                 // Creamos una intencion
-                Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
+                /*Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("curso", (Serializable)c);
@@ -136,7 +135,13 @@ public class ConsultarCurso extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 // Iniciamos la actividad
-                getApplicationContext().startActivity(intent);
+                getApplicationContext().startActivity(intent);*/
+
+                Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("curso", (Serializable)c);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
