@@ -2,6 +2,7 @@ package com.example.a27_sqlite_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,14 +13,20 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.a27_sqlite_usuarios.entidades.Cursos;
+import com.example.a27_sqlite_usuarios.entidades.Usuarios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_DNI;
 import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_DNI_USUARIO_CURSO;
 import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_DURACION;
 import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_ID_CURSO;
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_NOMBRE;
 import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_NOMBRE_CURSO;
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.CAMPO_TELEFONO;
 import static com.example.a27_sqlite_usuarios.utilidades.utilidades.TABLA_CURSOS;
+import static com.example.a27_sqlite_usuarios.utilidades.utilidades.TABLA_USUARIOS;
 
 public class ConsultarCurso extends AppCompatActivity {
 
@@ -27,6 +34,7 @@ public class ConsultarCurso extends AppCompatActivity {
     private ArrayList<String> arrListCursos;
     private DbConn conn;
     private ArrayList<Cursos> listaCursos;
+    private ArrayList<Usuarios> listaUsuarios;
 
     /**
      * Metodo que se ejecuta al crear la clase
@@ -54,12 +62,14 @@ public class ConsultarCurso extends AppCompatActivity {
         try {
 
             Cursos datosCursos = null;
+            Usuarios datosUsuarios = null;
             listaCursos = new ArrayList<Cursos>();
+            listaUsuarios = new ArrayList<Usuarios>();
 
-            // String sql = "SELECT " + CAMPO_ID_CURSO + ", " + CAMPO_NOMBRE_CURSO + ", " + CAMPO_DURACION + ", " + CAMPO_DNI_USUARIO_CURSO + " FROM " + TABLA_CURSOS;
-            String sql = "SELECT id_curso, nombre_curso, duracion, dni_usuario, dni, nombre, telefono" +
-                    " FROM curso " +
-                    " JOIN usuarios on dni = dni_usuario";
+            String sql = "SELECT " + CAMPO_DNI_USUARIO_CURSO + ", " + CAMPO_NOMBRE_CURSO + ", " + CAMPO_DURACION + ", " + CAMPO_DNI_USUARIO_CURSO +
+                    ", " + CAMPO_DNI + ", " + CAMPO_NOMBRE + ", " + CAMPO_TELEFONO +
+                    " FROM " + TABLA_CURSOS +
+                    " JOIN " + TABLA_USUARIOS + " on " + CAMPO_DNI + " = " + CAMPO_DNI_USUARIO_CURSO;
             Cursor cursor = db.rawQuery(sql, null);
 
             if (cursor != null) {
@@ -67,14 +77,24 @@ public class ConsultarCurso extends AppCompatActivity {
                 cursor.moveToFirst();
 
                 do {
+
+                    // Rellena el ArrayList que se mostrara en el ListView
                     arrListCursos.add(cursor.getString(1));
 
+                    // Rellena los datos del ArrayList de los cursos
                     datosCursos = new Cursos();
                     datosCursos.setId_curso(cursor.getInt(0));
                     datosCursos.setNombre_curso(cursor.getString(1));
                     datosCursos.setDuracion(cursor.getInt(2));
                     datosCursos.setDni_usuario(cursor.getString(3));
                     listaCursos.add(datosCursos);
+
+                    // Rellena los datos del ArrayList de los usuarios
+                    datosUsuarios = new Usuarios();
+                    datosUsuarios.setDni(cursor.getString(4));
+                    datosUsuarios.setNombre(cursor.getString(5));
+                    datosUsuarios.setTelefono(cursor.getString(6));
+                    listaUsuarios.add(datosUsuarios);
                 }
                 while (cursor.moveToNext());
             }
@@ -83,18 +103,34 @@ public class ConsultarCurso extends AppCompatActivity {
         catch (Exception err) { Toast.makeText(getApplicationContext(), "Error al realizar la consulta a la base de datos", Toast.LENGTH_SHORT).show(); }
         finally { if (db.isOpen()) { db.close(); } }
 
+        // Rellenamos los datos del ListView con el ArrayList
         lv_mostrar_cursos.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_expandable_list_item_1, arrListCursos));
         lv_mostrar_cursos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                // Recogemos los datos del curso seleccionado
                 Cursos c = new Cursos();
                 c.setId_curso(listaCursos.get(position).getId_curso());
                 c.setNombre_curso(listaCursos.get(position).getNombre_curso());
                 c.setDuracion(listaCursos.get(position).getDuracion());
                 c.setDni_usuario(listaCursos.get(position).getDni_usuario());
 
-                Toast.makeText(getApplicationContext(), c.getNombre_curso(), Toast.LENGTH_SHORT).show();
+                // Recogemos los datos del usuario seleccionado
+                Usuarios u = new Usuarios();
+                u.setDni(listaUsuarios.get(position).getDni());
+                u.setNombre(listaUsuarios.get(position).getNombre());
+                u.setTelefono(listaUsuarios.get(position).getTelefono());
+
+                // Creamos una intencion
+                Intent intent = new Intent(view.getContext(), DetalleConsultaCurso.class);
+
+                // Asignamos a la intencion los datos del elemento que hemos seleccionado
+                intent.putExtra("curso", (Serializable) c);
+                intent.putExtra("usuario", (Serializable) u);
+
+                // Iniciamos la actividad
+                view.getContext().startActivity(intent);
             }
         });
     }
