@@ -1,6 +1,8 @@
 package com.example.a27_sqlite_usuarios.entidades;
 
-public class Cursos {
+import java.io.Serializable;
+
+public class Cursos implements Serializable {
 
     private int id_curso, duracion;
     private String nombre_curso, dni_usuario;
