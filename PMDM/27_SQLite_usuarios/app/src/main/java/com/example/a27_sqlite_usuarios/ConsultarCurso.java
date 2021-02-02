@@ -32,8 +32,8 @@ import static com.example.a27_sqlite_usuarios.utilidades.utilidades.TABLA_USUARI
 public class ConsultarCurso extends AppCompatActivity {
 
     private ListView lv_mostrar_cursos;
-    private ArrayList<String> arrListCursos;
     private DbConn conn;
+    private ArrayList<String> arrListCursos;
     private ArrayList<Cursos> listaCursos;
     private ArrayList<Usuarios> listaUsuarios;
 
@@ -125,8 +125,6 @@ public class ConsultarCurso extends AppCompatActivity {
 
                 // Creamos una intencion
                 Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
-
-                Bundle bundle = new Bundle();
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("curso", (Serializable) c);
