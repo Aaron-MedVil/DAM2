@@ -2,14 +2,12 @@
 
 from odoo import models, fields, api
 
-## Modelo que crea los campos que utilizaremos para añadir informacion
+## Modelo que crea los campos que utilizaremos para añadir informacion a la ventana fashion
 class fashion(models.Model):
     _name = 'fashion.fashion'
     _description = 'fashion.fashion'
-    
-    # Campos
-    # name = fields.Char(string="Name")
 
+## Modelo que crea los campos que utilizaremos para añadir informacion a la ventana de seasson
 class seasson(models.Model):
     _name = 'seassons.template'
     _description = 'seassons.template'
