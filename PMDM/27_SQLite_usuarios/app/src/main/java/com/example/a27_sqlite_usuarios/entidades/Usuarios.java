@@ -1,6 +1,8 @@
 package com.example.a27_sqlite_usuarios.entidades;
 
-public class Usuarios {
+import java.io.Serializable;
+
+public class Usuarios implements Serializable {
 
     private String dni, nombre, telefono;
 
