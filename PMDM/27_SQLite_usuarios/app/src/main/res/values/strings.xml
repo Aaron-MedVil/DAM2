@@ -16,6 +16,8 @@
     <string name="titulo_consultar_curso">CONSULTAR CURSO</string>
     <string name="titulo_usuarios">USUARIOS</string>
     <string name="titulo_cursos">CURSOS</string>
+    <string name="titulo_usuario">USUARIO</string>
+    <string name="titulo_curso">CURSO</string>
 
     <!-- Componentes formulario -->
     <string name="tw_dni_usuario">DNI</string>
