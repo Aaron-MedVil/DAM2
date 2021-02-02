@@ -15,4 +15,11 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <!-- ListView Cursos -->
+    <ListView
+        android:background="@android:color/holo_blue_light"
+        android:id="@+id/lv_mostrar_cursos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
