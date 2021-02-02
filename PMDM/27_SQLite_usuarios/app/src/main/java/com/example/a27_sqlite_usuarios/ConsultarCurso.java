@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -122,12 +123,14 @@ public class ConsultarCurso extends AppCompatActivity {
                 u.setNombre(listaUsuarios.get(position).getNombre());
                 u.setTelefono(listaUsuarios.get(position).getTelefono());
 
+                Log.d("nombre curso", c.getNombre_curso());
+
                 // Creamos una intencion
                 Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
-                intent.putExtra("curso", (Serializable) c);
-                intent.putExtra("usuario", (Serializable) u);
+                intent.putExtra("curso", (Serializable)c);
+                intent.putExtra("usuario", (Serializable)u);
 
                 // Crea una nueva tarea
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
