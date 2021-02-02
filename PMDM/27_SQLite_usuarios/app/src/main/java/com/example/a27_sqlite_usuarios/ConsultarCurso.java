@@ -125,7 +125,7 @@ public class ConsultarCurso extends AppCompatActivity {
                 u.setTelefono(listaUsuarios.get(position).getTelefono());
 
                 // Creamos una intencion
-                /*Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
+                Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
 
                 // Asignamos a la intencion los datos del elemento que hemos seleccionado
                 intent.putExtra("curso", (Serializable)c);
@@ -135,13 +135,7 @@ public class ConsultarCurso extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 // Iniciamos la actividad
-                getApplicationContext().startActivity(intent);*/
-
-                Intent intent = new Intent(getApplicationContext(), DetalleConsultaCurso.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("curso", (Serializable)c);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                getApplicationContext().startActivity(intent);
             }
         });
     }
