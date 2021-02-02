@@ -23,6 +23,7 @@
     <string name="tw_dni_usuario">DNI</string>
     <string name="tw_nombre_usuario">NOMBRE</string>
     <string name="tw_telefono_usuario">TELÉFONO</string>
+    <string name="tw_id_curso">ID CURSO</string>
     <string name="tw_nombre_curso">NOMBRE CURSO</string>
     <string name="tw_duracion_curso">DURACION</string>
     <string name="btn_reg_usuario">REGISTRAR</string>
