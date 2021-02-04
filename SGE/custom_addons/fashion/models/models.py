@@ -15,3 +15,11 @@ class seasson(models.Model):
     name = fields.Char(string="Name", required=True)
     startDate = fields.Date('Start date', required=True, default=fields.Date.today())
     endDate = fields.Date('End date')
+
+
+class costurera(models.Model):
+    _name = 'costurera.modelo_nuevo_creado'
+    _description = 'costurera'
+
+    name = fields.Char(string='nombre')
+    incluir_precio = fields.Selection([('Si', 'No')])
