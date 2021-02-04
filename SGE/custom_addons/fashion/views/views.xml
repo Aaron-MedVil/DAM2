@@ -1,7 +1,7 @@
 <odoo>
 	<data>
 
-		<!-- Formulario de creacion -->
+		<!-- Formulario de creacion Seassons -->
 		<record model="ir.ui.view" id="view_custom_seasson_form">
 			<field name="name">view.custom.seasson.form</field>
 			<field name="model">seassons.template</field>
@@ -18,7 +18,23 @@
 			</field>
 		</record>
 
-		<!-- Vista arbol -->
+		<!-- Formulario de creacion Costurera -->
+		<record model="ir.ui.view" id="view_custom_cost_form">
+			<field name="name">Formulario costurera</field>
+			<field name="model">costurera.modelo_nuevo_creado</field>
+			<field name="arch" type="xml">
+				<form string="CostureraForm">
+					<sheet>
+						<group name="group_top">
+							<field name="name"/>
+							<field name="incluir_precio"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista arbol Seassons -->
 		<record model="ir.ui.view" id="view_custom_seasson_tree">
 			<field name="name">view.custom.seasson.tree</field>
 			<field name="model">seassons.template</field>
@@ -26,12 +42,23 @@
 				<tree string="SeassonTree">
 					<field name="name"/>
 					<field name="startDate"/>
-					<field name="endDate"/>
 				</tree>
 			</field>
 		</record>
 
-		<!-- Vista añadir elementos -->
+		<!-- Vista arbol Costurera -->
+		<record model="ir.ui.view" id="view_custom_cost_tree">
+			<field name="name">Arbol costurera</field>
+			<field name="model">costurera.modelo_nuevo_creado</field>
+			<field name="arch" type="xml">
+				<tree string="CostTree">
+					<field name="name"/>
+					<field name="incluir_precio"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Vista añadir elementos Seasson -->
 		<record model="ir.actions.act_window" id="fashion.action_window_seassons">
 			<field name="name">Seassons</field>
 			<field name="res_model">seassons.template</field>
@@ -42,8 +69,31 @@
 			</field>
 		</record>
 
+		<!-- Vista añadir elementos Costurera -->
+		<record model="ir.actions.act_window" id="fashion.action_window_cost">
+			<field name="name">Costurera</field>
+			<field name="res_model">costurera.modelo_nuevo_creado</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Costurera</p>
+				<p>Click 'Crear' para añadir nuevos elementos.</p>
+			</field>
+		</record>
+
 		<!-- Elemento que se mostrara en el sidebar -->
 		<menuitem id="menu_seassons_root" name="Seassons" sequence="1"/>
+
+		<!-- Menu sidebar costurera -->
+		<menuitem id="menu_cost_root" name="Costurera" sequence="1"/>
+
+		<!-- Menu hijo costurera -->
+		<menuitem id="menu_cost_child" name="Costurera" parent="fashion.menu_cost_root" sequence="1" action="fashion.action_window_cost"/>
+
+		<!-- Menu hijo costurera en stock -->
+		<menuitem id="menu_cost_stock" name="Costurera" parent="stock.menu_stock_root" sequence="4" action="fashion.action_window_cost"/>
+
+		<!-- Menu hijo seassonsen menu costurera -->
+		<menuitem id="menu_seasson_cost" name="Seassons" parent="fashion.menu_cost_root" sequence="2" action="fashion.action_window_seassons"/>
 
 		<!-- Elemento en el menu superior en la pagina de brands -->
 		<menuitem id="menu_seassons_brands" name="Seassons" parent="brands.menu_marcas_root" sequence="10" action="fashion.action_window_seassons"/>
