@@ -1,9 +1,11 @@
 package com.example.a29_tomar_foto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -37,12 +39,40 @@ public class MainActivity extends AppCompatActivity {
      * Metodo que se ejecuta cuando se pulsa la imagen y abre la camara
      * @param view
      */
-    public void inClickCamera(View view) {
+    public void onClickCamera(View view) {
 
+        // Crea un intent para abrir la camara
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
+        // Comprueba que existe alguna aplicacion para realizar el intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+
+            // Inicia la actividad que abre la camara
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
+            // Comprueba si se ha creado la imagen correctamente
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+
+                // Crea el fichero donde se guardara la imagen
+                File photoFile = null;
+
+                // Obtiene el fichero de la imagen del metodo createImageFile()
+                try { photoFile = createImageFile(); }
+                catch (IOException ex) {}
+
+                // Comprueba si se ha creado el fichero
+                if (photoFile != null) {
+
+                    // Crea el uri de la foto
+                    Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
+
+                    // Guarda la imagen en el sistema de archivos
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+
+                    // No idea
+                    // startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                }
+            }
         }
     }
 
@@ -80,8 +110,10 @@ public class MainActivity extends AppCompatActivity {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
 
-        // Guarda la imagen
+        // Obtiene el path de a imagen
         currentPhotoPath = image.getAbsolutePath();
+
+        // Devuelve la imagen
         return image;
     }
 }
