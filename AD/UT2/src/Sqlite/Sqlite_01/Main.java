@@ -1,5 +1,7 @@
 package Sqlite.Sqlite_01;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,8 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Main {
-
-	private static String strConn = "jdbc:sqlite:D:/Github/DAM2/AD/UT2/data/Ejemplo.db";
+	
+	private static Path currentRelativePath = Paths.get("");
+	private static String s = currentRelativePath.toAbsolutePath().toString();
+	private static String strConn = "jdbc:sqlite:" + s + "/data/Ejemplo.db";
 	
 	public static void main(String[] args) {
 		
