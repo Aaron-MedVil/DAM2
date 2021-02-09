@@ -42,6 +42,7 @@
 
         <!-- Boton acceder -->
         <Button
+            android:onClick="acceso"
             android:id="@+id/btn_entrar"
             android:text="@string/btn_entrar"
             android:layout_weight="1"

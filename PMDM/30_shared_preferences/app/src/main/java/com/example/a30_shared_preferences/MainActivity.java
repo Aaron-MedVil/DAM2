@@ -3,6 +3,7 @@ package com.example.a30_shared_preferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etuser, etpassword;
-    private Button btn_save, btn_entrar;
 
     /**
      * Metodo que se ejecuta al ejecutar la clase
@@ -67,5 +67,15 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
 
         Toast.makeText(this, "Credenciales guardadas", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Carga la activity de acceso
+     * @param view
+     */
+    public void acceso(View view) {
+
+        Intent intent = new Intent(MainActivity.this, ActivityAcceso.class);
+        startActivity(intent);
     }
 }
