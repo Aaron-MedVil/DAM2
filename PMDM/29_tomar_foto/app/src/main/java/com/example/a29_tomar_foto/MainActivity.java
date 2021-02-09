@@ -5,6 +5,7 @@ import androidx.core.content.FileProvider;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView imgCamera;
     private String currentPhotoPath;
+    private  Uri photoURI = null;
 
     /**
      * Metodo que se ejecuta cuando se crea la actividad
@@ -64,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 if (photoFile != null) {
 
                     // Crea el uri de la foto
-                    Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
+                    photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
 
                     // Guarda la imagen en el sistema de archivos
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-
-                    // No idea
-                    // startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
                 }
             }
         }
@@ -92,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imgCamera.setImageBitmap(imageBitmap);
+
+            // Bitmap imageBitmap = BitmapFactory.decodeFile(currentPhotoPath);
+            // imgCamera.setImageBitmap(imageBitmap);
         }
     }
 
