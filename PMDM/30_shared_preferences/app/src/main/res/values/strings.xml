@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">30_shared_preferences</string>
+
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+
+    <string name="btn_save">Guardar credenciales</string>
+    <string name="btn_entrar">Entrar aplicación</string>
+</resources>
