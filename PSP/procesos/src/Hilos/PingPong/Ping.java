@@ -1,4 +1,4 @@
-package Hilos.Hilos13;
+package Hilos.PingPong;
 
 public class Ping extends Thread {
 

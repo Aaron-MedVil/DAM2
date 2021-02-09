@@ -1,4 +1,4 @@
-package Hilos.Hilos12;
+package Hilos.Cola_02;
 
 public class Productor extends Thread {
 

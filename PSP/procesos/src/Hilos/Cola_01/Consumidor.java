@@ -1,4 +1,4 @@
-package Hilos.Hilos11;
+package Hilos.Cola_01;
 
 public class Consumidor extends Thread {
 	

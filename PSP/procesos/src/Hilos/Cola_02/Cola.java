@@ -1,30 +1,31 @@
-package Hilos.Hilos13;
+package Hilos.Cola_02;
 
-public class PingPong {
+public class Cola {
 	
+	private int numero;
 	private boolean disponible = false;
 	
 	/**
-	 * Metodo para imprimir PING
+	 * Metodo para coger valores de la cola
+	 * @return
 	 */
-	public synchronized void ping() {
+	public synchronized int get() {
 		
 		while(disponible == false) {
-			
 			try { wait(); }
 			catch (InterruptedException e) {}
 		}
 		
-		System.out.println("Ping");
-		
 		disponible = false;
 		notifyAll();
+		return numero;
 	}
 	
 	/**
-	 * Metodo para imprimir PONG
+	 * Metodo para agregar valores a la cola
+	 * @param valor
 	 */
-	public synchronized void pong() {
+	public synchronized void put(int valor) {
 		
 		while(disponible == true) {
 			
@@ -32,7 +33,7 @@ public class PingPong {
 			catch (InterruptedException e) {}
 		}
 		
-		System.out.println("Pong");
+		numero = valor;
 		disponible = true;
 		notifyAll();
 	}
