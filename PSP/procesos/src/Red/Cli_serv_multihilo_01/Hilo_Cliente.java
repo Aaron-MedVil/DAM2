@@ -39,12 +39,13 @@ public class Hilo_Cliente extends Thread {
 		
 			while(res) {
 				
+					devuelve = "";
 					Date fechaActual = new Date();
 					
 					dos.writeUTF("¿Que quieres? [Fecha, Hora, Exit para salir]");
-					recibe = dis.readUTF().toLowerCase();
+					recibe = dis.readUTF();
 					
-					switch (recibe) {
+					switch (recibe.toLowerCase()) {
 						case "fecha":
 							devuelve = fecha.format(fechaActual);
 							dos.writeUTF(devuelve);
