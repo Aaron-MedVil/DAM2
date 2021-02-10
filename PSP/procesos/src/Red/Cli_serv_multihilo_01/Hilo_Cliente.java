@@ -35,46 +35,42 @@ public class Hilo_Cliente extends Thread {
 		String recibe, devuelve;
 		boolean res = true;
 		
-		while(res) {
-			
-			try {
-				
-				Date fechaActual = new Date();
-				
-				dos.writeUTF("¿Que quieres? [Fecha, Hora, Exit para salir]");
-				recibe = dis.readUTF().toLowerCase();
-				
-				switch (recibe) {
-					case "fecha":
-						devuelve = fecha.format(fechaActual);
-						dos.writeUTF(devuelve);
-						res = false;
-						break;
-						
-					case "hora":
-						devuelve = hora.format(fechaActual);
-						dos.writeUTF(devuelve);
-						res = false;
-						break;
-						
-					case "exit":
-						System.out.println("Cliente " + socket + " acaba!");
-						socket.close();
-						System.err.println("Conexion cerrada");
-						res = false;
-						break;
-						
-					default:
-						System.err.println("Error en la entrada");
-						res = false;
-						break;
-				}
-			}
-			catch (IOException err) { err.printStackTrace(); }
-		}
+		try {
 		
-		// Cerramos las conexiones
-		try { dos.close(); dis.close(); }
-		catch (Exception err) { err.printStackTrace(); }
+			while(res) {
+				
+					Date fechaActual = new Date();
+					
+					dos.writeUTF("¿Que quieres? [Fecha, Hora, Exit para salir]");
+					recibe = dis.readUTF().toLowerCase();
+					
+					switch (recibe) {
+						case "fecha":
+							devuelve = fecha.format(fechaActual);
+							dos.writeUTF(devuelve);
+							break;
+							
+						case "hora":
+							devuelve = hora.format(fechaActual);
+							dos.writeUTF(devuelve);
+							break;
+							
+						case "exit":
+							System.out.println("Cliente " + socket + " acaba!");
+							socket.close();
+							dos.writeUTF("Conexion cerrada");
+							res = false;
+							break;
+							
+						default:
+							dos.writeUTF("Error en la entrada");
+							break;
+					}
+				}
+			
+			dos.close();
+			dis.close();
+		}
+		catch (IOException err) { err.printStackTrace(); }
 	}
 }
