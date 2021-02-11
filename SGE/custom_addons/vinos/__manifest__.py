@@ -3,15 +3,18 @@
     'name': "vinos",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        Módulo para adaptar el ERP a una bodega
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'description': """
+        ¿Cansado de que no te funcionen los módulos?
+        ¿Necesitas soluciones rápidas?
+        ¿Estas leyendo esto con voz de comercial?
+        PUES INSTALATE EL MÓDULO VINOS Y TU VIDA SE RESOLVERÁ (Bueno, tu vida no, pero ya me entiendes)
+    """,
+
+    'author': "Aarón Medina",
+    'website': "https://github.com/Aaron-MedVil",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
