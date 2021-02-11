@@ -1,0 +1,58 @@
+<odoo>
+	<data>
+		
+		<!-- ################################### -->
+		<!-- ########## Modelo Bodega ########## -->
+		<!-- ################################### -->
+
+		<!-- Formulario creacion -->
+		<record model="ir.ui.view" id="view_bodega_form">
+			<field name="name">view.bodega.form</field>
+			<field name="model">bodega.vinos</field>
+			<field name="arch" type="xml">
+				<form string="bodegaForm">
+					<sheet>
+						<h1 style="color: blue">Bodega</h1>
+						<hr/>
+						<group name="group_top">
+							<field name="name"/>
+							<field name="location"/>
+							<field name="fundation"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista arbol -->
+		<record model="ir.ui.view" id="view_bodega_tree">
+			<field name="name">view.bodega.tree</field>
+			<field name="model">bodega.vinos</field>
+			<field name="arch" type="xml">
+				<tree string="bodegaTree">
+					<field name="name"/>
+					<field name="location"/>
+					<field name="fundation"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Vista añadir elementos -->
+		<record model="ir.actions.act_window" id="vinos.action_window_bodega">
+			<field name="name">Bodega</field>
+			<field name="res_model">bodega.vinos</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<h2 class="oe_view_nocontent_create">Bodega</h2>
+				<p>Click 'Crear' para añadir nuevos elementos.</p>
+			</field>
+		</record>
+
+		<!-- ############################# -->
+		<!-- ########## MENUSES ########## -->
+		<!-- ############################# -->
+		
+		<!-- Menu bodega -->
+		<menuitem id="menu_bodega" name="Bodega" parent="menu_parent" sequence="3" action="vinos.action_window_bodega"/>
+	</data>
+</odoo>

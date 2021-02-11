@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+
+    <!-- ############################################ -->
+    <!-- ########## Modelo Localizacion Do ########## -->
+    <!-- ############################################ -->
+
+    <!-- Formulario creacion -->
+    <record model="ir.ui.view" id="view_locdo_form">
+      <field name="name">view.locdo.form</field>
+      <field name="model">doloc.vinos</field>
+      <field name="arch" type="xml">
+        <form string="locDoForm">
+          <sheet>
+            <h1 style="color: blue">Localización de la Denominación de Origen</h1>
+            <hr/>
+            <group name="group_top">
+              <group name="group-left">
+                <field name="do"/>
+              </group>
+              <group name="group-right">
+                <field name="location"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista arbol -->
+    <record model="ir.ui.view" id="view_locdo_tree">
+      <field name="name">view.locdo.tree</field>
+      <field name="model">doloc.vinos</field>
+      <field name="arch" type="xml">
+        <tree string="locDoTree">
+          <field name="do"/>
+          <field name="location"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista añadir elementos -->
+    <record model="ir.actions.act_window" id="vinos.action_window_locDo">
+      <field name="name">Localización de la Denominación de Origen</field>
+      <field name="res_model">doloc.vinos</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <h2 class="oe_view_nocontent_create">Localización de la Denominación de Origen</h2>
+        <p>Click 'Crear' para añadir nuevos elementos.</p>
+      </field>
+    </record>
+
+    <!-- ############################# -->
+    <!-- ########## MENUSES ########## -->
+    <!-- ############################# -->
+    
+    <!-- Menu localizacion denominacion origen -->
+    <menuitem id="menu_locDo" name="Localización" parent="menu_do" sequence="2" action="vinos.action_window_locDo"/>
+  </data>
+</odoo>

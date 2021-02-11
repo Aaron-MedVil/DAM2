@@ -1,0 +1,54 @@
+<odoo>
+	<data>
+		
+		<!-- ################################## -->
+		<!-- ########## Modelo Marca ########## -->
+		<!-- ################################## -->
+
+		<!-- Formulario creacion -->
+		<record model="ir.ui.view" id="view_marca_form">
+			<field name="name">view.marca.form</field>
+			<field name="model">marca.vinos</field>
+			<field name="arch" type="xml">
+				<form string="marcaForm">
+					<sheet>
+						<h1 style="color: blue">Marca</h1>
+						<hr/>
+						<group name="group_top">
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista arbol -->
+		<record model="ir.ui.view" id="view_marca_tree">
+			<field name="name">view.marca.tree</field>
+			<field name="model">marca.vinos</field>
+			<field name="arch" type="xml">
+				<tree string="marcaTree">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Vista añadir elementos -->
+		<record model="ir.actions.act_window" id="vinos.action_window_marca">
+			<field name="name">Marca</field>
+			<field name="res_model">marca.vinos</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<h2 class="oe_view_nocontent_create">Marca</h2>
+				<p>Click 'Crear' para añadir nuevos elementos.</p>
+			</field>
+		</record>
+
+		<!-- ############################# -->
+		<!-- ########## MENUSES ########## -->
+		<!-- ############################# -->
+
+		<!-- Menu marca -->
+		<menuitem id="menu_marca" name="Marca" parent="menu_parent" sequence="2" action="vinos.action_window_marca"/>
+	</data>
+</odoo>

@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+    
+    <!-- ############################### -->
+    <!-- ########## Modelo Do ########## -->
+    <!-- ############################### -->
+
+    <!-- Formulario creacion -->
+    <record model="ir.ui.view" id="view_do_form">
+      <field name="name">view.do.form</field>
+      <field name="model">do.vinos</field>
+      <field name="arch" type="xml">
+        <form string="doForm">
+          <sheet>
+            <h1 style="color: blue">Denominación de Origen</h1>
+            <hr/>
+            <group name="group_top">
+              <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista arbol -->
+    <record model="ir.ui.view" id="view_do_tree">
+      <field name="name">view.do.tree</field>
+      <field name="model">do.vinos</field>
+      <field name="arch" type="xml">
+        <tree string="doTree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista añadir elementos -->
+    <record model="ir.actions.act_window" id="vinos.action_window_do">
+      <field name="name">Denominación de origen</field>
+      <field name="res_model">do.vinos</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <h2 class="oe_view_nocontent_create">Denominación de origen</h2>
+        <p>Click 'Crear' para añadir nuevos elementos.</p>
+      </field>
+    </record>
+
+    <!-- ############################# -->
+    <!-- ########## MENUSES ########## -->
+    <!-- ############################# -->
+    
+    <!-- Menu denominacion origen padre -->
+    <menuitem id="menu_do" name="Denominacion de Origen" parent="menu_parent" sequence="5"/>
+    <menuitem id="menu_do_child" name="Denominacion de Origen" parent="menu_do" sequence="1" action="vinos.action_window_do"/>
+  </data>
+</odoo>

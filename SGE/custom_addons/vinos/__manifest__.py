@@ -27,9 +27,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/vinos.xml',
+        'views/marcas.xml',
+        'views/bodega.xml',
+        'views/do.xml',
+        'views/variedad.xml',
+        'views/locDo.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+    
+    <!-- ##################################### -->
+    <!-- ########## Modelo Variedad ########## -->
+    <!-- ##################################### -->
+
+    <!-- Formulario creacion -->
+    <record model="ir.ui.view" id="view_variedad_form">
+      <field name="name">view.variedad.form</field>
+      <field name="model">variedad.vinos</field>
+      <field name="arch" type="xml">
+        <form string="variedadForm">
+          <sheet>
+            <h1 style="color: blue">Variedad</h1>
+            <hr/>
+            <group name="group_top">
+              <field name="tipo_uva"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista arbol -->
+    <record model="ir.ui.view" id="view_variedad_tree">
+      <field name="name">view.variedad.tree</field>
+      <field name="model">variedad.vinos</field>
+      <field name="arch" type="xml">
+        <tree string="variedadTree">
+          <field name="tipo_uva"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista añadir elementos -->
+    <record model="ir.actions.act_window" id="vinos.action_window_variedad">
+      <field name="name">Variedad</field>
+      <field name="res_model">variedad.vinos</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <h2 class="oe_view_nocontent_create">Variedad</h2>
+        <p>Click 'Crear' para añadir nuevos elementos.</p>
+      </field>
+    </record>
+
+    <!-- ############################# -->
+    <!-- ########## MENUSES ########## -->
+    <!-- ############################# -->
+    
+    <!-- Menu variedad -->
+    <menuitem id="menu_variedad" name="Variedad" parent="menu_parent" sequence="4" action="vinos.action_window_variedad"/>
+  </data>
+</odoo>

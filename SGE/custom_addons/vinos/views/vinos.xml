@@ -1,0 +1,90 @@
+<odoo>
+	<data>
+
+		<!-- ################################## -->
+		<!-- ########## Modelo Vinos ########## -->
+		<!-- ################################## -->
+
+		<!-- Formulario creacion -->
+		<record model="ir.ui.view" id="view_vinos_form">
+			<field name="name">view.vinos.form</field>
+			<field name="model">vinos.vinos</field>
+			<field name="arch" type="xml">
+				<form string="vinosForm">
+					<sheet>
+						<h1 style="color: blue">Vinos</h1>
+						<hr/>
+
+						<!-- Superior -->
+						<group>
+
+							<!-- Izquierda -->
+							<group>
+								<field name="image" widget="image" style="height: 20px; width: 100px;"/>
+							</group>
+
+							<!-- Derecha -->
+							<group>
+								<field name="name"/>
+								<field name="calidad"/>
+							</group>
+						</group>
+
+						<!-- Centro -->
+						<group>
+
+							<!-- Izquierda -->
+							<group>
+								<field name="embotellado"/>
+								<field name="do"/>
+							</group>
+
+							<!-- Derecha -->
+							<group>
+								<field name="capacidad"/>
+								<field name="variedad"/>
+							</group>
+						</group>
+
+						<!-- Inferior -->
+						<group>
+							<field name="description"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista arbol -->
+		<record model="ir.ui.view" id="view_vinos_tree">
+			<field name="name">view.vinos.tree</field>
+			<field name="model">vinos.vinos</field>
+			<field name="arch" type="xml">
+				<tree string="vinosTree">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Vista añadir elementos -->
+		<record model="ir.actions.act_window" id="vinos.action_window_vinos">
+			<field name="name">Vinos</field>
+			<field name="res_model">vinos.vinos</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<h2 class="oe_view_nocontent_create">Vinos</h2>
+				<p>Click 'Crear' para añadir nuevos elementos.</p>
+			</field>
+		</record>
+
+		<!-- ############################# -->
+		<!-- ########## MENUSES ########## -->
+		<!-- ############################# -->
+
+		<!-- Menu padre -->
+		<menuitem id="menu_parent" name="Vinos" sequence="1"/>
+
+		<!-- Menu vinos -->
+		<menuitem id="menu_vinos" name="Vinos" parent="menu_parent" sequence="1" action="vinos.action_window_vinos"/>
+	</data>
+</odoo>
