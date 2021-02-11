@@ -46,7 +46,6 @@ namespace Fabrica.Modelo {
         public Dictionary<string, dynamic> cargaDatosMateriasPrimas(Dictionary<string, string>? args) {
 
             DataTable dataTabla = new DataTable();
-
             retornos = new Dictionary<string, dynamic>();
             bool status = false;
             string msg = "Error en la sentencia";

@@ -48,22 +48,6 @@ E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fab
 E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CoreCompileInputs.cache
 E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CopyComplete
 E:\DAM\Desarrollo de Interfaces\EV1\Recursos\Fabrica\InterfazFabrica\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.genruntimeconfig.cache
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.exe
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.dll.config
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.deps.json
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.json
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.runtimeconfig.dev.json
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\Fabrica.pdb
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csprojAssemblyReference.cache
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.baml
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\App.baml
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\MainWindow.g.cs
@@ -73,7 +57,3 @@ D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.g.resources
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfoInputs.cache
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.AssemblyInfo.cs
 D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CoreCompileInputs.cache
-D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.csproj.CopyComplete
-D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.dll
-D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.pdb
-D:\Github\DAM2\DI\Fabrica\Fabrica\obj\Debug\netcoreapp3.1\Fabrica.genruntimeconfig.cache
