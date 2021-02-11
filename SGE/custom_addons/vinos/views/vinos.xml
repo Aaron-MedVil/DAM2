@@ -26,9 +26,12 @@
 							<!-- Derecha -->
 							<group>
 								<field name="name"/>
-								<field name="calidad"/>
+								<field name="marca"/>
+								<field name="bodega"/>
 							</group>
 						</group>
+
+						<hr/>
 
 						<!-- Centro -->
 						<group>
@@ -37,6 +40,7 @@
 							<group>
 								<field name="embotellado"/>
 								<field name="do"/>
+								<field name="calidad"/>
 							</group>
 
 							<!-- Derecha -->
@@ -45,6 +49,8 @@
 								<field name="variedad"/>
 							</group>
 						</group>
+
+						<hr/>
 
 						<!-- Inferior -->
 						<group>
@@ -61,7 +67,11 @@
 			<field name="model">vinos.vinos</field>
 			<field name="arch" type="xml">
 				<tree string="vinosTree">
+					<field name="image" widget="image"/>
 					<field name="name"/>
+					<field name="marca"/>
+					<field name="bodega"/>
+					<field name="capacidad"/>
 				</tree>
 			</field>
 		</record>
