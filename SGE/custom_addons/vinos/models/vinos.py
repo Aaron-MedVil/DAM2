@@ -15,9 +15,9 @@ class vinos(models.Model):
     _description = 'vinos'
 
     name = fields.Char(string='Nombre')
-   	# marca = fields.One2one('marca.vinos', string='Marca')
     calidad = fields.Selection(_get_selection, string='Calidad', default='bueno')
-   	# bodega = fields.One2one('bodega.vinos', string='Bodega')
+    marca = fields.Many2one('marca.vinos', string='Marca')
+    bodega = fields.Many2one('bodega.vinos', string='Bodega')
     embotellado = fields.Date(string='Año embotellado')
     capacidad = fields.Float(string='Capacidad')
     description = fields.Text(string='Descripción')
