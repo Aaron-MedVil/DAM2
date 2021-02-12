@@ -21,7 +21,7 @@ class vinos(models.Model):
     embotellado = fields.Date(string='Año embotellado')
     capacidad = fields.Float(string='Capacidad')
     description = fields.Text(string='Descripción')
-    image = fields.Image(string="Imagen", max_width=10, max_height=10)
+    image = fields.Image(string="Imagen", max_width=100, max_height=100, width=100, height=100)
     do = fields.Many2one('do.vinos', string='Denominación origen')
     variedad = fields.Many2one('variedad.vinos', string='Variedad')
 
