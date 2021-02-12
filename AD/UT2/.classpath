@@ -11,5 +11,7 @@
 	<classpathentry kind="lib" path="D:/Github/DAM2/AD/UT2/external_jars/sqlite-jdbc-3.8.11.2.jar"/>
 	<classpathentry kind="lib" path="D:/Github/DAM2/AD/UT2/external_jars/derby.jar"/>
 	<classpathentry kind="lib" path="D:/Github/DAM2/AD/UT2/external_jars/derbytools.jar"/>
+	<classpathentry kind="lib" path="D:/Github/DAM2/AD/UT2/external_jars/h2-1.4.191.jar"/>
+	<classpathentry kind="lib" path="D:/Github/DAM2/AD/UT2/external_jars/hsqldb.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
