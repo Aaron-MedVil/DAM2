@@ -20,7 +20,7 @@
 
 							<!-- Izquierda -->
 							<group>
-								<field name="image" widget="image" style="height: 20px; width: 100px;"/>
+								<field name="image" widget="image" style="height: 100px; width: 100px;"/>
 							</group>
 
 							<!-- Derecha -->
