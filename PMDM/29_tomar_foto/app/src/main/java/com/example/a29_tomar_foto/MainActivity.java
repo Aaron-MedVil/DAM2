@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView imgCamera;
     private String currentPhotoPath;
-    private  Uri photoURI = null;
 
     /**
      * Metodo que se ejecuta cuando se crea la actividad
@@ -49,28 +48,24 @@ public class MainActivity extends AppCompatActivity {
         // Comprueba que existe alguna aplicacion para realizar el intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 
-            // Inicia la actividad que abre la camara
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            // Crea el fichero donde se guardara la imagen
+            File photoFile = null;
 
-            // Comprueba si se ha creado la imagen correctamente
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Obtiene el fichero de la imagen del metodo createImageFile()
+            try { photoFile = createImageFile(); }
+            catch (IOException ex) {}
 
-                // Crea el fichero donde se guardara la imagen
-                File photoFile = null;
+            // Comprueba si se ha creado el fichero
+            if (photoFile != null) {
 
-                // Obtiene el fichero de la imagen del metodo createImageFile()
-                try { photoFile = createImageFile(); }
-                catch (IOException ex) {}
+                // Crea el uri de la foto
+                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
 
-                // Comprueba si se ha creado el fichero
-                if (photoFile != null) {
+                // Guarda la imagen en el sistema de archivos
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 
-                    // Crea el uri de la foto
-                    photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
-
-                    // Guarda la imagen en el sistema de archivos
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                }
+                // Inicia la actividad que abre la camara
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
     }
@@ -88,12 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Bitmap imageBitmap = BitmapFactory.decodeFile(currentPhotoPath);
             imgCamera.setImageBitmap(imageBitmap);
-
-            // Bitmap imageBitmap = BitmapFactory.decodeFile(currentPhotoPath);
-            // imgCamera.setImageBitmap(imageBitmap);
         }
     }
 
