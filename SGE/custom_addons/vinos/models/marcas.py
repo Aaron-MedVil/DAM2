@@ -7,4 +7,4 @@ class marca(models.Model):
 	_name = 'marca.vinos'
 	_description = 'marca'
 
-	name = fields.Char(string='Nombre')
+	name = fields.Char(string='Nombre', default='', required=True)
