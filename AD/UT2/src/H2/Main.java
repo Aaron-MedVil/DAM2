@@ -34,7 +34,7 @@ public class Main {
 				System.out.println("\tDuracion: " + result.getInt(4));
 				System.out.println("\tProfesor: " + result.getString(5));
 				System.out.println("\tPrecio: " + result.getInt(6));
-				System.out.println("============================================================");
+				System.out.println("============================================================\n");
 			}
 			
 			// Cerramos el ResultSet
