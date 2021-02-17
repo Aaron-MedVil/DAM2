@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Ejercicio_persistencia</string>
+    <string name="app_name">Ejercicio persistencia</string>
+    <string name="usuario">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="guardar">Guardar</string>
+    <string name="texto_largo">Inserte un texto</string>
+    <string name="almacenamiento_interno">Almacenamiento Interno</string>
+    <string name="almacenamiento_externo">Almacenamiento Externo</string>
 </resources>
