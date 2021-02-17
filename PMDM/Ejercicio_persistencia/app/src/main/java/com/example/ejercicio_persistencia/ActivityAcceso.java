@@ -21,6 +21,7 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -31,7 +32,7 @@ public class ActivityAcceso extends AppCompatActivity {
 
     public static final int REQUEST_IMAGE_CAPTURE = 1;
     private File photoFile = null;
-    private String currentPhotoPath, fichero_externo = "fichero_externo.txt", fichero_interno = "fichero_interno.txt", agendaCompleta;
+    private String currentPhotoPath, fichero_externo = "fichero_externo.txt", fichero_interno = "fichero_interno.txt";
 
     private ImageView img_camera;
     private EditText texto_guardar;
@@ -134,10 +135,20 @@ public class ActivityAcceso extends AppCompatActivity {
      */
     private void almacenamientoExterno() {
 
-        // Comprueba que el almacenamiento externo esta disponible
-        if (isExternalStorageReadable()) {
+        // Comprueba si el almacenamiento externo esta disponible
+        if (!isExternalStorageReadable()) {
 
-            File fileExt = new File(getExternalFilesDir());
+            File fileExt = new File(getExternalFilesDir("directorio_externo"), fichero_externo);
+            FileOutputStream fos = null;
+
+            try {
+                fos = new FileOutputStream(fileExt);
+                fos.write(texto_guardar.getText().toString().getBytes());
+                fos.close();
+
+                Toast.makeText(this, "Archivo guardado correctamente", Toast.LENGTH_SHORT).show();
+            }
+            catch (IOException ioErr) { Toast.makeText(this, "Error al guardar el fichero", Toast.LENGTH_SHORT).show(); }
         }
         else { Toast.makeText(this, "El almacenamiento exteno no está disponible", Toast.LENGTH_SHORT).show(); }
     }
@@ -158,10 +169,10 @@ public class ActivityAcceso extends AppCompatActivity {
             archivo.write(texto_guardar.getText().toString());
             archivo.flush();
             archivo.close();
-        }
-        catch (IOException ioErr) {}
 
-        Toast.makeText(this, "Archivo guardado correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Archivo guardado correctamente", Toast.LENGTH_SHORT).show();
+        }
+        catch (IOException ioErr) { Toast.makeText(this, "Error al guardar el fichero", Toast.LENGTH_SHORT).show(); }
     }
 
     /**
