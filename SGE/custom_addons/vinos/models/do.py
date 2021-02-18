@@ -7,4 +7,4 @@ class do(models.Model):
 	_name = 'do.vinos'
 	_description = 'denominacion_origen'
 
-	name = fields.Char(string='Nombre')
+	name = fields.Char(string='Nombre', required=True)

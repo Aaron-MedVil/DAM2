@@ -1,6 +1,15 @@
 <odoo>
   <data>
-    
+
+    <!-- ################################# -->
+    <!-- ########## Style Sheet ########## -->
+    <!-- ################################# -->
+    <template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+      </xpath>
+    </template>
+
     <!-- ############################### -->
     <!-- ########## Modelo Do ########## -->
     <!-- ############################### -->
@@ -12,10 +21,10 @@
       <field name="arch" type="xml">
         <form string="doForm">
           <sheet>
-            <h1 style="color: blue">Denominación de Origen</h1>
+            <h1 class="title">Denominación de Origen</h1>
             <hr/>
             <group name="group_top">
-              <field name="name"/>
+              <field name="name" placeholder="Nombre de la denominación de origen"/>
             </group>
           </sheet>
         </form>
@@ -47,9 +56,11 @@
     <!-- ############################# -->
     <!-- ########## MENUSES ########## -->
     <!-- ############################# -->
-    
+
     <!-- Menu denominacion origen padre -->
     <menuitem id="menu_do" name="Denominacion de Origen" parent="menu_parent" sequence="5"/>
+
+    <!-- Menu denominacion origen hijo -->
     <menuitem id="menu_do_child" name="Denominacion de Origen" parent="menu_do" sequence="1" action="vinos.action_window_do"/>
   </data>
 </odoo>

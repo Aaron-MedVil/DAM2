@@ -1,6 +1,15 @@
 <odoo>
 	<data>
 
+		<!-- ################################# -->
+		<!-- ########## Style Sheet ########## -->
+		<!-- ################################# -->
+		<template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+			</xpath>
+		</template>
+
 		<!-- ################################## -->
 		<!-- ########## Modelo Vinos ########## -->
 		<!-- ################################## -->
@@ -12,7 +21,7 @@
 			<field name="arch" type="xml">
 				<form string="vinosForm">
 					<sheet>
-						<h1 style="color: blue">Vinos</h1>
+						<h1 class="title">Vinos</h1>
 						<hr/>
 
 						<!-- Superior -->
@@ -25,9 +34,9 @@
 
 							<!-- Derecha -->
 							<group>
-								<field name="name"/>
-								<field name="marca"/>
-								<field name="bodega"/>
+								<field name="name" placeholder="Nombre del vino"/>
+								<field name="marca" placeholder="Marca del vino"/>
+								<field name="bodega" placeholder="Bodega que lo produce"/>
 							</group>
 						</group>
 
@@ -38,15 +47,15 @@
 
 							<!-- Izquierda -->
 							<group>
-								<field name="embotellado"/>
-								<field name="do"/>
-								<field name="calidad"/>
+								<field name="embotellado" placeholder="Año que se embotelló"/>
+								<field name="do" placeholder="Denominación de origen"/>
+								<field name="calidad" placeholder="Calidad del vino"/>
 							</group>
 
 							<!-- Derecha -->
 							<group>
-								<field name="capacidad"/>
-								<field name="variedad"/>
+								<field name="capacidad" placeholder="Capacidad de la botella"/>
+								<field name="variedad" placeholder="Variedad de la uva"/>
 							</group>
 						</group>
 
@@ -54,7 +63,7 @@
 
 						<!-- Inferior -->
 						<group>
-							<field name="description"/>
+							<field name="description" placeholder="Descripción del vino"/>
 						</group>
 					</sheet>
 				</form>
@@ -67,7 +76,7 @@
 			<field name="model">vinos.vinos</field>
 			<field name="arch" type="xml">
 				<tree string="vinosTree">
-					<field name="image" widget="image"/>
+					<field name="image" widget="image" class="img-tree"/>
 					<field name="name"/>
 					<field name="marca"/>
 					<field name="bodega"/>

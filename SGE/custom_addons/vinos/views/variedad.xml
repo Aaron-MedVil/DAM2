@@ -1,6 +1,15 @@
 <odoo>
   <data>
-    
+
+    <!-- ################################# -->
+    <!-- ########## Style Sheet ########## -->
+    <!-- ################################# -->
+    <template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+      </xpath>
+    </template>
+
     <!-- ##################################### -->
     <!-- ########## Modelo Variedad ########## -->
     <!-- ##################################### -->
@@ -12,10 +21,10 @@
       <field name="arch" type="xml">
         <form string="variedadForm">
           <sheet>
-            <h1 style="color: blue">Variedad</h1>
+            <h1 class="title">Variedad</h1>
             <hr/>
             <group name="group_top">
-              <field name="tipo_uva"/>
+              <field name="name" placeholder="Nombre de la variedad de uva"/>
             </group>
           </sheet>
         </form>
@@ -28,7 +37,7 @@
       <field name="model">variedad.vinos</field>
       <field name="arch" type="xml">
         <tree string="variedadTree">
-          <field name="tipo_uva"/>
+          <field name="name"/>
         </tree>
       </field>
     </record>
@@ -47,7 +56,7 @@
     <!-- ############################# -->
     <!-- ########## MENUSES ########## -->
     <!-- ############################# -->
-    
+
     <!-- Menu variedad -->
     <menuitem id="menu_variedad" name="Variedad" parent="menu_parent" sequence="4" action="vinos.action_window_variedad"/>
   </data>

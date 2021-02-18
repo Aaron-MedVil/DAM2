@@ -7,4 +7,4 @@ class variedad(models.Model):
 	_name = 'variedad.vinos'
 	_description = 'variedad'
 
-	tipo_uva = fields.Char(string='Tipo uva')
+	name = fields.Char(string='Tipo uva', required=True)

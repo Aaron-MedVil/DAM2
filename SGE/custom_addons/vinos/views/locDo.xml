@@ -1,6 +1,15 @@
 <odoo>
   <data>
 
+    <!-- ################################# -->
+    <!-- ########## Style Sheet ########## -->
+    <!-- ################################# -->
+    <template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+      </xpath>
+    </template>
+
     <!-- ############################################ -->
     <!-- ########## Modelo Localizacion Do ########## -->
     <!-- ############################################ -->
@@ -12,14 +21,14 @@
       <field name="arch" type="xml">
         <form string="locDoForm">
           <sheet>
-            <h1 style="color: blue">Localización de la Denominación de Origen</h1>
+            <h1 class="title">Localización de la Denominación de Origen</h1>
             <hr/>
             <group name="group_top">
               <group name="group-left">
-                <field name="do"/>
+                <field name="do" placeholder="Denominación de origen"/>
               </group>
               <group name="group-right">
-                <field name="location"/>
+                <field name="location" placeholder="Localización de la denominación de origen"/>
               </group>
             </group>
           </sheet>
@@ -33,8 +42,8 @@
       <field name="model">doloc.vinos</field>
       <field name="arch" type="xml">
         <tree string="locDoTree">
-          <field name="do"/>
           <field name="location"/>
+          <field name="do"/>
         </tree>
       </field>
     </record>
@@ -53,7 +62,7 @@
     <!-- ############################# -->
     <!-- ########## MENUSES ########## -->
     <!-- ############################# -->
-    
+
     <!-- Menu localizacion denominacion origen -->
     <menuitem id="menu_locDo" name="Localización" parent="menu_do" sequence="2" action="vinos.action_window_locDo"/>
   </data>

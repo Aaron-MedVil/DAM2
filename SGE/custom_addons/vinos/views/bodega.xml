@@ -1,5 +1,14 @@
 <odoo>
 	<data>
+
+		<!-- ################################# -->
+		<!-- ########## Style Sheet ########## -->
+		<!-- ################################# -->
+		<template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+			</xpath>
+		</template>
 		
 		<!-- ################################### -->
 		<!-- ########## Modelo Bodega ########## -->
@@ -12,12 +21,12 @@
 			<field name="arch" type="xml">
 				<form string="bodegaForm">
 					<sheet>
-						<h1 style="color: blue">Bodega</h1>
+						<h1 class="title">Bodega</h1>
 						<hr/>
 						<group name="group_top">
-							<field name="name"/>
-							<field name="location"/>
-							<field name="fundation"/>
+							<field name="name" placeholder="Nombre de la bodega"/>
+							<field name="location" placeholder="Ciudad donde se encuentra"/>
+							<field name="fundation" placeholder="Fecha de creación"/>
 						</group>
 					</sheet>
 				</form>

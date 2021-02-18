@@ -1,6 +1,15 @@
 <odoo>
 	<data>
-		
+
+		<!-- ################################# -->
+		<!-- ########## Style Sheet ########## -->
+		<!-- ################################# -->
+		<template id="custom_styles" name="custom_styles assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/vinos/static/src/css/styles.css"/>
+			</xpath>
+		</template>
+
 		<!-- ################################## -->
 		<!-- ########## Modelo Marca ########## -->
 		<!-- ################################## -->
@@ -12,10 +21,10 @@
 			<field name="arch" type="xml">
 				<form string="marcaForm">
 					<sheet>
-						<h1 style="color: blue">Marca</h1>
+						<h1 class="title">Marca</h1>
 						<hr/>
 						<group name="group_top">
-							<field name="name"/>
+							<field name="name" placeholder="Nombre de la marca"/>
 						</group>
 					</sheet>
 				</form>
