@@ -4,13 +4,11 @@
 
 package Red.Ejercicio_01;
 
-import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import java.io.InputStreamReader;
 
 public class Servidor {
 	
@@ -27,23 +25,24 @@ public class Servidor {
 		ServerSocket serverSocket = new ServerSocket(puerto);
 		
 		// Creamos el socket del cliente
-		Socket clienteSocket = new Socket();
+		Socket clienteSocket = serverSocket.accept();
+		System.out.println("Cliente conectado...");
 		
-		// El servidor acepta la conexion del cliente
-		clienteSocket = serverSocket.accept();
+		// Abrimos el flujo para recibir los datos enviados del cliente
+		DataInputStream dis = new DataInputStream(clienteSocket.getInputStream());
 		
-		// Creamos el buffer para leer el resultado del cliente
-		BufferedReader entrada = new BufferedReader(new InputStreamReader(clienteSocket.getInputStream()));
-		String mensaje = entrada.readLine();
-		System.out.println(mensaje);
+		// Abrimos el flujo para enviar datos al cliente
+		DataOutputStream dos = new DataOutputStream(clienteSocket.getOutputStream());
 		
-		// Enviamos un stream para enviar un mensaje al cliente
-		DataOutputStream salida = new DataOutputStream(clienteSocket.getOutputStream());
-		salida.writeUTF("Hola, soy el servidor. Sí, estoy trabajando");
+		// Recibimos el mensaje del cliente
+		System.out.println(dis.readUTF());
+		
+		// Enviamos la respuesta al cliente
+		dos.writeUTF("Hola, soy el servidor. Sí, estoy trabajando");
 		
 		// Cerramos el buffer de lectura y el stream de escritura
-		entrada.close();
-		salida.close();
+		dis.close();
+		dos.close();
 		
 		// Cerramos la conexion con los sockets
 		serverSocket.close();
