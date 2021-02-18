@@ -15,25 +15,24 @@ public class Servidor {
 		
 		while(true) {
 			
-			// El servidor espera a que se conecte un cliente
-			Socket cliente = servidor.accept();
-			
-			System.out.println("Nuevo cliente conectado...");
-			
-			// Creamos el InputStream para leer informacion al socket del cliente
-			DataInputStream dis = new DataInputStream(cliente.getInputStream());
-			
-			// Creamos el OutputStream para enviar informacion al socket del cliente
-			DataOutputStream dos = new DataOutputStream(cliente.getOutputStream());
-			
-			// Creamos el hilo del cliente
-			SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente, dis, dos);
-			// SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente); // Asi abrimos los flujos en la clase hilo
-			hilo.start();
-			
-			dis.close();
-			dos.close();
-			servidor.close();
+			try {				
+					
+				// El servidor espera a que se conecte un cliente
+				Socket cliente = servidor.accept();
+				System.out.println("Nuevo cliente conectado...");
+				
+				// Creamos el InputStream para leer informacion al socket del cliente
+				DataInputStream dis = new DataInputStream(cliente.getInputStream());
+				
+				// Creamos el OutputStream para enviar informacion al socket del cliente
+				DataOutputStream dos = new DataOutputStream(cliente.getOutputStream());
+				
+				// Creamos el hilo del cliente
+				SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente, dis, dos);
+				// SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente); // Asi abrimos los flujos en la clase hilo
+				hilo.start();
+			}
+			catch (Exception err) {}
 		}
 	}
 }
