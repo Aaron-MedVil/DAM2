@@ -5,11 +5,32 @@
 
 package Red.Ejercicio_03;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
 public class Main {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws IOException {
+		
+		byte[] buffer = new byte[1024];
+		byte[] bufferEnvio = new byte[1024];
+		DatagramSocket dSocket = new DatagramSocket(123);
+		
+		System.out.println("Esperando a recibir datagramas de un cliente...");
+		
+		// Recogemos el mesaje del cliente
+		DatagramPacket recibo = new DatagramPacket(buffer, buffer.length);
+		dSocket.receive(recibo);
+		
+		// Transformamos el mensaje en un array de bytes
+		String mensaje = recibo.getData() + " RECIBIDO POR EL SERVIDOR";
+		bufferEnvio = mensaje.getBytes();
+		
+		// Devolvemos el mensaje al cliente
+		DatagramPacket envio = new DatagramPacket(bufferEnvio, bufferEnvio.length);		
+		dSocket.send(envio);
+		
+		dSocket.close();
 	}
-
 }
