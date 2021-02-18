@@ -6,13 +6,14 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class SocketTCP_Hilo extends Thread {
-	
+
 	private DataOutputStream flujoSalida;
 	private DataInputStream flujoEntrada;
 	private Socket socketCliente;
 
 	/**
 	 * Constructor de la clase
+	 * 
 	 * @param cliente
 	 * @param dis
 	 * @param dos
@@ -27,21 +28,22 @@ public class SocketTCP_Hilo extends Thread {
 	 * Metodo que ejecuta la clase
 	 */
 	public void run() {
-		
+
 		String cadena = "";
 		
 		try {
-			
-			flujoSalida.writeUTF("\nBienvenido cliente");
-			
+
+			flujoSalida.writeUTF("\nBienvenido cliente " + Thread.currentThread().getName());
+
 			do {
-				
+
 				flujoSalida.writeUTF("\n* para salir.");
 				cadena = flujoEntrada.readUTF();
 				flujoSalida.writeUTF("\nEntrada: " + cadena);
 			}
-			while(cadena == "*");
-			
+			while (!cadena.equals("*"));
+
+			System.out.println("Cliente " + Thread.currentThread().getName() + " desconectado...");
 			flujoSalida.close();
 			flujoEntrada.close();
 			socketCliente.close();
