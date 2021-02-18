@@ -10,7 +10,6 @@ import java.net.UnknownHostException;
 public class Cliente {
 	
 	private static int puerto = 123;
-	private static InetAddress dir;
 
 	/**
 	 * Metodo que se ejecuta al crear la clase
@@ -20,12 +19,10 @@ public class Cliente {
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		
-		//InetAddress host = dir.getLocalHost();
-		
-		//System.out.println(host.getHostAddress());
+		InetAddress ip = InetAddress.getByName("localhost");
 		
 		// Creamos el socket del cliente
-		Socket socketCliente = new Socket("localhost", puerto);
+		Socket socketCliente = new Socket(ip, puerto);
 		
 		// Creamos un stream para enviar mensajes al servidor
 		DataOutputStream salida = new DataOutputStream(socketCliente.getOutputStream());
