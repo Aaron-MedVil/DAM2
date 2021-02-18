@@ -2,6 +2,7 @@ package Red.Cli_serv_multihilo_02;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class SocketTCP_Hilo extends Thread {
@@ -27,5 +28,24 @@ public class SocketTCP_Hilo extends Thread {
 	 */
 	public void run() {
 		
+		String cadena = "";
+		
+		try {
+			
+			flujoSalida.writeUTF("\nBienvenido cliente");
+			
+			do {
+				
+				flujoSalida.writeUTF("\n* para salir.");
+				cadena = flujoEntrada.readUTF();
+				flujoSalida.writeUTF("\nEntrada: " + cadena);
+			}
+			while(cadena == "*");
+			
+			flujoSalida.close();
+			flujoEntrada.close();
+			socketCliente.close();
+		}
+		catch (IOException e) { e.printStackTrace(); }
 	}
 }
