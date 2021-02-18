@@ -30,6 +30,10 @@ public class Servidor {
 			SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente, dis, dos);
 			// SocketTCP_Hilo hilo = new SocketTCP_Hilo(cliente); // Asi abrimos los flujos en la clase hilo
 			hilo.start();
+			
+			dis.close();
+			dos.close();
+			servidor.close();
 		}
 	}
 }
