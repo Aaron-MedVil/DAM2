@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Consulta"
+    android:orientation="vertical"
+    android:padding="15sp">
+
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/listar_empleados"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Opciones -->
+    <RadioGroup
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray">
+
+        <!-- Ventas -->
+        <RadioButton
+            android:onClick="rb_mostrar_datos"
+            android:id="@+id/rb_ventas"
+            android:text="@string/ventas"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Compras -->
+        <RadioButton
+            android:onClick="rb_mostrar_datos"
+            android:id="@+id/rb_compras"
+            android:text="@string/compras"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Informatica -->
+        <RadioButton
+            android:onClick="rb_mostrar_datos"
+            android:id="@+id/rb_informatica"
+            android:text="@string/informatica"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <!-- Lista datos database -->
+    <ListView
+        android:id="@+id/lista_datos_database"
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

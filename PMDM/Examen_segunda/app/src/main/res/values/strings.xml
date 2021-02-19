@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Examen Segunda</string>
+    <string name="nombre">Nombre</string>
+    <string name="email">Email</string>
+    <string name="guardar_preferencias">Guardar preferencias</string>
+    <string name="entrar_aplicacion">Entrar aplicación</string>
+    <string name="nuevo_empleado">Nuevo empleado</string>
+    <string name="insertar">Insertar</string>
+    <string name="consultar">Consultar</string>
+    <string name="listar_empleados">Listar empleados de:</string>
+    <string name="ventas">Ventas</string>
+    <string name="compras">Compras</string>
+    <string name="informatica">Informática</string>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Acceso"
+    android:orientation="vertical"
+    android:padding="15sp">
+
+    <!-- Titulo -->
+    <TextView
+        android:text="@string/nuevo_empleado"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Nombre -->
+        <EditText
+            android:id="@+id/nombre_nuevo_empleado"
+            android:hint="@string/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/email_nuevo_empleado"
+            android:hint="@string/email"
+            android:layout_marginTop="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Departamenteo -->
+        <Spinner
+            android:id="@+id/departamento_nuevo_empleado"
+            android:layout_marginTop="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Botonera -->
+    <LinearLayout
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Boton insertar -->
+        <Button
+            android:onClick="btn_insertar_registro"
+            android:text="@string/insertar"
+            android:layout_weight="1"
+            android:layout_marginRight="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Boton consultar -->
+        <Button
+            android:onClick="btn_consultar_registros"
+            android:text="@string/consultar"
+            android:layout_weight="1"
+            android:layout_marginLeft="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

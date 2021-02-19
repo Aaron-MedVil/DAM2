@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="15sp">
+
+    <!-- Campo nombre -->
+    <EditText
+        android:id="@+id/nombre_entrar"
+        android:hint="@string/nombre"
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Campo email -->
+    <EditText
+        android:id="@+id/email_entrar"
+        android:hint="@string/email"
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Boton guardar preferencias -->
+    <Button
+        android:onClick="btn_guardar_preferencias"
+        android:text="@string/guardar_preferencias"
+        android:layout_marginTop="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Boton entrar aplicacion -->
+    <Button
+        android:onClick="btn_entrar_aplicacion"
+        android:text="@string/entrar_aplicacion"
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
