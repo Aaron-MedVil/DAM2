@@ -1,30 +1,32 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="vinos.vinos">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+	<data>
 
-          <record id="object1" model="vinos.vinos">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+		<!-- Modelo Variedad -->
+		<record id="variedad1" model="variedad.vinos">
+			<field name="name">Rojas</field>
+		</record>
 
-          <record id="object2" model="vinos.vinos">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+		<!-- Modelo Marcas -->
+		<record id="marcas1" model="marca.vinos">
+			<field name="name">Marca-ditto</field>
+		</record>
 
-          <record id="object3" model="vinos.vinos">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+		<!-- Modelo Denominacion Origen -->
+		<record id="do1" model="do.vinos">
+			<field name="name">Ribera del Duero</field>
+		</record>
 
-          <record id="object4" model="vinos.vinos">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
-    </data>
+		<!-- Modelo Denominacion Origen -->
+		<record id="bodega1" model="bodega.vinos">
+			<field name="name">Bode-guita</field>
+			<field name="location">Aranda de Duero</field>
+			<field name="fundation">2014-09-01</field>
+		</record>
+
+		<!-- Modelo DO localizacion -->
+		<record id="loDo1" model="doloc.vinos">
+			<field name="do" ref="do1"/>
+			<field name="location">Aranda de Duero</field>
+		</record>
+	</data>
 </odoo>

@@ -8,9 +8,9 @@
 
     'description': """
         ¿Cansado de que no te funcionen los módulos?
-        ¿Necesitas soluciones rápidas?
-        ¿Estas leyendo esto con voz de comercial?
-        PUES INSTALATE EL MÓDULO VINOS Y TU VIDA SE RESOLVERÁ (Bueno, tu vida no, pero ya me entiendes)
+        \n¿Necesitas soluciones rápidas?
+        \n¿Estas leyendo esto con voz de comercial?
+        \nPUES INSTALATE EL MÓDULO VINOS Y TU VIDA SE RESOLVERÁ (Bueno, tu vida no, pero ya me entiendes)
     """,
 
     'author': "Aarón Medina",

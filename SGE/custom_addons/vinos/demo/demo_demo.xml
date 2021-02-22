@@ -1,0 +1,13 @@
+<!-- Modelo Vinos -->
+		<record id="vinos1" model="vinos.vinos">
+			<field name="description">Datos introducidos auomáticamente</field>
+			<field name="name">Vino demo</field>
+			<field name="image" type="base64" file="static/example/data/img_demo.jpg"/>
+			<field name="capacidad">1</field>
+			<field name="calidad">bueno</field>
+			<field name="embotellado">2011-02-11</field>
+			<field name="bodega" ref="bodega1"/>
+			<field name="marca" ref="marcas1"/>
+			<field name="do" ref="do1"/>
+			<field name="variedad" ref="variedad1"/>
+		</record>
