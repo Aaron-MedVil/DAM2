@@ -1,6 +1,6 @@
 <!-- Modelo Vinos -->
 		<record id="vinos1" model="vinos.vinos">
-			<field name="description">Datos introducidos auomáticamente</field>
+			<field name="description">Datos introducidos automaticamente</field>
 			<field name="name">Vino demo</field>
 			<field name="image" type="base64" file="static/example/data/img_demo.jpg"/>
 			<field name="capacidad">1</field>
